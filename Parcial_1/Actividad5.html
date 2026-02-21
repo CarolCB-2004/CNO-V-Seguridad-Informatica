@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>Actividad_5 | CARTOGRAFIANDO EL PENTESTING</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+    
+    <style>
+        /* Estilos para asegurar la visualización de tablas y elementos nuevos */
+        .tabla-pdf { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .tabla-pdf th { background: #4a474e; color: white; padding: 15px; text-align: left; font-size: 0.9rem; text-transform: uppercase; }
+        .tabla-pdf td { border: 1px solid #eee; padding: 12px; color: #555; vertical-align: top; font-size: 0.95rem; line-height: 1.4; }
+        .tabla-pdf tr:nth-child(even) { background-color: #f9f9f9; }
+        
+        .table-container { width: 100%; overflow-x: auto; margin: 25px 0; border-radius: 8px; }
+
+        .references-section { margin-top: 50px; padding: 40px 20px; border-top: 1px solid #eee; font-size: 0.85rem; color: #666; background: #fafafa; }
+        .references-section ul { list-style: none; padding: 0; }
+        .references-section li { margin-bottom: 10px; padding-left: 20px; text-indent: -20px; }
+        
+        .highlight-box { background: #fdf2f4; border-left: 4px solid #b08d94; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; text-align: left; }
+        .section-content h2 { color: #4a474e; margin-top: 40px; border-bottom: 3px solid #fdf2f4; display: inline-block; padding-bottom: 5px; }
+        
+        /* Índice Dinámico */
+        .sidebar-nav {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            width: 200px;
+        }
+        .sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar-nav li { margin-bottom: 12px; }
+        .sidebar-nav a { text-decoration: none; color: #4a474e; font-size: 0.8rem; display: flex; align-items: center; transition: 0.3s; }
+        .sidebar-nav a:hover { color: #b08d94; padding-left: 5px; }
+        .sidebar-nav i { margin-right: 10px; color: #b08d94; }
+
+        @media (max-width: 1200px) { .sidebar-nav { display: none; } }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="#introduccion"><i class="fas fa-info-circle"></i> Introducción</a></li>
+            <li><a href="#iptables"><i class="fas fa-shield-alt"></i> Iptables Video</a></li>
+            <li><a href="#metodologias"><i class="fas fa-list-alt"></i> Metodologías</a></li>
+            <li><a href="#conclusion"><i class="fas fa-check-double"></i> Conclusión</a></li>
+            <li><a href="#referencias"><i class="fas fa-book"></i> Referencias</a></li>
+        </ul>
+    </nav>
+
+    <header id="header-superior">
+        <div class="logo">CNO V: Seguridad Informática</div>
+        <nav>
+            <a href="../index.html">Inicio</a> 
+            <a href="177203-act05.pdf" download="177203-act05">Descargar documento</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p>ACTIVIDAD 05 - 177203</p>
+            <h1>CARTOGRAFIANDO EL PENTESTING</h1>
+        </div>
+        <div class="wave-shape">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" d="M0,192L60,197.3C120,203,240,213,360,192C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <main class="wave-container">
+        <div class="container">
+            
+            <section id="introduccion" class="section-content">
+                
+                <div class="highlight-box">
+            <div><h2>Introducción</h2>  </div>      
+En el panorama tecnológico actual, caracterizado por la evolución constante de las
+ciberamenazas, las pruebas de penetración y la evaluación de la seguridad informática se
+han consolidado como pilares fundamentales de una gestión eficaz de riesgos. La necesidad
+de ir más allá de los controles preventivos ha convertido a estas prácticas en herramientas
+indispensables para validar la postura de seguridad de las organizaciones, permitiendo
+identificar vulnerabilidades, evaluar la efectividad de las defensas implementadas y simular
+escenarios de ataque realistas.
+Para abordar esta compleja tarea, la industria y la academia han desarrollado diversos
+marcos de referencia y estándares que guían la ejecución de pruebas de seguridad. Estas
+metodologías, lejos de ser homogéneas, presentan enfoques, alcances y objetivos
+particulares: mientras algunas se centran en el análisis ofensivo y técnico, otras priorizan la
+evaluación formal de controles o el mapeo estratégico de las tácticas y técnicas empleadas
+por los adversarios.<p>
+El presente documento tiene como objetivo analizar y comparar de manera estructurada seis
+metodologías y marcos ampliamente reconocidos en el ámbito profesional: MITRE
+ATT&CK, OWASP WSTG, NIST SP 800-115, OSSTMM, PTES e ISSAF. A través de
+una tabla comparativa, se examinan sus características principales, fases, objetivos,
+escenarios de aplicación, orientación estratégica, organismos responsables, certificaciones
+asociadas y su vigencia en el contexto actual de la cibersegurid         </p>       </div>
+                <p>La evolución constante de las ciberamenazas ha convertido a las pruebas de penetración en herramientas indispensables para identificar vulnerabilidades y simular escenarios de ataque realistas.</p>
+            </section>
+
+            <div class="container" id="video-pentesting">
+    <section class="section-content">
+        <h2 style="color: #2c3e50; border-bottom: 3px solid #34495e; display: inline-block;">Recurso Audiovisual: Conceptos de Pentesting</h2>
+        
+        <div class="highlight-box" style="background: #ebf2fa; border-left-color: #2c3e50;">
+            <p>
+                <strong>Resumen del video:</strong> El <em>Penetration Testing</em> es una técnica para atacar entornos controlados con el fin de prevenir fallos reales. El video detalla tres enfoques críticos:
+            </p>
+            <ul style="margin-top: 10px; font-size: 0.95rem;">
+                <li><strong>Caja Blanca (White Box):</strong> El auditor tiene acceso total a IPs, contraseñas y arquitectura [00:02:30].</li>
+                <li><strong>Caja Negra (Black Box):</strong> No se tiene información previa, simulando un ataque externo real [00:02:53].</li>
+                <li><strong>Caja Gris (Grey Box):</strong> Se posee información parcial, siendo el método más equilibrado y recomendado [00:03:12].</li>
+            </ul>
+        </div>
+
+        <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #000;">
+            <iframe 
+                src="https://www.youtube.com/embed/XZ9fy_4Eplw" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                title="¿Qué es el Pentesting?"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        
+        <p style="text-align: center; margin-top: 15px; font-size: 0.85rem; color: #888;">
+            <em>Fuente: Campus de Ciberseguridad [00:01:32]</em>
+        </p>
+    </section>
+</div>
+
+            <section id="metodologias" class="section-content">
+                <h2>Metodologías de Evaluación de Seguridad</h2>
+                
+                <div class="table-container">
+                    <table class="tabla-pdf">
+                        <thead>
+                            <tr>
+                                <th>Metodología</th>
+                                <th>Objetivo Principal</th>
+                                <th>Escenarios de Uso</th>
+                                <th>Orientación</th>
+                                <th>Organismo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>MITRE ATT&CK</strong></td>
+                                <td>Identificar comportamientos adversarios y tácticas reales.</td>
+                                <td>Threat Hunting y Red Teaming.</td>
+                                <td>Defensivo/Analítico</td>
+                                <td>MITRE Corp.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OWASP WSTG</strong></td>
+                                <td>Mitigar fallos en aplicaciones web y APIs.</td>
+                                <td>Auditoría de software y desarrollo seguro.</td>
+                                <td>Mixta</td>
+                                <td>OWASP Foundation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>NIST SP 800-115</strong></td>
+                                <td>Enfoque sistemático para examinar controles.</td>
+                                <td>Sector financiero y gubernamental.</td>
+                                <td>Cumplimiento</td>
+                                <td>NIST (USA)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OSSTMM</strong></td>
+                                <td>Seguridad operacional cuantificable.</td>
+                                <td>Análisis integral de infraestructura física/técnica.</td>
+                                <td>Métricas</td>
+                                <td>ISECOM</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PTES</strong></td>
+                                <td>Procedimiento uniforme para pruebas de intrusión.</td>
+                                <td>Pentesting profesional corporativo.</td>
+                                <td>Ofensivo</td>
+                                <td>Independiente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ISSAF</strong></td>
+                                <td>Reproducir fielmente tácticas de atacantes.</td>
+                                <td>Análisis minucioso de redes y servidores.</td>
+                                <td>Ofensivo detallado</td>
+                                <td>OISSG</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="conclusion" class="section-content">
+                <h2>Conclusión</h2>
+                <p>
+El análisis comparativo de metodologías de pentesting evidencia que no existe un enfoque único y universal, sino que cada marco responde a necesidades y
+contextos específicos dentro de la ciberseguridad. Mientras que MITRE ATT&CK se orienta a la defensa estratégica y la caza de amenazas, estándares como
+PTES e ISSAF guían la ejecución técnica de pruebas ofensivas. Por su parte, OWASP WSTG se especializa en aplicaciones web, y NIST SP 800-115 junto
+con OSSTMM aportan rigor formal y métrico para entornos corporativos y de auditoría.</p><p>
+
+En definitiva, la diversidad de enfoques —lejos de ser una limitación— representa una fortaleza, ya que permite a los profesionales seleccionar, combinar y
+adaptar las metodologías más adecuadas según el objetivo y el alcance de cada evaluación. Cartografiar estas herramientas resulta fundamental para construir
+programas de seguridad más completos y efectivos frente a un panorama de amenazas en constante evolución.            </section>
+</p>
+            <section id="referencias" class="references-section">
+                <h3>Referencias Bibliográficas</h3>
+                <ul>
+                    <li>MITRE Corporation. (2024). MITRE ATT&CK®. https://attack.mitre.org/</li>
+                    <li>OWASP Foundation. (2024). Web Security Testing Guide (WSTG).</li>
+                    <li>Scarfone, K., et al. (2008). Technical guide to information security testing (NIST SP 800-115).</li>
+                    <li>ISECOM. (2022). Open Source Security Testing Methodology Manual (OSSTMM).</li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Seguridad Informática - Universidad Politécnica de San Luis Potosí</p>
+        <p style="font-size: 0.7em; margin-top: 10px; opacity: 0.4;">&copy; 2026 Actividad 05 | 177203</p>
+    </footer>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script>
+        // Script simple para el scroll suave del índice
+        document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

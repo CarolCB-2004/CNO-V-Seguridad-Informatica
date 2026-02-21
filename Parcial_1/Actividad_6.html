@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>Actividad_6   IPSEC VPN EN PACKET TRACER</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+    
+    <style>
+        /* Estilos adicionales para asegurar la visualización de tablas y elementos nuevos */
+        .tabla-pdf { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .tabla-pdf th { background: #4a474e; color: white; padding: 15px; text-align: left; font-size: 0.9rem; text-transform: uppercase; }
+        .tabla-pdf td { border: 1px solid #eee; padding: 12px; color: #555; vertical-align: top; font-size: 0.95rem; line-height: 1.4; }
+        .tabla-pdf tr:nth-child(even) { background-color: #f9f9f9; }
+        .references-section { margin-top: 50px; padding: 40px 20px; border-top: 1px solid #eee; font-size: 0.85rem; color: #666; background: #fafafa; }
+        .references-section ul { list-style: none; padding: 0; }
+        .references-section li { margin-bottom: 10px; padding-left: 20px; text-indent: -20px; }
+        .highlight-box { background: #fdf2f4; border-left: 4px solid #b08d94; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .section-content h3 { color: #4a474e; margin-top: 30px; border-bottom: 2px solid #fdf2f4; padding-bottom: 5px; }
+        .member b { display: block; color: #333; }
+        .member span { font-size: 0.8rem; color: #888; }
+        footer { text-align: center; padding: 40px; background: #4a474e; color: white; }
+
+        /* Estilos para el diagrama visual basado en la imagen */
+        .diagram-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .step-box {
+            flex: 1;
+            padding: 15px;
+            border: 2px dashed #b08d94;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .step-box:hover { transform: translateY(-5px); background: #fdf2f4; border-style: solid; }
+        .step-box i { font-size: 2.5rem; color: #4a474e; margin-bottom: 10px; }
+        .arrow-divider { font-size: 1.5rem; color: #b08d94; }
+        @media (max-width: 768px) {
+            .diagram-container { flex-direction: column; }
+            .arrow-divider { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header-superior">
+        <div class="logo">CNO V: Seguridad Informática</div>
+        <nav>
+            <a href="../index.html">Inicio</a> 
+            <a href="#">Perfil</a>
+            <a href="177203-act06.pdf" download="177203-act06.pdf">Descargar documento</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p>ACTIVIDAD 06 - 05/02/2026</p>
+            <h1> IPSEC VPN EN PACKET TRACER</h1>
+        </div>
+        
+        <div class="wave-shape">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" d="M0,192L60,197.3C120,203,240,213,360,192C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+<main class="wave-container">
+    <div>
+        <h3>Contenido</h3>
+            <li><span>Objetivo de la Práctica</span><span>1</span></li>
+            <li><span>Topología implementada</span><span>1</span></li>
+            <li><span>Desarrollo</span><span>1</span></li>
+            <li><span>Configuración Primaria y Protocolos de Enrutamiento</span><span>1</span></li>
+            <li><span>Verificación de Conectividad Básica</span><span>2</span></li>
+            <li><span>Configuración de IPSec</span><span>3</span></li>
+            <li><span>Verificación del túnel IPSec</span><span>4</span></li>
+            <li><span>Conclusión</span><span>5</span></li>
+        </div>
+      <div class="container" style="text-align: center;">
+       
+    </div>
+
+    <div class="container">
+        <section class="section-content">
+            <h2 style="color: #4a474e; border-bottom: 3px solid #b08d94; display: inline-block;">Objetivo de la Práctica</h2>
+            <p>El objetivo principal de esta práctica es diseñar e implementar una <strong>VPN (Red Privada Virtual) de sitio a sitio (Site-to-Site)</strong> empleando el protocolo <strong>IPSec</strong> sobre routers Cisco 1941.</p>
+            <p>El fin es establecer un túnel seguro y cifrado que permita la comunicación transparente y confidencial entre dos redes locales (192.168.1.0/24 y 192.168.3.0/24) a través de una red pública insegura (simulada por un router ISP). Se busca garantizar la integridad y confidencialidad de los datos, replicando un escenario corporativo real.</p>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="section-content">
+            <h3>Topología implementada</h3>
+            <p>El enrutador del proveedor actuó como puente para emular la conexión a la red pública. La infraestructura consta de:</p>
+            <img src="img/act6.png" alt="Diagrama Actividad 4" style="max-width: 100%; height: auto; border-radius: 8px;">
+            <ul>
+                <li><strong>Equipos de red:</strong> R1 (Sede Principal), R3 (Sede Secundaria) e ISP (Proveedor).</li>
+                <li><strong>Switches:</strong> Para el tendido de las redes internas.</li>
+                <li><strong>Terminales:</strong> PC-A y PC-B para comprobar el alcance total.</li>
+            </ul>
+            
+            
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="section-content">
+            <h2 style="color: #4a474e; border-bottom: 3px solid #b08d94; display: inline-block;">Desarrollo</h2>
+            <h3>Configuración Primaria y Protocolos de Enrutamiento</h3>
+            <p>Se asignaron direcciones IP a las interfaces GigabitEthernet y rutas estáticas por defecto.</p>
+
+            <div class="terminal-header">Configuración de R1</div>
+            <pre><code>interface g0/1
+ ip address 192.168.1.1 255.255.255.0
+ no shutdown
+interface g0/0
+ ip address 209.165.100.1 255.255.255.0
+ no shutdown
+ip route 0.0.0.0 0.0.0.0 209.165.100.2</code></pre>
+
+            <div class="terminal-header">Configuración del ISP</div>
+            <pre><code>interface g0/0
+ ip address 209.165.100.2 255.255.255.0
+ no shutdown
+interface g0/1
+ ip address 209.165.200.2 255.255.255.0
+ no shutdown</code></pre>
+
+            <div class="terminal-header">Configuración de R3</div>
+            <pre><code>interface g0/1
+ ip address 192.168.3.1 255.255.255.0
+ no shutdown
+interface g0/0
+ ip address 209.165.200.1 255.255.255.0
+ no shutdown
+ip route 0.0.0.0 0.0.0.0 209.165.200.2</code></pre>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="section-content">
+            <h3>Verificación de Conectividad Básica</h3>
+            <p>Antes de configurar la VPN, se validó el alcance entre los routers de las sedes:</p>
+            <pre><code>R1#ping 209.165.200.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 209.165.200.1, timeout is 2 seconds:
+Success rate is 100 percent (5/5), round-trip min/avg/max = 0/0/0 ms</code></pre>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="section-content">
+            <h2 style="color: #4a474e; border-bottom: 3px solid #b08d94; display: inline-block;">Configuración de IPSec</h2>
+            <h3>Política ISAKMP (Fase 1)</h3>
+            <p>Definición de parámetros para el canal seguro:</p>
+            <pre><code>R1(config)#crypto isakmp policy 10
+R1(config-isakmp)#encryption aes 256
+R1(config-isakmp)#authentication pre-share
+R1(config-isakmp)#group 5
+R1(config-isakmp)#exit</code></pre>
+            
+            <div class="highlight-box">
+                <strong>Verificación del túnel:</strong> Se confirmó que el tráfico entre las redes 192.168.1.0 y 192.168.3.0 se encapsula y cifra correctamente.
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="section-content">
+            <h2 style="color: #4a474e; border-bottom: 3px solid #b08d94; display: inline-block;">Conclusión</h2>
+            <p>La implementación permitió comprender el proceso de establecer comunicaciones seguras mediante dos fases: <strong>Fase 1 (ISAKMP)</strong> para autenticación y <strong>Fase 2 (IPSec)</strong> para el cifrado mediante transform sets.</p>
+            <p>Se resolvieron desafíos técnicos como la activación de licencias <em>securityk9</em> y la gestión de <em>crypto maps</em>. El éxito de la práctica se validó mediante la observación de paquetes ESP cifrados, garantizando que la información es privada durante su tránsito por redes públicas.</p>
+        </section>
+    </div>
+    </main>
+
+    <footer>
+        <p>Seguridad Informática - Universidad Politécnica de San Luis Potosí</p>
+        <p style="font-size: 0.7em; margin-top: 10px; opacity: 0.4;">&copy; 2026 Actividad 06</p>
+    </footer>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/animaciones.js"></script>
+</body>
+</html>

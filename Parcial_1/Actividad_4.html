@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>Actividad_4  Mecanismos de defensa de red</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+    
+    <style>
+        /* Estilos adicionales para asegurar la visualización de tablas y elementos nuevos */
+        .tabla-pdf { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .tabla-pdf th { background: #4a474e; color: white; padding: 15px; text-align: left; font-size: 0.9rem; text-transform: uppercase; }
+        .tabla-pdf td { border: 1px solid #eee; padding: 12px; color: #555; vertical-align: top; font-size: 0.95rem; line-height: 1.4; }
+        .tabla-pdf tr:nth-child(even) { background-color: #f9f9f9; }
+        .references-section { margin-top: 50px; padding: 40px 20px; border-top: 1px solid #eee; font-size: 0.85rem; color: #666; background: #fafafa; }
+        .references-section ul { list-style: none; padding: 0; }
+        .references-section li { margin-bottom: 10px; padding-left: 20px; text-indent: -20px; }
+        .highlight-box { background: #fdf2f4; border-left: 4px solid #b08d94; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .section-content h3 { color: #4a474e; margin-top: 30px; border-bottom: 2px solid #fdf2f4; padding-bottom: 5px; }
+        .member b { display: block; color: #333; }
+        .member span { font-size: 0.8rem; color: #888; }
+        footer { text-align: center; padding: 40px; background: #4a474e; color: white; }
+
+        /* Estilos para el diagrama visual basado en la imagen */
+        .diagram-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .step-box {
+            flex: 1;
+            padding: 15px;
+            border: 2px dashed #b08d94;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .step-box:hover { transform: translateY(-5px); background: #fdf2f4; border-style: solid; }
+        .step-box i { font-size: 2.5rem; color: #4a474e; margin-bottom: 10px; }
+        .arrow-divider { font-size: 1.5rem; color: #b08d94; }
+        @media (max-width: 768px) {
+            .diagram-container { flex-direction: column; }
+            .arrow-divider { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header-superior">
+        <div class="logo">CNO V: Seguridad Informática</div>
+        <nav>
+            <a href="../index.html">Inicio</a> 
+            
+            <a href="177203-Act04.pdf" download="177203-Act04">Descargar documento</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p>ACTIVIDAD 04 - 177203</p>
+            <h1>Defensas de red</h1>
+        </div>
+        
+        <div class="wave-shape">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" d="M0,192L60,197.3C120,203,240,213,360,192C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+<main class="wave-container">
+      <div class="container" style="text-align: center;">
+        <div class="section-content">
+            
+            <div class="diagram-visual-box" style="padding: 20px; border: 1px solid #eee; border-radius: 12px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <img src="img/act4.png" alt="Diagrama Actividad 4" style="max-width: 100%; height: auto; border-radius: 8px;">
+                <p style="font-size: 0.85rem; color: #888; margin-top: 15px; font-style: italic;">
+                    Figura 1: Representación visual del flujo de seguridad basado en X.800 y RFC 4949.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    <section class="section-content">
+        <h2 style="color: #4a474e; border-bottom: 3px solid #b08d94; display: inline-block;">Configuración de Reglas Iptables</h2>
+        
+        <p>A continuación se detallan las reglas específicas para la gestión de tráfico y endurecimiento (hardening) de la red local:</p>
+
+        <div class="highlight-box" style="background: #f8f9fa; border-left-color: #4a474e;">
+            <strong>1. Establecer una política restrictiva.</strong>
+            <pre style="background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; margin-top: 10px; overflow-x: auto;"><code>Iptables -P INPUT DROP
+Iptables -P OUTPUT DROP</code></pre>
+        </div>
+
+        <div class="highlight-box" style="background: #f8f9fa; border-left-color: #4a474e;">
+            <strong>2. Permitir el tráfico de conexiones ya establecidas.</strong>
+            <pre style="background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; margin-top: 10px; overflow-x: auto;"><code>Iptables -A INPUT -m state –state ESTABLISHED, RELATED -j ACCEPT
+Iptables -A OUTPUT -m state –state ESTABLISHED, RELATED -j ACCEPT</code></pre>
+        </div>
+
+        <div class="highlight-box" style="background: #f8f9fa; border-left-color: #4a474e;">
+            <strong>3. Aceptar tráfico DNS (TCP) saliente de la red local.</strong>
+            <pre style="background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; margin-top: 10px; overflow-x: auto;"><code>Iptables -A OUTPUT -p tcp –dport 53 -s 192.1.2.0/24 -j ACCEPT</code></pre>
+        </div>
+
+        <div class="highlight-box" style="background: #f8f9fa; border-left-color: #4a474e;">
+            <strong>4. Aceptar correo entrante proveniente de Internet en el servidor de correo.</strong>
+            <pre style="background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; margin-top: 10px; overflow-x: auto;"><code>Iptables -A FORWARD -p tcp –dport 25 -d 192.1.2.10 -m state –state NEW, ESTABLISHED -j ACCEPT</code></pre>
+        </div>
+
+        <div class="highlight-box" style="background: #f8f9fa; border-left-color: #4a474e;">
+            <strong>5. Permitir correo saliente a Internet desde el servidor de correo.</strong>
+            <pre style="background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; margin-top: 10px; overflow-x: auto;"><code>Iptables -A FORWARD -p tcp –sport 25 -s 192.1.2.10 -m state –state ESTABLISHED -j ACCEPT</code></pre>
+        </div>
+
+        <div class="highlight-box" style="background: #f8f9fa; border-left-color: #4a474e;">
+            <strong>6. Aceptar conexiones HTTP desde Internet a nuestro servidor web.</strong>
+            <pre style="background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; margin-top: 10px; overflow-x: auto;"><code>Iptables -A FORWARD -p tcp –dport 80 -d 192.1.2.11 -m state –state NEW, ESTABLISHED -j ACCEPT</code></pre>
+        </div>
+    </section>
+</div>
+    </main>
+
+    <footer>
+        <p>Seguridad Informática - Universidad Politécnica de San Luis Potosí</p>
+        <p style="font-size: 0.7em; margin-top: 10px; opacity: 0.4;">&copy; 2026 Actividad 04</p>
+    </footer>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/animaciones.js"></script>
+</body>
+</html>

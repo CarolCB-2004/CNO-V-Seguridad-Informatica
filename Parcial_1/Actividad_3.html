@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>Actividad_3  IPTABLES</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+    
+    <style>
+        /* Estilos adicionales para asegurar la visualización de tablas y elementos nuevos */
+        .tabla-pdf { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .tabla-pdf th { background: #4a474e; color: white; padding: 15px; text-align: left; font-size: 0.9rem; text-transform: uppercase; }
+        .tabla-pdf td { border: 1px solid #eee; padding: 12px; color: #555; vertical-align: top; font-size: 0.95rem; line-height: 1.4; }
+        .tabla-pdf tr:nth-child(even) { background-color: #f9f9f9; }
+        .references-section { margin-top: 50px; padding: 40px 20px; border-top: 1px solid #eee; font-size: 0.85rem; color: #666; background: #fafafa; }
+        .references-section ul { list-style: none; padding: 0; }
+        .references-section li { margin-bottom: 10px; padding-left: 20px; text-indent: -20px; }
+        .highlight-box { background: #fdf2f4; border-left: 4px solid #b08d94; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .section-content h3 { color: #4a474e; margin-top: 30px; border-bottom: 2px solid #fdf2f4; padding-bottom: 5px; }
+        .member b { display: block; color: #333; }
+        .member span { font-size: 0.8rem; color: #888; }
+        footer { text-align: center; padding: 40px; background: #4a474e; color: white; }
+
+        /* Estilos para el diagrama visual basado en la imagen */
+        .diagram-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .step-box {
+            flex: 1;
+            padding: 15px;
+            border: 2px dashed #b08d94;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .step-box:hover { transform: translateY(-5px); background: #fdf2f4; border-style: solid; }
+        .step-box i { font-size: 2.5rem; color: #4a474e; margin-bottom: 10px; }
+        .arrow-divider { font-size: 1.5rem; color: #b08d94; }
+        @media (max-width: 768px) {
+            .diagram-container { flex-direction: column; }
+            .arrow-divider { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header-superior">
+        <div class="logo">CNO V: Seguridad Informática</div>
+        <nav>
+            <a href="../index.html">Inicio</a> 
+          
+            <a href="Act3.pdf" download="Act3">Descargar documento</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p>ACTIVIDAD 03 - 03/02/2026</p>
+            <h1>IPTABLES</h1>
+        </div>
+        
+        <div class="wave-shape">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" d="M0,192L60,197.3C120,203,240,213,360,192C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+<main class="wave-container">
+    <section class="section-content">
+            <h2 style="color: #4a474e; border-bottom: 3px solid #b08d94; display: inline-block;">Introducción a la Seguridad Perimetral</h2>
+            <div class="highlight-box">
+                <p>
+La protección de sistemas operativos Linux depende críticamente de una configuración de firewall bien estructurada. Utilizando el framework de Iptables, este documento detalla el proceso de interpretación y despliegue de reglas de filtrado de paquetes. El objetivo es transformar políticas de seguridad organizacionales en sentencias técnicas ejecutables, optimizando la defensa perimetral del sistema ante las amenazas del panorama digital actual.                </p>
+            </div>
+            <p>
+                A través de este ejercicio, se analizan los componentes estructurales de una regla de filtrado, la jerarquía de las tablas y el flujo de los paquetes de red. El objetivo es consolidar conocimientos prácticos para la gestión del tráfico TCP/IP en puertos críticos como el 22 (SSH), 80 (HTTP) y 443 (HTTPS).
+            </p>
+        </section>
+      <div class="container" style="text-align: center;">
+        
+    </div>
+
+    <div class="container">
+        <section class="section-content">
+            <h3>1. Flujo del Paquete</h3>
+            <p>Cuando un paquete llega al sistema, el orden de procesamiento es el siguiente:</p>
+            <div class="diagram-visual-box" style="display: flex; justify-content: space-around; align-items: center; padding: 20px; background: #f9f9f9; border-radius: 8px; text-align: center;">
+                <div><strong>TABLA</strong></div>
+                <div style="color: #b08d94;">&rarr;</div>
+                <div><strong>CADENA</strong></div>
+                <div style="color: #b08d94;">&rarr;</div>
+                <div><strong>REGLA</strong></div>
+            </div>
+
+            <h3>2. Propósito de las Tablas</h3>
+            <table class="tabla-pdf">
+                <thead>
+                    <tr>
+                        <th>Tabla</th>
+                        <th>Propósito Principal</th>
+                        <th>Ejemplo de uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>FILTER</strong></td><td>Filtrar paquetes</td><td>Bloquear puertos</td></tr>
+                    <tr><td><strong>NAT</strong></td><td>Traducción de direcciones</td><td>Compartir internet</td></tr>
+                    <tr><td><strong>MANGLE</strong></td><td>Modificar paquetes</td><td>Cambiar Cabeceras</td></tr>
+                    <tr><td><strong>RAW</strong></td><td>Excepción al seguimiento</td><td>Paquetes no inspeccionados</td></tr>
+                    <tr><td><strong>SECURITY</strong></td><td>Aplicar políticas de seguridad</td><td>Seguridad adicional</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="section-content">
+            <h3>3. Anatomía de un comando iptables</h3>
+            <div style="background: #272822; color: #f8f8f2; padding: 20px; border-radius: 8px; font-family: monospace; line-height: 1.5;">
+                <span style="color: #ae81ff;">iptables</span> -A <span style="color: #a6e22e;">INPUT</span> -p tcp -m <span style="color: #66d9ef;">multiport</span> --dports 80,443 -j <span style="color: #e6db74;">ACCEPT</span>
+            </div>
+            <p style="margin-top: 10px;"><strong>Descripción:</strong> Este comando permite el tráfico TCP hacia los puertos 80 (HTTP) y 443 (HTTPS).</p>
+
+            <h3>5. Variables y opciones comunes</h3>
+            <ul class="index-list">
+                <li><span>Limitar intentos por minuto:</span> <code>--limit 5/minute</code></li>
+                <li><span>Filtrar por IP de origen:</span> <code>-s 192.168.1.0/32</code></li>
+                <li><span>Ver listado numérico (sin DNS):</span> <code>iptables -L -n</code></li>
+                <li><span>Ver reglas con contadores (v):</span> <code>iptables -L -v</code></li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="section-content">
+            <h3>6. Análisis de Reglas Específicas</h3>
+            
+            <div class="highlight-box" style="background: #fff; border: 1px solid #eee;">
+                <strong>Regla:</strong> <code>iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW,ESTABLISHED -j ACCEPT</code>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">
+                    <em>Interpretación:</em> Permite el tráfico TCP entrante por la interfaz eth0 hacia los puertos 22, 80 y 443, siempre que el estado de la conexión sea NEW (Nueva) o ESTABLISHED (Establecida).
+                </p>
+            </div>
+
+            <h3>Configuraciones de Seguridad (Puntos 7 - 11)</h3>
+            
+            <div style="margin-bottom: 15px;">
+                <strong>7. Permitir tráfico HTTP entrante:</strong>
+                <pre><code>iptables -A INPUT -p tcp --dport 80 -j ACCEPT</code></pre>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <strong>8. Permitir todo el tráfico saliente:</strong>
+                <pre><code>iptables -A OUTPUT -j ACCEPT</code></pre>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <strong>9. Permitir SSH solo desde la IP 192.168.1.50:</strong>
+                <pre><code>iptables -A INPUT -p tcp --dport 22 -s 192.168.1.50 -j ACCEPT</code></pre>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <strong>10. Permitir tráfico establecido/relacionado en eth0:</strong>
+                <pre><code>iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state ESTABLISHED,RELATED -j ACCEPT</code></pre>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <strong>11. Registro (LOG) y aceptación de tráfico:</strong>
+                <pre><code>iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW,ESTABLISHED -j LOG --log-prefix "Conexion Nueva: "
+iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW,ESTABLISHED -j ACCEPT</code></pre>
+            </div>
+        </section>
+       </div>
+       <div class="container" id="video-iptables">
+    <section class="section-content">
+        <h2 style="color: #2e4d3e; border-bottom: 3px solid #78a890; display: inline-block;">Recurso Audiovisual: Tutorial Básico de Iptables</h2>
+        
+        <div class="highlight-box" style="background: #f0fdf4; border-left-color: #2e4d3e;">
+            <p>
+                <strong>Resumen del video:</strong> En este tutorial, se explica cómo gestionar el firewall interno del kernel de Linux mediante comandos. Aprenderás la estructura básica para administrar el tráfico de red:
+            </p>
+            <ul style="margin-top: 10px; font-size: 0.95rem;">
+                <li><strong>Cadenas principales:</strong> <em>INPUT</em> (entrada), <em>FORWARD</em> (redirección) y <em>OUTPUT</em> (salida).</li>
+                <li><strong>Comandos esenciales:</strong> <code>iptables -L</code> para listar reglas y <code>iptables -F</code> para borrarlas (flush).</li>
+                <li><strong>Políticas y Acciones:</strong> Diferencia entre aceptar paquetes (<em>ACCEPT</em>) o descartarlos (<em>DROP</em>).</li>
+            </ul>
+        </div>
+
+        <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #000;">
+            <iframe 
+                src="https://www.youtube.com/embed/gkALH_iuaeI" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                title="Tutorial Básico Iptables"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        
+        <p style="text-align: center; margin-top: 15px; font-size: 0.85rem; color: #888;">
+            <em>Fuente: Linux for The Future [00:01:20]</em>
+        </p>
+    </section>
+</div>
+    </main>
+
+    <footer>
+        <p>Seguridad Informática - Universidad Politécnica de San Luis Potosí</p>
+        <p style="font-size: 0.7em; margin-top: 10px; opacity: 0.4;">&copy; 2026 Actividad 05</p>
+    </footer>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/animaciones.js"></script>
+</body>
+</html>
