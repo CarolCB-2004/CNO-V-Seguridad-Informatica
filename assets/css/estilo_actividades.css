@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap");
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #ffffff;
+}
+
+/* --- Barra Superior con Blur sutil --- */
+header#header-superior {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+header#header-superior .logo {
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+header#header-superior nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* --- Hero con Iluminación Cinematográfica --- */
+.hero {
+    position: relative;
+    height: 75vh;
+    min-height: 500px;
+    /* Este degradado emula la luz central de la imagen original */
+    background: radial-gradient(circle at center 40%, #721f5b 0%, #4a474e 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-text {
+    z-index: 2;
+    margin-bottom: 50px;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    opacity: 0.95;
+}
+
+.hero-text h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -2px;
+    /* Sombra suave para dar profundidad a las letras */
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* --- Contenedor de la Ola SVG --- */
+.wave-shape {
+    position: absolute;
+    bottom: -2px; /* Evita línea de separación */
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+.wave-shape svg {
+    width: 100%;
+    height: 220px; /* Ajusta la altura de la curva */
+}
+
+/* --- Contenedor de Contenido --- */
+.wave-container {
+    padding: 0 10% 80px 10%;
+    background: white;
+}
+
+.flex-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Proporción de la imagen */
+    gap: 50px;
+    align-items: start;
+}
+
+.text-content h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.text-content p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* --- Info-Card Estilo "Glass/Pink" --- */
+.info-card {
+    background: #fdf2f4; /* Rosa pálido exacto */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(176, 141, 148, 0.15);
+    border: 1px solid rgba(176, 141, 148, 0.1);
+}
+
+.info-card h4 {
+    color: #b08d94;
+    font-weight: 900;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card li {
+    font-size: 0.9rem;
+    color: #7a7375;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.info-card li::before {
+    content: "✓";
+    color: #b08d94;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* --- Equipo de Investigación --- */
+.section-content h2[style*="center"] {
+    margin-top: 80px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.member {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #4a474e;
+    text-align: center;
+}
+
+/* --- Header Franja Flotante de Extremo a Extremo --- */
+header#header-superior {
+    position: absolute;
+    top: 20px; /* Aquí ajustas qué tan separado está del borde superior */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%; /* Alinea el contenido interno con el resto de la página */
+    z-index: 1000;
+    
+    /* Efecto Cristal (Glassmorphism) */
+    background: rgba(248, 241, 241, 0.1); 
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* Bordes superior e inferior para definir la franja */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    box-sizing: border-box;
+}
+
+header#header-superior .logo {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header#header-superior nav a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+header#header-superior nav a:hover {
+    color: #d8b4bc;
+}
+
+/* --- Estilos del Índice (Contenido) sin números --- */
+.indice-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin: 20px 0 50px 0;
+}
+
+.indice-container h2 {
+    border-bottom: 2px solid #fdf2f4;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    color: #4a474e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.indice-list {
+    list-style: none;
+    padding: 0;
+}
+
+.indice-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.indice-list li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    display: block;
+}
+
+.indice-list li a:hover {
+    color: #b08d94;
+    padding-left: 5px;
+}
+
+.sub-item { padding-left: 20px; font-size: 0.9rem; }
+.sub-sub-item { padding-left: 40px; font-size: 0.85rem; color: #777; }
+
+/* --- Tabla con divisiones de cuadro --- */
+.tabla-pdf { 
+    width: 100%; 
+    border-collapse: collapse; /* Importante para que las líneas se unan */
+    margin: 20px 0; 
+    background: #fff; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    border: 1px solid #ddd; /* Línea del contorno exterior */
+}
+
+.tabla-pdf th { 
+    background: #4a474e; 
+    color: white; 
+    padding: 15px; 
+    text-align: left; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    border: 1px solid #5a575e; /* Línea divisoria en el encabezado */
+}
+
+.tabla-pdf td { 
+    border: 1px solid #ddd; /* Línea divisoria de las celdas (el "cuadro") */
+    padding: 12px; 
+    color: #555; 
+    vertical-align: top; 
+    font-size: 0.95rem; 
+    line-height: 1.4; 
+}
+
+.tabla-pdf tr:nth-child(even) { 
+    background-color: #fcfcfc; /* Un fondo muy sutil para filas pares */
+}
+
+.tabla-pdf tr:hover {
+    background-color: #fdf2f4; /* Efecto al pasar el mouse */
+}
+.lista-referencias {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.lista-referencias li {
+    margin-bottom: 30px; /* Espacio generoso entre referencias */
+    line-height: 1.6;
+    color: #333;
+}
+
+.ref-link {
+    display: block; /* Baja la URL a la siguiente línea */
+    margin-top: 8px; /* Separación entre el texto y el link */
+    padding-left: 20px; /* Alineación sutil */
+    word-break: break-all;
+    color: #0066cc;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.ref-link:hover {
+    text-decoration: underline;
+}
