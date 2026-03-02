@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>PR02 - Phishing Quiz | Ciberseguridad</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/css/estilos_especificos.css" />
+    <link rel="stylesheet" href="../assets/css/quiz.css" />
+</head>
+<body>
+
+    <header id="header-superior">
+        <div class="logo">CNO V: Seguridad Informática</div>
+        <nav>
+            <a href="../Parcial_2/PR02-01.html">Volver al Reporte</a> 
+            <a href="../index.html" >Inicio</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p>ACTIVIDAD 02 - 28/02/2026</p>
+            <h1>Phishing Quiz</h1>
+        </div>
+        <div class="wave-shape">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" d="M0,192L60,197.3C120,203,240,213,360,192C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <main class="wave-container">
+        <section class="section-content">
+            <div class="quiz-card">
+                
+                <div id="quiz-intro" style="text-align: center; padding: 20px;">
+                    <i class="fas fa-user-shield" style="font-size: 3.5rem; color: #6c1f55; margin-bottom: 20px;"></i>
+                    <h2>Registro de Sesión</h2>
+                    <p style="text-align: justify; margin-bottom: 25px; color: #555; line-height: 1.6;">
+                        Este simulador educativo analiza tu capacidad para detectar ataques de ingeniería social. 
+                        Ingresa un alias para registrar tu puntuación en el ranking local.
+                    </p>
+                    
+                    <input type="text" id="user-alias" placeholder="Tu nombre o alias..." 
+                           style="padding: 12px; width: 85%; border-radius: 8px; border: 2px solid #eee; font-size: 1rem; margin-bottom: 20px; outline: none;">
+
+                    <div style="margin-top: 15px;">
+                        <button onclick="startQuiz()" class="btn-quiz" style="background: #6c1f55; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; max-width: 300px;">
+                            <i class="fas fa-play"></i> Comenzar Evaluación
+                        </button>
+                    </div>
+
+                    <div style="margin-top: 15px;">
+                        <button onclick="jumpToRanking()" style="background: transparent; border: 1px solid #6c1f55; color: #6c1f55; padding: 8px 20px; border-radius: 5px; cursor: pointer; font-size: 0.9em; font-weight: bold;">
+                            <i class="fas fa-chart-bar"></i> Consultar Tendencias y Ranking
+                        </button>
+                    </div>
+                </div> 
+
+                <div id="quiz-engine" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f4f4f4; padding-bottom: 15px; margin-bottom: 20px;">
+                        <h3 id="step-title" style="margin: 0; color: #6c1f55; font-size: 1.1rem;">Escenario</h3>
+                        <span id="live-points" style="font-weight: bold; background: #6c1f55; color: white; padding: 6px 18px; border-radius: 20px; font-size: 0.9rem;">Aciertos: 0</span>
+                    </div>
+
+                    <p style="margin-bottom: 15px; font-weight: bold; color: #444; font-size: 0.95rem;">
+                        <i class="fas fa-search"></i> Inspección de seguridad:
+                    </p>
+                    
+                    <div id="scenario-text" class="scenario-box"></div>
+
+                    <div id="quiz-buttons" class="btn-container" style="display: flex; gap: 15px; justify-content: center; margin-top: 25px;">
+                        <button onclick="checkAnswer(true)" class="btn-quiz btn-danger" style="background: #d93025; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; flex: 1;">
+                            <i class="fas fa-biohazard"></i> Es Phishing
+                        </button>
+                        <button onclick="checkAnswer(false)" class="btn-quiz btn-success" style="background: #28a745; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; flex: 1;">
+                            <i class="fas fa-shield-check"></i> Es Seguro
+                        </button>
+                    </div>
+
+                    <div id="feedback-message" class="feedback" style="display: none; margin-top: 20px; font-size: 0.9rem; border-radius: 8px;"></div>
+                </div>
+
+                <div id="final-score" style="display: none; text-align: center; padding: 20px;">
+                    <h2 style="color: #6c1f55; margin-bottom: 5px;">Resultados del Análisis</h2>
+                    <p style="color: #666; font-size: 0.9rem;">Resumen de rendimiento y tendencias detectadas</p>
+                    
+                    <div style="display: flex; justify-content: center; align-items: center; margin: 25px 0;">
+                        <div id="percentage" style="width: 120px; height: 120px; border: 8px solid #6c1f55; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; font-weight: 800; color: #6c1f55; background: #fdfbff;">
+                            0/10
+                        </div>
+                    </div>
+
+                    <p id="evaluation-text" style="font-size: 1.1rem; color: #333; margin-bottom: 25px;"></p>
+                    
+                    <div id="stats-summary"></div>
+
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+                    
+                    <h3 style="margin-bottom: 20px; font-size: 1.2rem; color: #444;">
+                        <i class="fas fa-trophy" style="color: #ffc107; margin-right: 8px;"></i> Cuadro de Honor Local
+                    </h3>
+
+                    <div style="overflow-x: auto;">
+                        <table class="ranking-table" style="width: 100%; border-collapse: collapse;">
+                            <thead style="background: #f8f9fa;">
+                                <tr>
+                                    <th style="padding: 12px;">Pos.</th>
+                                    <th style="padding: 12px; text-align: left;">Usuario</th>
+                                    <th style="padding: 12px;">Puntaje</th>
+                                    <th style="padding: 12px;">Tiempo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ranking-list">
+                                </tbody>
+                        </table>
+                    </div>
+                    
+                    <div id="btn-volver-consulta" style="margin-top: 30px; display: none;">
+                        <button onclick="goBackToIntro()" class="btn-quiz" style="background: #444; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                            <i class="fas fa-chevron-left"></i> Volver al Inicio
+                        </button>
+                    </div>
+
+                    <div id="btn-post-quiz" class="btn-container" style="margin-top: 35px; display: none; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="restartQuiz()" style="background: #f1f1f1; border: 1px solid #ccc; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; color: #444;">
+                            <i class="fas fa-undo"></i> Reintentar
+                        </button>
+                        <a href="../Parcial_2/PR02-02.html" style="background: #6c1f55; color: white; text-decoration: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; display: inline-block;">
+                            Continuar <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: #f8f9fa; padding: 30px 20px; text-align: center; border-top: 1px solid #eaeaea; margin-top: 50px;">
+        <p style="font-weight: bold; margin-bottom: 5px; color: #333;">Universidad Politécnica de San Luis Potosí</p>
+        <p style="font-size: 0.85rem; color: #777; margin-bottom: 10px;">Ingeniería en Tecnologías de Información</p>
+        <div style="width: 40px; height: 2px; background: #6c1f55; margin: 15px auto;"></div>
+        <p style="font-size: 0.75rem; color: #999;">&copy; 177203 Carol Elizabeth Cortés Beltrán | Seguridad Informática 2026</p>
+    </footer>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/animaciones.js"></script>
+    <script src="../assets/js/escenarios.js"></script>
+    <script src="../assets/js/quiz.js"></script>
+
+</body>
+</html>
