@@ -324,4 +324,334 @@ header#header-superior nav a:hover {
 
 .ref-link:hover {
     text-decoration: underline;
+
+}
+/* Estilos adicionales para asegurar la visualización de tablas y elementos nuevos */
+.tabla-pdf { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 20px 0; 
+    background: #fff; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+}
+.tabla-pdf th { 
+    background: #6c1f55; 
+    color: white; 
+    padding: 15px; 
+    text-align: left; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+}
+.tabla-pdf td { 
+    border: 1px solid #eee; 
+    padding: 12px; 
+    color: #4a0f39; 
+    vertical-align: top; 
+    font-size: 0.95rem; 
+    line-height: 1.4; 
+}
+.tabla-pdf tr:nth-child(even) { 
+    background-color: #f9f9f9; 
+}
+.references-section { 
+    margin-top: 50px; 
+    padding: 40px 20px; 
+    border-top: 1px solid #eee; 
+    font-size: 0.85rem; 
+    color: #666; 
+    background: #fafafa; 
+}
+.references-section ul { 
+    list-style: none; 
+    padding: 0; 
+}
+.references-section li { 
+    margin-bottom: 10px; 
+    padding-left: 20px; 
+    text-indent: -20px; 
+}
+.highlight-box { 
+    background: #fdf2f4; 
+    border-left: 4px solid #b08d94; 
+    padding: 20px; 
+    margin: 20px 0; 
+    border-radius: 0 8px 8px 0; 
+}
+.section-content h3 { 
+    color: #4a474e; 
+    margin-top: 30px; 
+    border-bottom: 2px solid #fdf2f4; 
+    padding-bottom: 5px; 
+}
+.member b { 
+    display: block; 
+    color: #333; 
+}
+.member span { 
+    font-size: 0.8rem; 
+    color: #888; 
+}
+footer { 
+    text-align: center; 
+    padding: 40px; 
+    background: #4a474e; 
+    color: white; 
+}
+
+/* Estilos para el diagrama visual */
+.diagram-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.step-box {
+    flex: 1;
+    padding: 15px;
+    border: 2px dashed #b08d94;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.step-box:hover { 
+    transform: translateY(-5px); 
+    background: #fdf2f4; 
+    border-style: solid; 
+}
+.step-box i { 
+    font-size: 2.5rem; 
+    color: #4a474e; 
+    margin-bottom: 10px; 
+}
+.arrow-divider { 
+    font-size: 1.5rem; 
+    color: #b08d94; 
+}
+
+@media (max-width: 768px) {
+    .diagram-container { flex-direction: column; }
+    .arrow-divider { transform: rotate(90deg); }
+}
+
+/* imagenes flotantes*/
+/* 1. Contenedor de la galería (mismo de antes) */
+.galeria-imagenes {
+    display: flex;
+    flex-wrap: wrap;       /* Importante para que salten de línea si no caben */
+    justify-content: center; /* Centra el grupo de imágenes */
+    align-items: center;    /* Centra las imágenes verticalmente entre ellas */
+    gap: 20px;              /* Espacio uniforme entre logos */
+    margin: 30px 0;         /* Espacio arriba y abajo del bloque */
+    padding: 10px;
+}
+
+/* 2. Estilo para CADA imagen dentro de la galería */
+.galeria-imagenes img {
+    /* En lugar de un ancho fijo, definimos un área máxima */
+    max-width: 120px;       /* Ninguna imagen será más ancha que esto */
+    max-height: 60px;       /* Ninguna imagen será más alta que esto */
+    
+    /* ESTA ES LA CLAVE: */
+    width: auto;            /* Permite que el ancho se ajuste solo */
+    height: auto;           /* Permite que el alto se ajuste solo */
+    object-fit: contain;    /* Escala la imagen para que quepa en el área máxima SIN deformarse */
+
+    /* Opcionales para estética */
+    filter: grayscale(100%); /* Opcional: poner logos en gris */
+    opacity: 0.7;           /* Opcional: un poco transparentes */
+    transition: all 0.3s ease;
+}
+
+/* 3. Efecto al pasar el mouse */
+.galeria-imagenes img:hover {
+    filter: grayscale(0%);  /* Vuelven a color */
+    opacity: 1;             /* Se ven nítidas */
+    transform: scale(1.1);  /* Crecen un poquito */
+}
+.indice-interactivo {
+    background: #f8f9fa;
+    border-left: 5px solid #9b1a8a;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.indice-interactivo h3 {
+    margin-top: 0;
+    color: #95119cbd;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.indice-interactivo ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+.indice-interactivo li {
+    margin-bottom: 8px;
+}
+
+.indice-interactivo a {
+    text-decoration: none;
+    color: #692c63;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.indice-interactivo a:hover {
+    background: #6c2f68;
+    color: white;
+    padding-left: 20px; /* Efecto de desplazamiento al pasar el mouse */
+}
+html {
+    scroll-behavior: smooth;
+}
+/* =========================================
+   CONTENEDOR DEL QUIZ
+   ========================================= */
+.quiz-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eeeeee;
+    margin: 2rem auto 4rem;
+    max-width: 900px;
+    transition: all 0.3s ease;
+}
+
+/* Cabecera del Quiz */
+#step-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#live-points {
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(108, 31, 85, 0.2);
+}
+
+/* =========================================
+   ESCENARIO (SIMULACIÓN DE EMAIL)
+   ========================================= */
+.scenario-box {
+    background: #fdfdfd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    font-family: 'Courier New', Courier, monospace;
+    border-left: 6px solid #6c1f55;
+    border-right: 1px solid #eee;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    color: #2c3e50;
+    line-height: 1.6;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* =========================================
+   BOTONES DE ACCIÓN
+   ========================================= */
+.btn-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.btn-quiz {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.btn-phishing {
+    background-color: #e74c3c; /* Rojo Alerta */
+    color: white;
+}
+
+.btn-seguro {
+    background-color: #2ecc71; /* Verde Seguro */
+    color: white;
+}
+
+.btn-quiz:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+
+.btn-quiz:active {
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   FEEDBACK Y RESULTADOS
+   ========================================= */
+.feedback {
+    display: none;
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    border: 1px solid transparent;
+    animation: slideDown 0.4s ease;
+}
+
+#final-score {
+    padding: 3rem 1rem;
+}
+
+.score-circle {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    border-radius: 50%;
+    background: #f8f1f6;
+    border: 5px solid #6c1f55;
+    margin: 1.5rem 0;
+}
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .btn-container {
+        flex-direction: column;
+    }
+    .btn-quiz {
+        width: 100%;
+    }
 }
