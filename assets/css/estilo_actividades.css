@@ -520,6 +520,173 @@ html {
 }
 
 
+/* 3. Efecto al pasar el mouse */
+.galeria-imagenes img:hover {
+    filter: grayscale(0%);  /* Vuelven a color */
+    opacity: 1;             /* Se ven nítidas */
+    transform: scale(1.1);  /* Crecen un poquito */
+}
+.indice-interactivo {
+    background: #f8f9fa;
+    border-left: 5px solid #9b1a8a;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.indice-interactivo h3 {
+    margin-top: 0;
+    color: #95119cbd;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.indice-interactivo ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+.indice-interactivo li {
+    margin-bottom: 8px;
+}
+
+.indice-interactivo a {
+    text-decoration: none;
+    color: #692c63;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.indice-interactivo a:hover {
+    background: #6c2f68;
+    color: white;
+    padding-left: 20px; /* Efecto de desplazamiento al pasar el mouse */
+}
+html {
+    scroll-behavior: smooth;
+}
+
+<style>
+    /* Variables para facilitar cambios de color */
+    :root {
+        --primary-dark: #4a474e;
+        --accent-rose: #b08d94;
+        --bg-soft: #fdf2f4;
+        --shadow: rgba(0,0,0,0.05);
+    }
+
+    /* Contenedor principal de la sección */
+    .section-content h3 { 
+        color: var(--primary-dark); 
+        margin-top: 30px; 
+        border-bottom: 2px solid var(--bg-soft); 
+        padding-bottom: 5px; 
+    }
+
+    /* Caja de resaltado para introducciones o notas técnicas */
+    .highlight-box { 
+        background: var(--bg-soft); 
+        border-left: 4px solid var(--accent-rose); 
+        padding: 20px; 
+        margin: 20px 0; 
+        border-radius: 0 8px 8px 0; 
+    }
+
+    /* Estructura del Roadmap (Ruta de progreso) */
+    .roadmap-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;
+        padding: 30px;
+        background: #fff;
+        border-radius: 12px;
+        margin: 20px 0;
+        text-align: center;
+        box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    /* Estilo para cada uno de los 18 laboratorios */
+    .lab-node {
+        flex: 1;
+        padding: 15px;
+        border: 2px dashed var(--accent-rose);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .lab-node:hover { 
+        transform: translateY(-5px); 
+        background: var(--bg-soft); 
+        border-style: solid; 
+    }
+
+    .lab-node i { 
+        font-size: 2rem; 
+        color: var(--primary-dark); 
+        margin-bottom: 10px; 
+    }
+
+    /* Separador visual entre laboratorios */
+    .connector { 
+        font-size: 1.5rem; 
+        color: var(--accent-rose); 
+    }
+
+    footer { 
+        text-align: center; 
+        padding: 40px; 
+        background: var(--primary-dark); 
+        color: white; 
+    }
+
+/* Adaptación para móviles */
+  @media (max-width: 768px) {
+      .roadmap-container { 
+          flex-direction: column; 
+          align-items: center; /* Centra los elementos al estar en columna */
+          gap: 20px; /* Añade espacio entre los pasos del roadmap */
+      }
+      .connector { 
+          transform: rotate(90deg); 
+          margin: 10px 0; /* Espaciado vertical para el conector rotado */
+      }
+      .lab-card {
+          width: 95%; /* Asegura que las tarjetas no toquen los bordes del móvil */
+          padding: 15px;
+      }
+  }
+
+.badge.apprentice {
+    background: #00a3e0;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block; /* Evita que el badge ocupe todo el ancho */
+    text-transform: uppercase; /* Da un look más "oficial" de academia */
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 163, 224, 0.3); /* Sutil brillo del color del badge */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Efecto de relieve */
+}
+
+/* Extra: Efecto Hover para interactividad */
+.badge.apprentice:hover {
+    background: #0089bd;
+    cursor: default;
+    transition: background 0.3s ease;
+}
+
+
+
 
 
 
