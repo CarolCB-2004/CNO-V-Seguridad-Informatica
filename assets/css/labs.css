@@ -1,0 +1,143 @@
+:root {
+    --deep-purple: #6d28d9;
+    --neon-purple: #a855f7;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(168, 85, 247, 0.3);
+    --text-white: #f8fafc;
+}
+
+/* Contenedor y Línea */
+.roadmap-main {
+    max-width: 900px;
+    margin: 60px auto;
+    position: relative;
+    padding: 20px;
+}
+
+.timeline-v-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--neon-purple), transparent);
+    z-index: 0;
+}
+
+.roadmap-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Tarjeta Estilo Glassmorphism */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 40px rgba(109, 40, 217, 0.15);
+}
+
+.glass-card:hover {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+    transform: scale(1.02);
+}
+
+.card-inner {
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Nodo Central */
+.step-node {
+    width: 50px;
+    height: 50px;
+    background: var(--deep-purple);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 4px solid #fff;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 0 20px var(--neon-purple);
+}
+
+/* Texto y Etiquetas */
+.cyber-label {
+    color: var(--neon-purple);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+h3 {
+    margin: 10px 0;
+    color: #1e1b4b; /* Ajustado para legibilidad sobre blanco */
+    font-size: 1.5rem;
+}
+
+.pill-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.pill {
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.pill.purple { background: var(--deep-purple); color: white; }
+.pill.outline { border: 1px solid var(--deep-purple); color: var(--deep-purple); }
+
+/* Animaciones Flotantes */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-1 { animation: float 6s ease-in-out infinite; }
+.floating-2 { animation: float 6s ease-in-out infinite 3s; }
+
+/* Acordeón */
+.cyber-details {
+    background: rgba(0,0,0,0.05);
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.cyber-details summary {
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--deep-purple);
+}
+
+.code-box {
+    background: #1e1e1e;
+    color: #ce9178;
+    padding: 15px;
+    border-radius: 0 0 12px 12px;
+    font-family: monospace;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .timeline-v-line { left: 20px; }
+    .roadmap-item { padding-left: 50px; }
+}
