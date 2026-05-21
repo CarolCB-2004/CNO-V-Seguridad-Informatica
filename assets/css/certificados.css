@@ -1,0 +1,285 @@
+/* ==========================================================================
+   VARIABLES Y ESTILOS BASE
+   ========================================================================== */
+:root {
+    --primary-dark: #4a474e;
+    --accent-rose: #b08d94;
+    --bg-soft: #fdf2f4;
+    --wine-main: #811668;
+    --wine-dark: #6c1f55;
+    --shadow: rgba(0,0,0,0.05);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* ==========================================================================
+   BARRA SUPERIOR (HEADER FRANTE FLOTANTE)
+   ========================================================================== */
+header#header-superior {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    z-index: 1000;
+    background: rgba(248, 241, 241, 0.1); 
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+header#header-superior .logo {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header#header-superior nav a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+header#header-superior nav a:hover {
+    color: #d8b4bc;
+}
+
+/* ==========================================================================
+   HERO (ILUMINACIÓN CINEMATOGRÁFICA)
+   ========================================================================== */
+.hero {
+    position: relative;
+    height: 55vh;
+    min-height: 400px;
+    background: radial-gradient(circle at center 40%, #721f5b 0%, #4a474e 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-text {
+    z-index: 2;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    opacity: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d8b4bc;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -1px;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* ==========================================================================
+   CONTENEDOR DE CONTENIDO Y ESTRUCTURA DE PESTAÑAS
+   ========================================================================== */
+.wave-container {
+    padding: 60px 10% 80px 10%;
+    background: white;
+}
+
+.portfolio-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    margin-top: 20px;
+    align-items: start;
+}
+
+/* Menú de Pestañas Izquierdo */
+.tabs-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border-left: 5px solid var(--wine-main);
+}
+
+.tab-button {
+    background-color: transparent;
+    color: var(--primary-dark);
+    border: none;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: block;
+    text-decoration: none;
+}
+
+.tab-button:hover {
+    background: var(--bg-soft);
+    color: var(--wine-main);
+    padding-left: 20px;
+}
+
+.tab-button.active {
+    background-color: var(--wine-main);
+    color: white;
+    padding-left: 20px;
+}
+
+/* Contenedor del panel activo */
+.tab-content-container {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    min-height: 450px;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   DETALLES INTERNOS DE CERTIFICACIONES
+   ========================================================================== */
+.cert-title {
+    color: var(--primary-dark); 
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--bg-soft); 
+    padding-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+}
+
+.text-content h3 {
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.text-content p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+/* Botón de descarga de PDF */
+.btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--wine-main);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s;
+    border: none;
+    box-shadow: 0 4px 12px rgba(129, 22, 104, 0.2);
+}
+
+.btn-pdf:hover {
+    background-color: var(--wine-dark);
+}
+
+/* ==========================================================================
+   TARJETA DE BADGES (INFO-CARD / GLASS-PINK)
+   ========================================================================== */
+.info-card.badge-box {
+    background: var(--bg-soft);
+    border: 1px solid rgba(176, 141, 148, 0.2);
+    box-shadow: 0 20px 40px rgba(176, 141, 148, 0.15);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    border-radius: 8px;
+}
+
+.info-card.badge-box h4 {
+    color: var(--accent-rose);
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Contenedor del Logo con Efecto Flotante */
+.badge-img-container {
+    margin-bottom: 25px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.badge-img-container img
