@@ -6,7 +6,9 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     background-color: #ffffff;
 }
-
+.titulo-principal {
+    color: #f5f0f4; 
+}
 /* --- Barra Superior con Blur sutil --- */
 header#header-superior {
     position: absolute;
@@ -275,7 +277,7 @@ header#header-superior nav a:hover {
 }
 
 .tabla-pdf th { 
-    background: #4a474e; 
+    background: #811668; 
     color: white; 
     padding: 15px; 
     text-align: left; 
@@ -324,8 +326,8 @@ header#header-superior nav a:hover {
 
 .ref-link:hover {
     text-decoration: underline;
-
 }
+
 /* Estilos adicionales para asegurar la visualización de tablas y elementos nuevos */
 .tabla-pdf { 
     width: 100%; 
@@ -519,59 +521,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
-/* 3. Efecto al pasar el mouse */
-.galeria-imagenes img:hover {
-    filter: grayscale(0%);  /* Vuelven a color */
-    opacity: 1;             /* Se ven nítidas */
-    transform: scale(1.1);  /* Crecen un poquito */
-}
-.indice-interactivo {
-    background: #f8f9fa;
-    border-left: 5px solid #9b1a8a;
-    padding: 20px;
-    margin: 30px 0;
-    border-radius: 0 10px 10px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.indice-interactivo h3 {
-    margin-top: 0;
-    color: #95119cbd;
-    font-size: 1.2rem;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
-
-.indice-interactivo ul {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0 0 0;
-}
-
-.indice-interactivo li {
-    margin-bottom: 8px;
-}
-
-.indice-interactivo a {
-    text-decoration: none;
-    color: #692c63;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: block;
-    padding: 5px 10px;
-    border-radius: 4px;
-}
-
-.indice-interactivo a:hover {
-    background: #6c2f68;
-    color: white;
-    padding-left: 20px; /* Efecto de desplazamiento al pasar el mouse */
-}
-html {
-    scroll-behavior: smooth;
-}
-
 <style>
     /* Variables para facilitar cambios de color */
     :root {
@@ -684,10 +633,3 @@ html {
     cursor: default;
     transition: background 0.3s ease;
 }
-
-
-
-
-
-
-
