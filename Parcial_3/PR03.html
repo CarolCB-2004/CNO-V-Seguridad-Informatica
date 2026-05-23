@@ -1,0 +1,5629 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>PR03 –177203</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="../assets/css/estilo_texto.css" />
+    <style>
+        /* === CÍRCULOS FLOTANTES (decorativos) === */
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(122,31,110,0.35) 0%, rgba(122,31,110,0.08) 70%);
+            animation: float 10s infinite ease-in-out;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .circle1 { width: 120px; height: 120px; top: 20%; left: 10%; animation-delay: 0s; }
+        .circle2 { width: 80px; height: 80px; top: 60%; left: 80%; animation-delay: 2s; }
+        .circle3 { width: 100px; height: 100px; top: 75%; left: 30%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); opacity: 0.75; }
+            50% { transform: translateY(-20px); opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+  
+   <header id="header-superior">
+    <div class="logo">CNO V: Seguridad Informática</div>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        
+        <!-- Actividades -->
+        <div class="dropdown-container" id="menu-actividades">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'actividades')">
+                Actividades <span class="arrow" id="arrow-actividades">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-actividades-dropdown">
+        <a href="../index.html#one">Parcial I</a>
+        <a href="../index.html#two">Parcial II</a>
+        <a href="../index.html#three">Parcial III</a>
+    </div>
+        </div>
+
+        <!-- Road to Hall of Fame -->
+        <div class="dropdown-container" id="menu-road">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'road')">
+                ROAD TO HALL OF FAME <span class="arrow" id="arrow-road">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-road-dropdown">
+                <a href="../Parcial_2/SQL_Injection.html">SQL Injection</a>
+            </div>
+        </div>
+
+        <!-- Notas (sin dropdown, solo enlace) -->
+
+        <!-- Proyectos -->
+        <div class="dropdown-container" id="menu-proyectos">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'proyectos')">
+                Proyectos <span class="arrow" id="arrow-proyectos">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-proyectos-dropdown">
+                <a href="#">PR01</a>
+                <a href="../Parcial_2/PR02-01.html">PR02</a>
+                <a href="../Parcial_3/PR03.html">PR03</a>
+            </div>
+        </div>
+
+        <!-- Certificaciones -->
+        <div class="dropdown-container" id="menu-certificaciones">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'certificaciones')">
+                Certificaciones <span class="arrow" id="arrow-certificaciones">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-certificaciones-dropdown">
+                <a href="#">1. Introducción a la Ciberseguridad</a>
+                <a href="#">2. Conceptos Básicos de Redes</a>
+                <a href="#">3. Dispositivos de Red y Conf. Inicial</a>
+                <a href="#">4. Seguridad en Terminales</a>
+                <a href="#">5. Administración de Amenazas</a>
+                <a href="#">6. Analista Junior en Ciberseguridad</a>
+                <a href="#">7. Hacker Ético</a>
+            </div>
+        </div>
+
+        <!-- Descargar documento -->
+        <a href="PR03-Equipo3.pdf" download="Documento PR03">Descargar documento</a>
+    </nav>
+</header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h2>PR03 - 177203</h2>
+            <h1 class="titulo-principal">Sistema de Gestión de Seguridad de la Información (SGSI)</h1>
+            
+        </div>
+        <div class="wave-shape">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" d="M0,192L60,197.3C120,203,240,213,360,192C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            </svg>
+            
+        </div>
+        
+    </section>
+
+    <!-- Círculos flotantes -->
+    <div class="floating-circle circle1"></div>
+    <div class="floating-circle circle2"></div>
+    <div class="floating-circle circle3"></div>
+<section class="content-card">
+            <p style="color:#64748b; margin-top:-10px;">
+                <strong>Materia:</strong> Seguridad Informática |
+                <strong>Proyecto:</strong> Implementación SGSI ISO/IEC 27001 |
+                <strong>Empresa:</strong> Viakon |
+                <strong>Equipo:</strong> 3
+            </p>
+
+            <h2>Integrantes de equipo</h2>
+    <ul>
+        <li>Benites Rangel Cesar Yahir – 179091</li>
+        <li>Cortes Beltrán Carol Elizabeth – 177203</li>
+        <li>Guerra Ramírez América Fabiola – 179888</li>
+        <li>Larios Guerra Gustavo Michael – 178318</li>
+        <li>Montelongo Martínez Laura Ivon – 177291</li>
+        <li>Puente Luna Bruno Axel – 177876</li>
+        <li>Rodríguez Moreno Cristian Alejandro – 181641</li>
+    </ul>
+ </section>
+<!--
+   <section class="content-card">
+    <nav aria-label="Índice del Documento">
+  <h1>Contenidos</h1>
+  <ul>
+    <li>
+      <strong>SECCIÓN 1 - Alcance (7)</strong>
+      <ul>
+        <li>Objetivo del alcance (7)</li>
+        <li>Ámbito de Aplicación (Administración y TI) (7)</li>
+        <li>Acerca de la Empresa (7)</li>
+        <li>¿Quiénes somos? (7)</li>
+        <li>Un poco de nuestra historia (8)</li>
+        <li>Sitio web (8)</li>
+        <li>Misión (8)</li>
+        <li>Visión (8)</li>
+        <li>Objetivos Organizacionales (9)</li>
+        <li>Ética y Valores (9)</li>
+        <li>Planeta (9)</li>
+        <li>Nuestra gente (9)</li>
+        <li>Comunidad (9)</li>
+        <li>Reconocimientos y Certificaciones (9)</li>
+        <li>Política de Calidad Viakon (10)</li>
+        <li>Políticas Xignux (10)</li>
+        <li>Política de Calidad, Ambiental, Salud y Seguridad (10)</li>
+        <li>Estructura General del Organigrama (12)</li>
+        <li>Área de Administración / TI (12)</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>SECCIÓN 2 - Referencias Normativas (13)</strong>
+      <ul>
+        <li>2.1 Norma Base del SGSI (13)</li>
+        <li>2.2 Familia ISO/IEC 27000: Controles y Gestión de Riesgos (13)</li>
+        <li>2.3 Normas Complementarias (14)</li>
+        <li>2.4 Referencias Bibliográficas (14)</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>SECCIÓN 3 - Términos y Condiciones (15)</strong>
+      <ul>
+        <li>1 al 45: Listado de definiciones (de Aceptación del riesgo a Vulnerabilidad) (15-18)</li>
+        <li>Condiciones de la Intervención (Acuerdo Operativo y Alcance) (18)</li>
+      </ul>
+    </li>
+
+    <li><strong>SECCIÓN 4 - Contexto de la organización (20)</strong></li>
+
+    <li>
+      <strong>SECCIÓN 5 - Liderazgo (23)</strong>
+      <ul>
+        <li>Política General de la Organización (23)</li>
+        <li>Políticas Funcionales (23)</li>
+        <li>Listado de Activos y Servicios (23-28)</li>
+        <li>Matriz RACI (28)</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>SECCIÓN 6 - Planificación (31)</strong>
+      <ul>
+        <li>Activos seleccionados - análisis de amenaza y vulnerabilidad (31)</li>
+        <li>Escala de Probabilidad e Impacto (34)</li>
+        <li>Cálculo de Riesgo (35)</li>
+        <li>Matriz de Riesgo (37)</li>
+        <li>Mecanismos de Control (38)</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>SECCIÓN 7 - Soporte (41)</strong>
+      <ul>
+        <li>Justificación Ejecutiva (41)</li>
+        <li>Minuta De Reunión Corporativa (42)</li>
+        <li>PRESENTACIÓN (46)</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>SECCIÓN 8 - Operación (52)</strong>
+      <ul>
+        <li>Política seleccionada: Servidores Físicos y Virtuales (52)</li>
+        <li>1. Plan (52) | 2. Do (54) | 3. Check (54) | 4. Act (55)</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>SECCIÓN 9 - Evaluación del desempeño (56)</strong>
+      <ul>
+        <li>Objetivo de la Auditoría (56)</li>
+        <li>I. GESTIÓN DE ACTIVOS INTERNOS (56-63)</li>
+        <li>II. GESTIÓN DE ACTIVOS EXTERNOS (64-70)</li>
+        <li>Clasificación de Hallazgos del SGSI (71)</li>
+        <li>Conclusión General (71)</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>SECCIÓN 10 - Mejora (72)</strong>
+      <ul>
+        <li>Registro de No Conformidad Mayor (Incidente de Seguridad) (72)</li>
+        <li>Resumen Ejecutivo para la Alta Dirección (72)</li>
+        <li>Análisis de Causa Raíz (RCA) (73)</li>
+        <li>Plan de Acción Correctiva (CAP) (73)</li>
+        <li>Mejora Continua y Prevención (74)</li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</section>
+-->
+  <section class="content-card">
+            <!-- ALCANCE -->
+            <h3>SECCIÓN 1 - Alcance</h3>
+
+            <h4>Objetivo del alcance</h4>
+
+            <p>
+                El propósito de este Sistema de Gestión de Seguridad de la Información (SGSI) es establecer los
+                requisitos críticos para la protección de los activos de información gestionados por las direcciones del
+                área de administración y TI.
+            </p>
+
+            <p>
+                Este alcance garantiza que el tratamiento de la información de los "Energizadores" cumpla con los
+                pilares de Confidencialidad, Integridad y Disponibilidad, mitigando riesgos asociados al manejo de
+                datos personales sensibles, registros financieros y bases de datos de los activos.
+            </p>
+
+            <h4>Ámbito de Aplicación</h4>
+            <p>
+                La aplicación de los requisitos de esta área se extiende a los siguientes procesos operativos y estratégicos:
+            </p>
+
+            <ul style="color:#475569; line-height:1.8;">
+                <li>Gestión de datos maestros de activos.</li>
+                <li>Gestión financiera y contable.</li>
+                <li>Control documental y normativo.</li>
+                <li>Seguridad física y control de accesos.</li>
+                <li>Infraestructura tecnológica.</li>
+                <li>Protección de bases de datos.</li>
+                <li>Servicios de nube y respaldos.</li>
+            </ul>
+
+            <!-- EMPRESA -->
+            <h3>Acerca de la Empresa</h3>
+
+            <h4>¿Quiénes somos?</h4>
+
+            <p>
+                Viakon es una marca Viakable, empresa del Grupo Xignux, dedicada a la fabricación y
+                comercialización de conductores eléctricos. Somos una compañía de clase mundial que cuenta con la
+                más avanzada tecnología para la fabricación y pruebas de nuestros productos. Ofrecemos al mercado
+                conductores eléctricos confiables, seguros, eficientes y con una larga vida en servicio.
+            </p>
+
+            <p>
+                Viakon es una empresa con más de 70 años de experiencia, más de 5000 productos, 25 sucursales y
+                más de 2000 empleados alrededor del mundo.
+            </p>
+
+            <p>
+                Filiales: QUIALITA ALIMENTOS, S de R.L de C.V, Protect Energy, Don Ferm MAgnekon S.A. de C.V.
+            </p>
+
+            <p>
+                Contamos con certificaciones ISO-9001 e ISO-14001 en todas las operaciones, lo que avala nuestra calidad de clase mundial.
+            </p>
+
+            <div class="history-container">
+    <h2 class="history-title">Un poco de nuestra historia.</h2>
+    
+    <div class="timeline-scroll-wrapper">
+        <div class="timeline-board">
+            <div class="timeline-wave-line"></div>
+            
+            <div class="timeline-node-item node-bottom" data-year="1956">
+                <div class="timeline-circle c-1956">1956</div>
+                <div class="timeline-card-box">
+                    <p>Se constituye Conductores Monterrey (CM)</p>
+                </div>
+            </div>
+
+            <div class="timeline-node-item node-top" data-year="1961">
+                <div class="timeline-card-box">
+                    <p>La firma el acuerdo de asesoría técnica de Viakon con Canada Wire & Cable Co.</p>
+                </div>
+                <div class="timeline-circle c-1961">1961</div>
+            </div>
+
+            <div class="timeline-node-item node-bottom" data-year="1964">
+                <div class="timeline-circle c-1964">1964</div>
+                <div class="timeline-card-box">
+                    <p>Se adquiere parte mayoritaria del capital de Conelek, fabricante de todo tipo de cables y conductores eléctricos</p>
+                </div>
+            </div>
+
+            <div class="timeline-node-item node-top" data-year="1965">
+                <div class="timeline-card-box">
+                    <p>Se inaugura la nueva planta Viakon, siete veces mayor que la primera, además se fabrican por primera vez en México cables de media tensión hasta 35 mil voltios con aislamiento sólido.</p>
+                </div>
+                <div class="timeline-circle c-1965">1965</div>
+            </div>
+
+            <div class="timeline-node-item node-bottom" data-year="1969">
+                <div class="timeline-circle c-1969">1969</div>
+                <div class="timeline-card-box">
+                    <p>Se formaliza el acuerdo con General Electric de Estados Unidos.</p>
+                </div>
+            </div>
+
+            <div class="timeline-node-item node-top" data-year="1979">
+                <div class="timeline-card-box">
+                    <p>Entra en operación la planta de cable telefónico en Ixtapaluca.</p>
+                </div>
+                <div class="timeline-circle c-1979">1979</div>
+            </div>
+
+            <div class="timeline-node-item node-bottom" data-year="1981">
+                <div class="timeline-circle c-1981">1981</div>
+                <div class="timeline-card-box">
+                    <p>Inicia operaciones la planta de Viakon en San Luis Potosí, para la fabricación de alambre y cables para construcción.</p>
+                </div>
+            </div>
+
+            <div class="timeline-node-item node-top" data-year="1993">
+                <div class="timeline-card-box">
+                    <p>Viakon inicia la producción de cable armado para exportar a Estados Unidos</p>
+                </div>
+                <div class="timeline-circle c-1993">1993</div>
+            </div>
+
+            <div class="timeline-node-item node-bottom" data-year="1999">
+                <div class="timeline-circle c-1999">1999</div>
+                <div class="timeline-card-box">
+                    <p>Todas las empresas de Viakable se encuentran certificadas según las normas ISO-9000 ó QS-9000, reforzando de esta manera los procesos de aseguramiento de calidad.</p>
+                </div>
+            </div>
+
+            <div class="timeline-node-item node-top" data-year="2000">
+                <div class="timeline-card-box">
+                    <p>Inicia operaciones la planta de Cables Coaxiales de Viakon.</p>
+                </div>
+                <div class="timeline-circle c-2000">2000</div>
+            </div>
+
+            <div class="timeline-node-item node-bottom" data-year="2010">
+                <div class="timeline-circle c-2010">2010</div>
+                <div class="timeline-card-box">
+                    <p>Viakon obtiene la certificación AS9100 para la manufactura y cables para industria aeroespacial.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+            <h4>Misión</h4>
+
+            <p>
+                “Transmitir energía que activa tu vida”.
+            </p>
+
+            <h4>Visión</h4>
+
+            <p>
+                Ser la empresa preferida del mercado de transmisión de energía, duplicando nuestro valor y
+                ofreciendo la mejor experiencia para nuestros clientes.
+            </p>
+
+            <ul style="color:#475569; line-height:1.8;">
+                <li>Tener el mejor equipo de energizadores con enfoque humano y congruente con nuestros valores.</li>
+                <li>Ser reconocidos por innovaciones relevantes.</li>
+                <li>Asegurar la excelencia en la cadena.</li>
+                <li>Ser modelo en el desarrollo de iniciativas sostenibles que contribuyan a la construcción de un mejor futuro.</li>
+            </ul>
+
+            <h3>Objetivos Organizacionales</h3>
+
+            <h4>Ética y Valores</h4>
+            
+            <p>
+                Viakable se distingue por ser una empresa íntegra con estrictos principios éticos.
+                Sus relaciones, negocios y operaciones están basados en su código de ética y valores,
+                lo que ha logrado que colaboradores, clientes, socios, proveedores y la comunidad
+                continúen depositando su confianza en la organización.
+            </p>
+            
+            <p>
+                La empresa mantiene el compromiso de actuar siempre con apego a las leyes,
+                principios éticos y valores morales, trabajando con transparencia
+                y promoviendo una cultura organizacional basada en la honestidad.
+            </p>
+            
+            <h4>Planeta</h4>
+            
+            <p>
+                Una parte esencial de las operaciones consiste en la adecuada gestión
+                de los recursos utilizados para producir de manera eficiente.
+            </p>
+            
+            <p>
+                Por ello, continuamente se analizan
+                e integran iniciativas de mejora en procesos críticos y relevantes,
+                con la finalidad de mitigar el impacto ambiental de las operaciones y reducir costos.
+            </p>
+            
+            <p>
+                Entre los recursos más importantes
+                se encuentran:
+            </p>
+            
+            <ul >
+                <li>Consumo de agua.</li>        
+                <li>Consumo de energía.</li>
+                <li>Uso de materiales.</li>        
+                <li>Emisiones.</li>        
+                <li>Residuos.</li>
+            </ul>
+            
+            <p>
+                Asimismo, Viakable trabaja constantemente en fortalecer la cultura de responsabilidad ambiental
+                mediante campañas de concientización, talleres, eventos y actividades dirigidas a sus colaboradores.
+            </p>
+            
+            <h4>Nuestra gente</h4>
+            
+            <p>
+                El activo más importante para el éxito de la empresa es el capital humano.
+            </p>
+            
+            <p>
+                Por esta razón, la organización mantiene espacios de trabajo dignos,
+                respetuosos, colaborativos y con comunicación constante
+                en todos los lugares donde opera.
+            </p>
+            
+            <p>
+                Existe el compromiso de fomentar un ambiente abierto e incluyente, 
+                en el que cada colaborador se sienta motivado, productivo y 
+                comprometido con el éxito personal y organizacional.
+            </p>
+            
+            <p>
+                Todo esto se impulsa mediante la mejora continua,
+                la innovación y la ejecución eficiente
+                de las actividades operativas.
+            </p>
+            
+            <h4>Comunidad</h4>
+            
+            <p>
+                Viakon busca transformar positivamente las comunidades
+                donde tiene presencia, generando relaciones
+                de ganar-ganar mediante iniciativas sociales
+                realizadas en conjunto con organizaciones de la sociedad civil.
+            </p>
+            
+            <p>
+                Además, la empresa invierte tiempo,
+                experiencia, recursos y conocimiento en proyectos enfocados
+                al desarrollo social y al mejoramiento de las condiciones de vida
+                de las comunidades.
+            </p>
+            
+            <h4>Reconocimientos y Certificaciones</h4>
+            
+            <p>
+                El círculo de calidad y la perseverancia de la empresa
+                han sido reconocidos por la AMTE (Asociación Mexicana
+                de Trabajo en Equipo A.C.), organización promotora
+                de la cultura de calidad y mejora continua en México.
+            </p>
+            
+            <p>
+                Asimismo, Viakon ha sido reconocido
+                por el CONACYT debido a sus actividades
+                de investigación y desarrollo tecnológico
+                de nuevos productos, materiales y procesos.
+            </p>
+            
+            <p>
+                También se destaca el reconocimiento “Cultura Tecnológica Empresarial”,
+                otorgado únicamente a empresas con actividades relevantes
+                de investigación y desarrollo.
+            </p>
+            
+            <p>
+                Clientes como Montoi y Soriana han distinguido a Viakon
+                en diversas ocasiones como proveedor confiable.
+            </p>
+            
+            <h4>Premio Dr. Mitsunori Nakano a la Perseverancia</h4>
+            
+            <p>
+                Viakon fue reconocido por haber logrado
+                en múltiples ocasiones la participación de sus equipos
+                como finalistas en concursos nacionales
+                de equipos de trabajo.
+            </p>
+            
+            <p>
+                Este reconocimiento lleva el nombre
+                del Dr. Mitsunori Nakano, promotor e impulsor
+                de la cultura de calidad y mejora continua.
+            </p>
+            
+            <h4>Certificados</h4>
+            
+            <p>
+                Desde sus inicios, Viakon ha mantenido
+                su compromiso de permanecer como empresa líder
+                y pionera dentro de la industria.
+            </p>
+            
+            <p>
+                La organización cuenta con tecnología avanzada
+                para fabricación y pruebas de productos,
+                permitiendo ofrecer conductores eléctricos
+                confiables, seguros, eficientes y de larga vida útil.
+            </p>
+            
+            <p>
+                A nivel nacional e internacional, los productos de Viakon
+                cuentan con certificaciones emitidas por organismos
+                reconocidos mundialmente.
+            </p>
+            
+            <p>
+                Entre los certificados obtenidos se encuentran:
+            </p>
+            
+            <ul>
+                <li>ABS</li>
+                <li>ANCE</li>        
+                <li>CESMEC</li>        
+                <li>CFE</li>        
+                <li>PEMEX</li>        
+                <li>PROFEPA</li>
+            </ul>
+            
+            <h4>Política de Calidad Viakon</h4>
+            
+            <p>
+                Mejora continua para satisfacer
+                y exceder los requerimientos
+                de los clientes externos e internos.
+            </p>
+            
+            <h4>Políticas Xignux</h4>
+            
+            <ul style="color:#475569; line-height:1.8;">
+                <li>Entendimiento profundo de conceptos, métodos y prácticas.</li>
+                <li>Mejorar operaciones orientadas a satisfacer a los clientes y ser la mejor opción reconocida por ellos.</li>
+                <li>Incrementar sosteniblemente el crecimiento y la rentabilidad de las empresas.</li>
+            </ul>
+            
+            <h4>Política de Calidad, Ambiental, Salud y Seguridad</h4>
+            
+            <p>
+                Viakon, empresa dedicada a la manufactura de conductores eléctricos,
+                está comprometida con proporcionar productos y servicios
+                que satisfagan los requerimientos de clientes y partes interesadas.
+            </p>
+            
+            <p>
+                Además, busca generar acciones para eficientizar recursos,
+                proteger el medio ambiente, prevenir la contaminación,
+                reducir riesgos laborales y prevenir enfermedades ocupacionales.
+            </p>
+            
+            <p>
+                La organización también promueve condiciones de trabajo seguras,
+                saludables y libres de lesiones, respetando los valores organizacionales
+                y fomentando la mejora continua de sus sistemas de gestión,
+                procesos y modelo operativo CTX.
+            </p>
+
+            <div class="org-portfolio-section">
+    <div class="org-header-container">
+        <h2 class="org-title-main">Estructura Organizacional</h2>
+        <p class="org-subtitle-location">Planta San Luis Potosí (SLP)</p>
+    </div>
+
+    <div class="org-horizontal-scroll">
+        <div class="org-system-tree">
+            
+            <div class="org-level-root">
+                <div class="org-glow-card master-leader">
+                    <h3>Bernardo de la Rosa</h3>
+                    <p class="role-title">Gerente de Planta SLP</p>
+                </div>
+            </div>
+
+            <div class="org-main-connector"></div>
+
+            <div class="org-departments-grid">
+                
+                <div class="org-column-branch branch-blue">
+                    <div class="org-glow-card manager-node">
+                        <h4>Ana Karen Hernández</h4>
+                        <p>Jefe de Producción</p>
+                    </div>
+                    <div class="org-sub-nodes-group">
+                        <div class="org-glow-card staff-node"><h5>Hugo Zúñiga</h5><p>Coordinador de turno</p></div>
+                        <div class="org-glow-card staff-node"><h5>José Ramírez</h5><p>Coordinador de turno</p></div>
+                        <div class="org-glow-card staff-node"><h5>Martín Rivera</h5><p>Coordinador de turno</p></div>
+                        <div class="org-glow-card staff-node"><h5>Néstor Fraga</h5><p>Coordinador de turno</p></div>
+                        <div class="org-glow-card staff-node"><h5>Rolando Zavala</h5><p>Coordinador de turno</p></div>
+                        <div class="org-glow-card staff-node special-accent"><h5>Guadalupe Alonso</h5><p>Jefe Programación-Prod.</p></div>
+                        <div class="org-glow-card staff-node special-accent"><h5>José Luis Miranda</h5><p>Jefe Taller de Datos</p></div>
+                    </div>
+                </div>
+
+                <div class="org-column-branch branch-green">
+                    <div class="org-glow-card manager-node">
+                        <h4>Francisco Monsiváis</h4>
+                        <p>Gerente Aseg. Calidad, Innovación y Proyectos</p>
+                    </div>
+                    <div class="org-sub-nodes-group">
+                        <div class="org-glow-card staff-node"><h5>Alexia Roque</h5><p>Coordinador Innovación</p></div>
+                        <div class="org-glow-card staff-node"><h5>Gustavo Pérez</h5><p>Ing. Desarrollo nuevos prod.</p></div>
+                        <div class="org-glow-card staff-node"><h5>Mireya Pacheco</h5><p>Jefe Laboratorio Calidad y Cert.</p></div>
+                        <div class="org-glow-card staff-node"><h5>Rubén Ríos</h5><p>Coord. sistemas de gestión</p></div>
+                    </div>
+                </div>
+
+                <div class="org-column-branch branch-purple">
+                    <div class="org-glow-card manager-node">
+                        <h4>Mario Mancilla</h4>
+                        <p>Jefe Mantenimiento y Servicios</p>
+                    </div>
+                    <div class="org-sub-nodes-group">
+                        <div class="org-glow-card staff-node"><h5>Eduardo Jiménez</h5><p>Ing. mantenimiento eléctrico</p></div>
+                        <div class="org-glow-card staff-node"><h5>Enrique Flores</h5><p>Ingeniero mantenimiento</p></div>
+                        <div class="org-glow-card staff-node"><h5>Francisco Álvarez</h5><p>Ingeniero mantenimiento</p></div>
+                        <div class="org-glow-card staff-node"><h5>Wendy Hilario</h5><p>Programador mantenimiento</p></div>
+                    </div>
+                </div>
+
+                <div class="org-column-branch branch-orange">
+                    <div class="org-glow-card manager-node">
+                        <h4>Igor Ontiveros</h4>
+                        <p>Jefe Compras</p>
+                    </div>
+                    <div class="org-sub-nodes-group">
+                        <div class="org-glow-card staff-node"><h5>Isaac Méndez</h5><p>Comprador</p></div>
+                        <div class="org-glow-card staff-node"><h5>Jesús Galván</h5><p>Comprador</p></div>
+                        <div class="org-glow-card staff-node"><h5>Jesús Salas</h5><p>Coord. almacén refacciones</p></div>
+                        <div class="org-glow-card staff-node"><h5>Nancy Medina</h5><p>Comprador</p></div>
+                    </div>
+                </div>
+
+                <div class="org-column-branch branch-yellow">
+                    <div class="org-glow-card manager-node">
+                        <h4>María Guadalupe García</h4>
+                        <p>Gerente RH</p>
+                    </div>
+                    <div class="org-sub-nodes-group">
+                        <div class="org-glow-card staff-node"><h5>Diana Bravo</h5><p>Coordinador RH</p></div>
+                        <div class="org-glow-card staff-node"><h5>Daniela Alonso</h5><p>Analista RH y nómina</p></div>
+                        <div class="org-glow-card staff-node"><h5>Blanca Silva</h5><p>Coord. desarrollo personal</p></div>
+                        <div class="org-glow-card staff-node"><h5>Lizbeth Díaz</h5><p>Practicante RH</p></div>
+                    </div>
+                </div>
+
+                <div class="org-column-branch branch-teal">
+                    <div class="org-glow-card manager-node">
+                        <h4>Luis Enrique Guerrero</h4>
+                        <p>Gerente Administración</p>
+                    </div>
+                    <div class="org-sub-nodes-group">
+                        <div class="org-glow-card staff-node"><h5>Carlos Arredondo</h5><p>Ingeniero soporte</p></div>
+                        <div class="org-glow-card staff-node"><h5>América Guerra</h5><p>Practicante sistemas</p></div>
+                        <div class="org-glow-card staff-node"><h5>Claudia Denny Zaragoza</h5><p>Analista contabilidad</p></div>
+                    </div>
+                </div>
+
+                <div class="org-column-branch branch-pink">
+                    <div class="org-glow-card manager-node">
+                        <h4>Carlos Alfredo Flores</h4>
+                        <p>Jefe CEDIS SLP</p>
+                    </div>
+                    <div class="org-sub-nodes-group">
+                        <div class="org-glow-card staff-node"><h5>Blanca Mariana Hill</h5><p>Practicante logística</p></div>
+                        <div class="org-glow-card staff-node"><h5>Diego Díaz León</h5><p>Practicante CEDIS</p></div>
+                        <div class="org-glow-card staff-node"><h5>Guadalupe Piña</h5><p>Coord. tráfico internacional</p></div>
+                        <div class="org-glow-card staff-node"><h5>José Luis Sifuentes</h5><p>Coord. tráfico</p></div>
+                        <div class="org-glow-card staff-node"><h5>Tomás Méndez</h5><p>Coord. almacén Elect SLP</p></div>
+                    </div>
+                </div>
+
+                <div class="org-column-branch branch-matrix">
+                    <div class="org-glow-card manager-node">
+                        <h4>Norma Elizabeth Martínez</h4>
+                        <p>Líder Mejora Continua</p>
+                    </div>
+                    <div class="org-sub-nodes-group">
+                        <div class="org-glow-card staff-node"><h5>Daniela Martínez</h5><p>Coord. CCC y CTC</p></div>
+                        <div class="org-glow-card staff-node"><h5>José Armando Cervantes</h5><p>Líder efectividad</p></div>
+                        <div class="org-glow-card staff-node"><h5>Pablo Mendoza</h5><p>Practicante mejora continua</p></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+            <h3>Estructura General del Organigrama</h3>
+            
+            <p>
+                El organigrama corresponde a la estructura organizacional
+                de una planta ubicada en San Luis Potosí (SLP),
+                encabezada por Bernardo de la Rosa como Gerente de Planta SLP.
+            </p>
+            
+            <p>
+                La organización se divide en siete líneas de reporte directo
+                correspondientes a gerencias y jefaturas, las cuales se subdividen
+                en distintas áreas funcionales dentro de la operación organizacional.
+            </p>
+            
+            <h4>Áreas Funcionales</h4>
+            
+            <ul style="color:#475569; line-height:1.8;">
+                <li><strong>Producción, Programación de Producción y Taller de Dados:</strong> Dirigido por Ana Karen Hernández (Jefe de Producción).</li>
+                <li><strong>Calidad, Innovación y Proyectos:</strong> Dirigido por Francisco Monsiváis (Gerente de Aseguramiento de Calidad, Innovación y Proyectos).</li>
+                <li><strong>Mantenimiento y Servicios:</strong> Dirigido por Mario Mancilla (Jefe de Mantenimiento y Servicios).</li>
+                <li><strong>Compras:</strong> Dirigido por Igor Ontiveros (Jefe de Compras).</li>
+                <li><strong>Recursos Humanos:</strong> Dirigido por María Guadalupe García (Gerente de Recursos Humanos).</li>
+                <li><strong>Administración / TI:</strong> Dirigido por Luis Enrique Guerrero (Gerente de Administración).</li>
+                <li><strong>CEDIS y Logística:</strong> Dirigido por Carlos Alfredo Flores (Jefe CEDIS SLP).</li>
+                <li><strong>Mejora Continua:</strong> Línea organizacional a cargo de Norma Elizabeth Martínez, mostrando una conexión matricial y de soporte relacionada con sistemas de gestión.</li>
+            </ul>
+            
+            <h3>Área de Administración / TI</h3>
+            
+            <p>
+                Esta área se encuentra bajo la dirección de Luis Enrique Guerrero (Gerente de Administración).
+            </p>
+            
+            <p>
+                El departamento integra dos funciones críticas dentro de la planta:
+            </p>
+            
+            <ul >
+                <li>Soporte tecnológico y sistemas.</li>
+                <li>Gestión financiera y contabilidad.</li>
+            </ul>
+            
+            <p>
+                Su estructura organizacional es de tipo plana
+                y cuenta con cuatro reportes directos, organizados en dos subáreas:
+            </p>
+            
+            <h4>1. Subárea de Tecnologías de la Información (TI)</h4>
+            
+            <p>
+                Encargada del soporte técnico, mantenimiento de sistemas,
+                monitoreo de infraestructura y atención de incidencias
+                relacionadas con tecnologías de la información.
+            </p>
+            
+            <ul>
+                <li>Carlos Arredondo: Ingeniero de soporte.</li>
+                <li>América Guerra: Practicante de sistemas.</li>
+            </ul>
+            
+            <h4>2. Subárea de Contabilidad</h4>
+            
+            <p>
+                Encargada de la gestión financiera, procesos contables,
+                control administrativo y seguimiento de operaciones económicas de la planta.
+            </p>
+            
+            <ul >
+                <li>Claudia Denny Zaragoza: Analista de contabilidad.</li>
+                <li>América Salas: Practicante de contabilidad.</li>
+            </ul>
+
+        
+  <h3>2.4 Referencias Bibliográficas</h3>
+  <ul>
+    <li>
+      Organización Internacional de Normalización. (2018). <em>Tecnología de la información - Técnicas de seguridad - Sistemas de gestión de seguridad de la información - Visión general y vocabulario (ISO/IEC 27000:2018)</em>. 
+      <a href="https://www.iso.org/standard/73906.html" target="_blank" rel="noopener noreferrer">https://www.iso.org/standard/73906.html</a>
+    </li>
+    <li>
+      Organización Internacional de Normalización. (2022). <em>Seguridad de la información, ciberseguridad y protección de la privacidad — Sistemas de gestión de la seguridad de la información — Requisitos (ISO/IEC 27001:2022)</em>. 
+      <a href="https://www.iso.org/standard/82875.html" target="_blank" rel="noopener noreferrer">https://www.iso.org/standard/82875.html</a>
+    </li>
+    <li>
+      Organización Internacional de Normalización. (2022). <em>Seguridad de la información, ciberseguridad y protección de la privacidad — Controles de seguridad de la información (ISO/IEC 27002:2022)</em>. 
+      <a href="https://www.iso.org/standard/75652.html" target="_blank" rel="noopener noreferrer">https://www.iso.org/standard/75652.html</a>
+    </li>
+    <li>
+      Organización Internacional de Normalización. (2022). <em>Seguridad de la información, ciberseguridad y protección de la privacidad — Gestión de riesgos de seguridad de la información (ISO/IEC 27005:2022)</em>. 
+      <a href="https://www.iso.org/standard/80584.html" target="_blank" rel="noopener noreferrer">https://www.iso.org/standard/80584.html</a>
+    </li>
+  </ul>
+
+</section>
+
+            <section class="content-card">x
+            <h3 >SECCIÓN 2 - Referencias Normativas</h3>
+
+            <p>
+                En esta sección se establece el marco normativo internacional aplicable al Sistema de Gestión de
+                Seguridad de la Información (SGSI) implementado para la Dirección de Administración y
+                Tecnologías de la Información (TI) de Viakon. Las referencias aquí citadas constituyen la columna
+                vertebral metodológica para proteger los procesos transaccionales del ERP Corporativo (SAP/Oracle),
+                la infraestructura de red, y las bases de datos que albergan la propiedad intelectual y los datos
+                personales de los "Energizadores".
+            </p>
+
+            <p>
+                Para las referencias fechadas, únicamente es aplicable la edición citada. Para referencias no fechadas,
+                se aplicará la última edición vigente, incluyendo enmiendas y actualizaciones emitidas por la
+                Organización Internacional de Normalización (ISO) y la Comisión Electrotécnica Internacional (IEC)
+            </p>
+
+            <h3>2.1 Norma Base del SGSI</h3>
+
+            <p>
+                <strong>ISO/IEC 27001:2022 — Sistemas de Gestión de Seguridad de la Información — Requisitos.</strong>
+            </p>
+            
+            <p>
+                Constituye el estándar base y certificable del presente proyecto.
+            </p>
+            
+            <p>
+                En lugar de ofrecer metodologías rígidas, esta norma establece los requisitos indispensables
+                para establecer, implementar, mantener y mejorar continuamente el Sistema de Gestión
+                de Seguridad de la Información (SGSI).
+            </p>
+            
+            <h4>Aplicación en Viakon</h4>
+            
+            <p>
+                Se utiliza como la hoja de ruta directiva para estructurar las políticas de TI,
+                definir el alcance organizacional (Cláusula 4), comprometer a la Alta Dirección (Cláusula 5)
+                y establecer métricas de evaluación de desempeño que permitan proteger el flujo de operaciones
+                de manufactura y administración financiera.
+            </p>
+            
+            <h3>2.2 Familia ISO/IEC 27000: Controles y Gestión de Riesgos</h3>
+            
+            <p>
+                Para dar cumplimiento a los requisitos exigidos por la norma base, el SGSI de Viakon
+                se apoya metodológicamente en distintas normas relacionadas con mitigación de vulnerabilidades
+                y tratamiento de riesgos.
+            </p>
+            
+            <h4>ISO/IEC 27002:2022 — Controles de seguridad de la información</h4>
+            
+            <p>
+                Esta norma funciona como un catálogo de buenas prácticas y directrices
+                para implementar las medidas de seguridad exigidas en el Anexo A de ISO 27001.
+            </p>
+            
+            <h4>Aplicación en Viakon</h4>
+            
+            <p>
+                Guía la configuración técnica de los activos corporativos.
+            </p>
+            
+            <p>Por ejemplo, se utiliza para definir:</p>
+            
+            <ul >
+                <li>Reglas de complejidad de contraseñas.</li>
+                <li>Habilitación de Autenticación Multifactorial (MFA) en el Directorio Activo.</li>
+                <li>Segmentación de VLANs corporativas para evitar accesos no autorizados al ERP.</li>
+            </ul>
+            
+            <h4>ISO/IEC 27005:2022 — Gestión del riesgo de seguridad de la información</h4>
+            
+            <p>
+                Establece directrices para la identificación, análisis, evaluación y tratamiento
+                de riesgos cibernéticos, permitiendo traducir amenazas técnicas en impactos de negocio.
+            </p>
+            
+            <h4>Aplicación en Viakon</h4>
+            
+            <p>
+                Esta metodología es utilizada por el Comité de Seguridad para calcular
+                el impacto financiero y operativo ante posibles ataques como:
+            </p>
+            
+            <ul >
+                <li>Ransomware.</li>
+                <li>Secuestro de sesión.</li>
+                <li>Accesos no autorizados.</li>
+            </ul>
+            
+            <p>
+                Además, permite determinar qué riesgos son aceptables
+                y cuáles requieren presupuesto inmediato para remediación.
+            </p>
+            
+            <h3>2.3 Normas Complementarias</h3>
+            
+            <p>
+                Debido al entorno híbrido de Tecnologías de la Información y la naturaleza
+                de los datos procesados, el SGSI integra lineamientos de normas especializadas
+                pertenecientes a la familia ISO/IEC 27000.
+            </p>
+            
+            <h4>ISO/IEC 27000:2018 — Visión general y vocabulario</h4>
+            
+            <h4>Aplicación en Viakon</h4>
+            
+            <p>
+                Permite estandarizar la terminología corporativa dentro de la organización.
+            </p>
+            
+            <p>
+                Esto asegura que tanto la Alta Dirección como el personal operativo
+                comprendan bajo el mismo rigor técnico conceptos como:
+            </p>
+            
+            <ul >
+                <li>Disponibilidad.</li>
+                <li>Confidencialidad.</li>
+                <li>Amenaza.</li>
+                <li>Vulnerabilidad.</li>
+            </ul>
+            
+            <h4>ISO/IEC 27017:2015 — Controles de seguridad para servicios en la nube</h4>
+            
+            <h4>Aplicación en Viakon</h4>
+            
+            <p>
+                Debido a la integración de repositorios y sistemas SaaS/PaaS,
+                esta norma establece las responsabilidades compartidas con proveedores de nube.
+            </p>
+            
+            <p>
+                También asegura que la información financiera y operativa
+                almacenada fuera del Data Center permanezca cifrada y protegida.
+            </p>
+            
+            <h4>ISO/IEC 27701:2019 — Extensión para la gestión de la privacidad de la información</h4>
+            
+            <h4>Aplicación en Viakon</h4>
+            
+            <p>
+                Resulta esencial para el cumplimiento legal, debido a que TI administra
+                bases de datos con información personal (PII) de más de 2,000 colaboradores.
+            </p>
+            
+            <p>
+                Esta norma permite establecer controles de privacidad para prevenir brechas
+                de información y cumplir con la Ley Federal de Protección de Datos Personales
+                en Posesión de los Particulares (LFPDPPP).
+            </p>
+            
+            <h4>ISO/IEC 27035-1:2023 — Gestión de incidentes de seguridad de la información</h4>
+            
+            <h4>Aplicación en Viakon</h4>
+            
+            <p>
+                Define las fases de preparación, detección, respuesta y aprendizaje post-incidente.
+            </p>
+            
+            <p>
+                Además, sirve como base normativa utilizada por el Equipo de Respuesta a Incidentes (CSIRT)
+                para contener amenazas de intrusión e implementar acciones de mejora continua.
+            </p>
+            
+            <h3>2.4 Referencias Bibliográficas</h3>
+            
+            <ul >
+                <li>Organización Internacional de Normalización. (2018). Tecnología de la información — Técnicas de seguridad — Sistemas de gestión de seguridad de la información — Visión general y vocabulario (ISO/IEC 27000:2018).</li>
+                <li>Organización Internacional de Normalización. (2022). Seguridad de la información, ciberseguridad y protección de la privacidad — Sistemas de gestión de seguridad de la información — Requisitos (ISO/IEC 27001:2022).</li>
+                <li>Organización Internacional de Normalización. (2022). Seguridad de la información, ciberseguridad y protección de la privacidad — Controles de seguridad de la información (ISO/IEC 27002:2022).</li>
+                <li>Organización Internacional de Normalización. (2022). Seguridad de la información, ciberseguridad y protección de la privacidad — Gestión de riesgos de seguridad de la información (ISO/IEC 27005:2022).</li>
+            </ul>
+<section class="content-card">
+  <h3>2.4 Referencias Bibliográficas</h3>
+  <ul>
+    <li>
+      Organización Internacional de Normalización. (2018). <em>Tecnología de la información - Técnicas de seguridad - Sistemas de gestión de seguridad de la información - Visión general y vocabulario (ISO/IEC 27000:2018)</em>. 
+      <a href="https://www.iso.org/standard/73906.html" target="_blank" rel="noopener noreferrer">https://www.iso.org/standard/73906.html</a>
+    </li>
+    <li>
+      Organización Internacional de Normalización. (2022). <em>Seguridad de la información, ciberseguridad y protección de la privacidad — Sistemas de gestión de la seguridad de la información — Requisitos (ISO/IEC 27001:2022)</em>. 
+      <a href="https://www.iso.org/standard/82875.html" target="_blank" rel="noopener noreferrer">https://www.iso.org/standard/82875.html</a>
+    </li>
+    <li>
+      Organización Internacional de Normalización. (2022). <em>Seguridad de la información, ciberseguridad y protección de la privacidad — Controles de seguridad de la información (ISO/IEC 27002:2022)</em>. 
+      <a href="https://www.iso.org/standard/75652.html" target="_blank" rel="noopener noreferrer">https://www.iso.org/standard/75652.html</a>
+    </li>
+    <li>
+      Organización Internacional de Normalización. (2022). <em>Seguridad de la información, ciberseguridad y protección de la privacidad — Gestión de riesgos de seguridad de la información (ISO/IEC 27005:2022)</em>. 
+      <a href="https://www.iso.org/standard/80584.html" target="_blank" rel="noopener noreferrer">https://www.iso.org/standard/80584.html</a>
+    </li>
+  </ul>
+            </section>
+
+            <section class="content-card">
+            <!-- TÉRMINOS -->
+            <h3>SECCIÓN 3 - Términos y Definiciones</h3>
+
+            <p>
+                Para fines de la presente implementación en Viakon, los siguientes términos fundamentales se
+                agrupan por su función dentro del ciclo de vida del Sistema de Gestión de Seguridad de la
+                Información (SGSI).
+            </p>
+            
+            <ol >
+                <li><strong>Aceptación del riesgo (Risk acceptance):</strong> Decisión informada de asumir un riesgo concreto.</li>
+                <li><strong>Activo (Asset):</strong> Cualquier información o elemento relacionado con el tratamiento de la misma que tenga valor para la organización y requiera protección.</li>
+                <li><strong>Alta dirección (Top management):</strong> Persona o grupo encargado de dirigir y controlar una organización al más alto nivel.</li>
+                <li><strong>Amenaza (Threat):</strong> Causa potencial de un incidente no deseado capaz de provocar daños a un sistema o a la organización.</li>
+                <li><strong>Análisis de riesgos (Risk analysis):</strong> Proceso sistemático para comprender la naturaleza del riesgo y determinar su nivel.</li>
+                <li><strong>Análisis de riesgos cualitativo:</strong> Evaluación basada en escalas de valoración para determinar impacto y probabilidad.</li>
+                <li><strong>Análisis de riesgos cuantitativo:</strong> Análisis basado en estimaciones de pérdidas financieras.</li>
+                <li><strong>Ataque (Attack):</strong> Intento de destruir, alterar, robar u obtener acceso no autorizado a un activo.</li>
+                <li><strong>Auditoría (Audit):</strong> Proceso de verificación independiente sobre cumplimiento de requisitos establecidos.</li>
+                <li><strong>Auditor (Auditor):</strong> Persona encargada de realizar la auditoría.</li>
+                <li><strong>CID (CIA):</strong> Acrónimo de Confidencialidad, Integridad y Disponibilidad.</li>
+                <li><strong>Comunicación y consulta de riesgos:</strong> Procesos para compartir información y dialogar sobre gestión del riesgo.</li>
+                <li><strong>Confidencialidad (Confidentiality):</strong> Propiedad de la información de no ser revelada a individuos no autorizados.</li>
+                <li><strong>Control (Control):</strong> Medida o conjunto de medidas que modifican el riesgo.</li>
+                <li><strong>Control de acceso (Access control):</strong> Garantizar que el acceso a los activos esté autorizado y restringido.</li>
+                <li><strong>Disponibilidad (Availability):</strong> Propiedad de la información de estar accesible cuando sea requerida.</li>
+                <li><strong>Estimación de riesgos (Risk evaluation):</strong> Proceso de comparar los resultados del análisis de riesgos con los criterios de riesgo para determinar si son aceptables [Fuente: ISO Guide 73:2009].</li>
+                <li><strong>Evaluación de riesgos (Risk assessment):</strong> Proceso global de identificación, análisis y estimación de riesgos.</li>
+                <li><strong>Evento (Event):</strong> Ocurrencia o cambio de un conjunto particular de circunstancias.</li>
+                <li><strong>Evento de seguridad de la información (Information security event):</strong> Ocurrencia identificada que indica una posible violación de la política de seguridad o falla de controles.</li>
+                <li><strong>Gestión de incidentes de seguridad de la información (Information security incident management):</strong> Procesos para detectar, reportar, evaluar, responder, tratar y aprender de los incidentes de seguridad.</li>
+                <li><strong>Gestión de riesgos (Risk management):</strong> Actividades coordinadas para dirigir y controlar una organización con respecto al riesgo [Fuente: ISO Guide 73:2009].</li>
+                <li><strong>Identificación de riesgos (Risk identification):</strong> Proceso de encontrar, reconocer y describir riesgos [Fuente: Guía ISO 73:2009].</li>
+                <li><strong>Impacto (Impact):</strong> Coste para la empresa de un incidente, que puede ser financiero, reputacional o legal.</li>
+                <li><strong>Incidente (Incident):</strong> Evento único o serie de eventos de seguridad de la información que tienen una probabilidad significativa de comprometer las operaciones del negocio y amenazar la seguridad de la información.</li>
+                <li><strong>Incidente de seguridad de la información (Information security incident):</strong> Evento único o serie de eventos inesperados que poseen una probabilidad significativa de comprometer las operaciones del negocio y amenazar la seguridad de la información.</li>
+                <li><strong>Indicador (Indicator):</strong> Medida que proporciona una estimación o evaluación.</li>
+                <li><strong>Información documentada (Documented information):</strong> Información requerida para ser controlada y mantenida por la organización, en cualquier formato, medio o fuente.</li>
+                <li><strong>Integridad (Integrity):</strong> Propiedad de la información relativa a su exactitud y completitud.</li>
+                <li><strong>Inventario de activos (Assets inventory):</strong> Lista de recursos dentro del alcance del SGSI que tienen valor para la organización y requieren protección.</li>
+                <li><strong>ISO/IEC 27001:</strong> Norma internacional que establece los requisitos para un Sistema de Gestión de Seguridad de la Información (SGSI).</li>
+                <li><strong>Nivel de riesgo (Level of risk):</strong> Magnitud de un riesgo expresada como combinación de consecuencias y probabilidad [Fuente: ISO Guide 73:2009].</li>
+                <li><strong>Objetivo (Objective):</strong> Resultado a alcanzar, ya sea estratégico, táctico u operativo.</li>
+                <li><strong>Organización (Organization):</strong> Persona o grupo de personas con funciones, responsabilidades y autoridades propias para lograr sus objetivos.</li>
+                <li><strong>Plan de continuidad del negocio (Business Continuity Plan):</strong> Estrategia orientada a permitir la continuación de las funciones críticas ante eventos imprevistos.</li>
+                <li><strong>Plan de tratamiento de riesgos (Risk treatment plan):</strong> Documento que</li>
+                <li><strong>Rendimiento (Performance):</strong> Resultado medible, que puede relacionarse con actividades, procesos o sistemas.</li>
+                <li><strong>Riesgo (Risk):</strong> Efecto de la incertidumbre sobre los objetivos, manifestado como una desviación positiva o negativa de lo esperado.</li>
+                <li><strong>Sarbanes-Oxley (SOX):</strong> Ley estadounidense que establece normas para auditores y obliga a empresas públicas a garantizar la seguridad de la información financiera.</li>
+                <li><strong>Seguridad de la información (Information security):</strong> Preservación de la confidencialidad, integridad y disponibilidad de la información.</li>
+                <li><strong>Sistema de Información (Information system):</strong> Conjunto de aplicaciones, servicios, activos de TI u otros componentes que manejan información.</li>
+                <li><strong>Sistema de Gestión de Seguridad de la Información (SGSI / ISMS):</strong> Sistema de gestión para establecer, implementar, mantener y mejorar la seguridad de la información.</li>
+                <li><strong>Tratamiento de riesgos (Risk treatment):</strong> Proceso para modificar el riesgo, ya sea evitándolo, compartiéndolo, reteniéndolo o eliminando su fuente [Fuente: Guía ISO 73:2009].</li>
+                <li><strong>Tratamiento del riesgo:</strong> Proceso para seleccionar e implementar medidas destinadas a modificar el riesgo, tales como evitarlo, transferirlo, mitigarlo o aceptarlo.</li>
+                <li><strong>Vulnerabilidad (Vulnerability):</strong> Debilidad de un activo o control que puede ser explotada por una o varias amenazas, comprometiendo la seguridad de la información de los departamentos de Administración y TI.</li>
+                </ol>
+            
+        </div> 
+    </div> 
+     <h3>Condiciones de la Intervención (Acuerdo Operativo y Alcance)</h3>
+      
+      <p>
+        Para garantizar la transparencia,
+        legalidad y el nulo impacto
+        a las operaciones críticas de Viakon
+        durante la implementación
+        y auditoría del SGSI,
+        se establecen las siguientes condiciones:
+      </p>
+      
+      <h4>Confidencialidad y Manejo de Evidencias</h4>
+      
+      <p>
+        Toda la información recabada
+        durante la auditoría
+        está sujeta
+        a estrictos acuerdos
+        de confidencialidad (NDA).
+      </p>
+      
+      <ul >
+      
+        <li>
+          <strong>Manejo de Evidencias:</strong>
+          Las evidencias técnicas
+          serán almacenadas
+          exclusivamente
+          en discos cifrados AES-256.
+        </li>
+      
+        <li>
+          <strong>Destrucción de Datos:</strong>
+          Una vez finalizado
+          el dictamen del SGSI,
+          la información sensible
+          será eliminada
+          mediante borrado seguro.
+        </li>
+      
+      </ul>
+      
+      <h4>Límites de Actuación y Exclusiones Técnicas</h4>
+      
+      <ul >
+      
+        <li>
+          <strong>Límites Operativos:</strong>
+          Las pruebas de vulnerabilidades
+          y pentesting
+          se realizarán únicamente
+          en ventanas autorizadas.
+        </li>
+      
+        <li>
+          <strong>Exclusiones:</strong>
+          Queda prohibida
+          la interacción directa
+          con redes OT/SCADA
+          de Nivel 0 y 1.
+        </li>
+      
+      </ul>
+      
+      <h4>Supuestos y Restricciones</h4>
+      
+      <ul >
+      
+        <li>
+          <strong>Supuestos:</strong>
+          La Alta Dirección
+          proporcionará acceso
+          a información documentada.
+        </li>
+      
+        <li>
+          <strong>Restricciones:</strong>
+          El equipo auditor
+          no realizará modificaciones
+          en sistemas ERP
+          sin autorización correspondiente.
+        </li>
+      
+      </ul>
+      
+      <h4>Matriz de Responsabilidades</h4>
+      
+      <ul >
+      
+        <li>
+          <strong>Equipo Implementador/Auditor:</strong>
+          Identificar brechas normativas,
+          diseñar controles
+          y elaborar reportes
+          de No Conformidad.
+        </li>
+      
+        <li>
+          <strong>Viakon:</strong>
+          Proporcionar información,
+          personal de apoyo
+          y presupuesto técnico
+          para remediación.
+        </li>
+      </ul>
+ <section class="content-card">
+           <h3>SECCIÓN 4 - Contexto de la Organización</h3>
+
+      <<!-- ACTIVOS INTERNOS -->
+      <h3>Activos Internos</h3>
+      
+      <div style="overflow-x:auto; margin-top:25px;">
+      
+        <table style="width:100%; border-collapse:collapse; font-size:14px;">
+      
+          <tr style="background:#c2410c; color:white;">
+      
+            <th style="padding:12px; border:1px solid #f97316;">Código</th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Activo de Información
+              <br>
+              (Nombre Original)
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Propietario / Ubicación
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Proceso Asociado
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Responsable Operativo
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Dependencia Tecnológica
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Clasificación CID
+            </th>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ACT-INT-01
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Bases de datos
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Gerente de TI / CPD principal
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Gestión de datos críticos
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Administrador de BD
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Servidores, SAN, SQL Server
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              C: Alta | I: Alta | D: Alta
+            </td>
+      
+          </tr>
+      
+          <tr>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ACT-INT-02
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Programa de capacitación
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Gerente de RRHH / LMS interno
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Capacitación continua
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Coordinador de capacitación
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Plataforma e-learning, Intranet
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              C: Media | I: Media | D: Media
+            </td>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ACT-INT-03
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Software de monitoreo de red y servidores
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Gerente de Seguridad TI
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Monitoreo de infraestructura
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Analista de monitoreo
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Servidores, switches y firewalls
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              C: Media | I: Alta | D: Alta
+            </td>
+      
+          </tr>
+      
+          <tr>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ACT-INT-04
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Registros de usuarios y credenciales
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Directorio Activo / SIAM
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Control de acceso
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Administrador de identidades
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Servidores de dominio y MFA
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              C: Alta | I: Alta | D: Alta
+            </td>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ACT-INT-05
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Impresoras empresariales
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Oficinas y planta
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Impresión de documentos
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Soporte TI
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Red LAN y suministro eléctrico
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              C: Media | I: Media | D: Media
+            </td>
+      
+          </tr>
+      
+        </table>
+      
+      </div>
+      
+      <!-- ACTIVOS EXTERNOS -->
+      <h3 style="margin-top:40px;">Activos Externos</h3>
+      
+      <div style="overflow-x:auto; margin-top:25px;">
+      
+        <table style="width:100%; border-collapse:collapse; font-size:14px;">
+      
+          <tr style="background:#9a3412; color:white;">
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Código
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Activo de Información
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Propietario / Ubicación
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Proceso Asociado
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Responsable Operativo
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Dependencia Tecnológica
+            </th>
+      
+            <th style="padding:12px; border:1px solid #f97316;">
+              Clasificación CID
+            </th>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ACT-EXT-01
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Servicios de Nube (SaaS/PaaS)
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Gerente de TI / Azure / AWS
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Productividad y colaboración
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Arquitecto de nube
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Internet, API y SSO
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              C: Alta | I: Alta | D: Media
+            </td>
+      
+          </tr>
+      
+          <tr>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ACT-EXT-02
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Enlaces de Internet (ISP)
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Infraestructura del ISP
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Conectividad WAN
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Ingeniero de redes
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Routers, fibra óptica y módems
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              C: Media | I: Alta | D: Alta
+            </td>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ACT-EXT-03
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Proveedores de Hosting Web
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Datacenter del proveedor
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Presencia digital
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Webmaster
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              DNS, CDN y servidores web
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              C: Media | I: Media | D: Media
+            </td>
+      
+          </tr>
+      
+          <tr>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ACT-EXT-04
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              APIs de Servicios Financieros
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Servidores del banco / SAT
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Facturación y pagos
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Tesorero
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Certificados y tokens
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              C: Alta | I: Alta | D: Alta
+            </td>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ACT-EXT-05
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Servicios de Auditoría de Ciberseguridad
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Consultora externa
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Auditoría y cumplimiento
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Auditor externo
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              NDA y acceso remoto
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              C: Alta | I: Alta | D: Media
+            </td>
+      
+          </tr>
+      
+        </table>
+      
+      </div>
+
+ </section>
+    <section class="content-card">
+      <!-- LIDERAZGO -->
+      <h3 >
+        SECCIÓN 5 - Liderazgo
+      </h3>
+
+      <h3>Política General de la Organización</h3>
+        
+        <h4>Objetivo</h4>
+        
+        <p>
+          Establecer el marco de referencia
+          para la protección
+          de los activos de información
+          de Viakon,
+          garantizando:
+        </p>
+        
+        <ul >
+        
+          <li>
+            <strong>Confidencialidad:</strong>
+            Que únicamente las personas autorizadas
+            puedan acceder a la información.
+          </li>
+        
+          <li>
+            <strong>Integridad:</strong>
+            Que la información
+            no sea alterada
+            sin autorización.
+          </li>
+        
+          <li>
+            <strong>Disponibilidad:</strong>
+            Que los activos
+            estén disponibles
+            cuando sean requeridos.
+          </li>
+        
+        </ul>
+        
+        <p>
+          Además,
+          se busca mitigar riesgos
+          ante amenazas internas
+          y externas,
+          asegurar el cumplimiento legal
+          y consolidar la seguridad
+          como un valor cultural
+          dentro de la organización.
+        </p>
+        
+        <h4>Alcance de Aplicabilidad</h4>
+        
+        <p>
+          Esta política
+          es de cumplimiento obligatorio
+          para:
+        </p>
+        
+        <ul >
+        
+          <li>Personal interno.</li>
+        
+          <li>Prestadores de servicios.</li>
+        
+          <li>Proveedores.</li>
+        
+          <li>Socios comerciales.</li>
+        
+        </ul>
+        
+        <p>
+          El alcance técnico
+          comprende toda
+          la infraestructura organizacional,
+          incluyendo:
+        </p>
+        
+        <ul >
+        
+          <li>Servidores.</li>
+        
+          <li>Oficinas.</li>
+        
+          <li>Bases de datos.</li>
+        
+          <li>Software corporativo.</li>
+        
+          <li>Servicios en la nube.</li>
+        
+        </ul>
+        
+        <h4>Compromiso de la Dirección</h4>
+        
+        <p>
+          La Alta Dirección
+          asume la responsabilidad
+          de liderar el SGSI mediante:
+        </p>
+        
+        <ul >
+        
+          <li>
+            Provisión de recursos financieros
+            y personal especializado.
+          </li>
+        
+          <li>
+            Revisión periódica del SGSI.
+          </li>
+        
+          <li>
+            Promoción de cultura
+            Zero Trust
+            y Privilegios Mínimos.
+          </li>
+        
+        </ul>
+        
+        <h3>Políticas Funcionales</h3>
+        
+        <h4>Internos</h4>
+        
+        <h4>Base de Datos</h4>
+        
+        <ul >
+        
+          <li>
+            <strong>Estándar:</strong>
+            Implementación obligatoria
+            de cifrado TDE
+            para datos PII
+            y MFA para accesos administrativos.
+          </li>
+        
+          <li>
+            <strong>Directriz:</strong>
+            Uso de Enmascaramiento Dinámico
+            de Datos (DDM)
+            en entornos de pruebas.
+          </li>
+        
+          <li>
+            <strong>Procedimiento:</strong>
+            Escalamiento temporal
+            de privilegios
+            mediante ticket ITSM
+            y autorización del Data Owner.
+          </li>
+        
+          <li>
+            <strong>Línea base:</strong>
+            Respaldos incrementales
+            cada 4 horas
+            y rotación criptográfica
+            cada 90 días.
+          </li>
+        
+        </ul>
+        
+        <h4>ERP Corporativo - SAP/Oracle</h4>
+        
+        <ul >
+        
+          <li>
+            Acceso remoto permitido
+            únicamente mediante VPN IPsec
+            y MFA.
+          </li>
+        
+          <li>
+            Revisión trimestral
+            de segregación de funciones (SoD).
+          </li>
+        
+          <li>
+            Altas de usuarios
+            mediante proceso JML
+            autorizado por gerencia.
+          </li>
+        
+          <li>
+            Sesiones inactivas
+            cerradas automáticamente
+            después de 15 minutos.
+          </li>
+        
+        </ul>
+        
+        <h4>Software de Monitoreo de Red</h4>
+        
+        <ul >
+        
+          <li>
+            Restricción de acceso
+            mediante listas blancas
+            y MFA.
+          </li>
+        
+          <li>
+            Auditorías trimestrales
+            sobre cambios
+            de configuración.
+          </li>
+        
+          <li>
+            Registro obligatorio
+            de cambios mediante RFC.
+          </li>
+        
+          <li>
+            Retención de logs
+            por al menos 6 meses.
+          </li>
+        
+        </ul>
+        
+        <h4>Registros de Usuarios y Credenciales</h4>
+        
+        <ul >
+        
+          <li>
+            Contraseñas mínimas
+            de 12 caracteres.
+          </li>
+        
+          <li>
+            Uso recomendado
+            de gestores corporativos
+            de contraseñas.
+          </li>
+        
+          <li>
+            Reseteo de contraseñas
+            bajo protocolo Zero Trust.
+          </li>
+        
+          <li>
+            Cambio obligatorio
+            cada 90 días.
+          </li>
+        
+        </ul>
+        
+        <h4>Impresoras Empresariales</h4>
+        
+        <ul >
+        
+          <li>
+            Impresión segura
+            mediante PIN
+            o tarjeta RFID.
+          </li>
+        
+          <li>
+            Aplicación de política
+            “Cero Papel”.
+          </li>
+        
+          <li>
+            Sanitización obligatoria
+            de memoria caché
+            y NVRAM.
+          </li>
+        
+          <li>
+            Monitoreo centralizado
+            del volumen de impresión.
+          </li>
+        
+        </ul>
+        
+        <h4>Equipos de Cómputo - Laptops</h4>
+        
+        <ul >
+        
+          <li>
+            Cifrado completo
+            de disco (FDE)
+            obligatorio.
+          </li>
+        
+          <li>
+            Restricción de conexión
+            a redes Wi-Fi públicas.
+          </li>
+        
+          <li>
+            Reporte de robo
+            en menos de 2 horas.
+          </li>
+        
+          <li>
+            Instalación obligatoria
+            de EDR/Antivirus.
+          </li>
+        
+        </ul>
+        
+        <h4>Herramientas de Administración Remota</h4>
+        
+        <ul >
+        
+          <li>
+            Prohibición de RDP/SSH
+            desde redes públicas.
+          </li>
+        
+          <li>
+            Sesiones remotas
+            con autorización explícita.
+          </li>
+        
+          <li>
+            Accesos temporales
+            controlados mediante ITSM.
+          </li>
+        
+          <li>
+            Desconexión automática
+            tras 10 minutos
+            de inactividad.
+          </li>
+        
+        </ul>
+        
+        <h4>Servidores Físicos y Virtuales</h4>
+        
+        <ul >
+        
+          <li>
+            Acceso físico restringido
+            mediante biometría
+            y tarjetas.
+          </li>
+        
+          <li>
+            Microsegmentación
+            mediante VLANs.
+          </li>
+        
+          <li>
+            Respaldos completos
+            Bare-Metal.
+          </li>
+        
+          <li>
+            Hardening obligatorio
+            basado en controles CIS.
+          </li>
+        
+        </ul>
+        
+        <h4>Intranet</h4>
+        
+        <ul >
+        
+          <li>
+            Uso obligatorio
+            de HTTPS/TLS.
+          </li>
+        
+          <li>
+            Revisión periódica
+            de publicaciones.
+          </li>
+        
+          <li>
+            Clasificación documental
+            dentro del CMS.
+          </li>
+        
+          <li>
+            Política Deny-All
+            para accesos externos.
+          </li>
+        
+        </ul>
+        
+        <h4>Documentación y Procesos</h4>
+        
+        <ul>
+        
+          <li>
+            Etiquetado DLP
+            y marcas de agua.
+          </li>
+        
+          <li>
+            Digitalización
+            de archivos Legacy.
+          </li>
+        
+          <li>
+            Destrucción segura
+            de documentos.
+          </li>
+        
+          <li>
+            Inventario obligatorio
+            de activos.
+          </li>
+        
+        </ul>
+        
+        <h3>Activos Externos</h3>
+        
+        <h4>Servicios de Nube (SaaS/PaaS)</h4>
+        
+        <ul >
+        
+          <li>
+            Acceso mediante SSO,
+            MFA y TLS.
+          </li>
+        
+          <li>
+            Validación anual
+            de certificaciones ISO 27001.
+          </li>
+        
+          <li>
+            Altas y bajas
+            mediante Mesa de Servicio.
+          </li>
+        
+          <li>
+            Revisión trimestral
+            de cuentas inactivas.
+          </li>
+        
+        </ul>
+        
+        <h4>Enlaces de Internet (ISP)</h4>
+        
+        <ul >
+        
+          <li>
+            Filtrado obligatorio
+            mediante NGFW y DPI.
+          </li>
+        
+          <li>
+            Arquitectura SD-WAN
+            con redundancia.
+          </li>
+        
+          <li>
+            Escalamiento técnico
+            ante caídas críticas.
+          </li>
+        
+          <li>
+            Monitoreo 24/7
+            del ancho de banda.
+          </li>
+        
+        </ul>
+        
+        <h4>Proveedores de Hosting Web</h4>
+        
+        <ul >
+        
+          <li>
+            Uso obligatorio
+            de certificados SSL/TLS.
+          </li>
+        
+          <li>
+            Implementación de WAF.
+          </li>
+        
+          <li>
+            Actualización mensual
+            de parches.
+          </li>
+        
+          <li>
+            Escaneo de vulnerabilidades
+            mensual.
+          </li>
+        
+        </ul>
+        
+        <h4>Plataformas de Mensajería y Videoconferencia</h4>
+        
+        <ul >
+        
+          <li>
+            Uso exclusivo
+            de cuentas corporativas.
+          </li>
+        
+          <li>
+            Prohibición
+            de enlaces públicos
+            sin contraseña.
+          </li>
+        
+          <li>
+            Configuración obligatoria
+            de Lobby/Sala de Espera.
+          </li>
+        
+          <li>
+            Restricción de grabaciones
+            por dominios externos.
+          </li>
+        
+        </ul>
+        
+        <h4>APIs de Servicios Financieros</h4>
+        
+        <ul >
+        
+          <li>
+            Uso de OAuth 2.0
+            y mTLS.
+          </li>
+        
+          <li>
+            Aplicación de IP Whitelisting.
+          </li>
+        
+          <li>
+            Rotación periódica
+            de credenciales.
+          </li>
+        
+          <li>
+            Retención WORM
+            de logs financieros.
+          </li>
+        
+        </ul>
+        
+        <h4>Nube de Respaldo (Cloud Backup)</h4>
+        
+        <ul >
+        
+          <li>
+            Cifrado E2EE
+            en tránsito y reposo.
+          </li>
+        
+          <li>
+            Aplicación
+            del principio 3-2-1.
+          </li>
+        
+          <li>
+            Validación periódica
+            de restauraciones.
+          </li>
+        
+          <li>
+            Respaldos automáticos diarios.
+          </li>
+        
+        </ul>
+        
+        <h4>Gestores de Dominios (DNS)</h4>
+        
+        <ul>
+        
+          <li>
+            Implementación obligatoria
+            de DNSSEC.
+          </li>
+        
+          <li>
+            Protección MFA
+            para administración DNS.
+          </li>
+        
+          <li>
+            Cambios mediante RFC.
+          </li>
+        
+          <li>
+            Auditorías trimestrales DNS.
+          </li>
+        
+        </ul>
+        
+        <h4>Plataformas de Reclutamiento y Selección</h4>
+        
+        <ul >
+        
+          <li>
+            Cumplimiento
+            con la LFPDPPP.
+          </li>
+        
+          <li>
+            Minimización
+            de datos sensibles.
+          </li>
+        
+          <li>
+            Eliminación segura
+            de expedientes.
+          </li>
+        
+          <li>
+            Retención máxima
+            de 12 meses.
+          </li>
+        
+        </ul>
+        
+        <h4>Canales de Redes Sociales Corporativas</h4>
+        
+        <ul >
+        
+          <li>
+            Acceso restringido
+            mediante MFA.
+          </li>
+        
+          <li>
+            Uso de gestores centralizados
+            como Hootsuite.
+          </li>
+        
+          <li>
+            Flujo de aprobación
+            de contenido oficial.
+          </li>
+        
+          <li>
+            Rotación de credenciales
+            cada 90 días.
+          </li>
+        
+        </ul>
+        
+        <h3>Matriz RACI</h3>
+        
+        <p>
+          Para asegurar
+          el cumplimiento
+          de las políticas descritas,
+          se establece
+          una matriz RACI
+          para asignar responsabilidades,
+          autoridades
+          y niveles de participación
+          dentro del SGSI.
+        </p>
+
+        <div class="raci-container">
+    <h2 class="raci-title">Matriz de Asignación de Responsabilidades (RACI)</h2>
+    
+    <div class="raci-legend-box">
+        <div class="legend-item" data-role="R">
+            <span class="badge role-r">R</span>
+            <div class="legend-text"><strong>Responsable</strong> – Quienes ejecutan operativamente la tarea o configuran el control.</div>
+        </div>
+        <div class="legend-item" data-role="A">
+            <span class="badge role-a">A</span>
+            <div class="legend-text"><strong>Aprobador</strong> – Quienes rinden cuentas, autorizan y tienen la responsabilidad final.</div>
+        </div>
+        <div class="legend-item" data-role="C">
+            <span class="badge role-c">C</span>
+            <div class="legend-text"><strong>Consultado</strong> – Quienes asesoran o validan la acción de forma previa.</div>
+        </div>
+        <div class="legend-item" data-role="I">
+            <span class="badge role-i">I</span>
+            <div class="legend-text"><strong>Informado</strong> – Quienes son notificados formalmente sobre los resultados.</div>
+        </div>
+    </div>
+
+    <div class="raci-table-wrapper">
+        <table class="raci-table">
+            <thead>
+                <tr>
+                    <th class="col-main">Actividad / Proceso</th>
+                    <th>Director de TI (CIO)</th>
+                    <th>Oficial de Seguridad (CISO)</th>
+                    <th>Administrador de Sistemas</th>
+                    <th>Usuario Final / Empleado</th>
+                    <th>Proveedor Extremo</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr class="section-row">
+                    <td colspan="6">Activos Internos</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Gestión de Bases de Datos</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Mantenimiento de ERP</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Monitoreo de Red</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Cambio de Contraseñas</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Impresión Segura</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Cifrado de Laptops</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Administración Remota</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Respaldo de Servidores</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Publicación en Intranet</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Clasificación de Documentos</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr class="section-row">
+                    <td colspan="6">Activos Externos</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Servicios de Nube SaaS/PaaS</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Enlaces de Internet ISPs</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Proveedores de Hosting Web</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Plataformas de Mensajería y Videoconferencia</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                </tr>
+                <tr>
+                    <td class="row-title">APIs de Servicios Financieros</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Servicios de Soporte Técnico de Fabricantes</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Nube de Respaldo (Cloud Backup)</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr class="section-row">
+                    <td colspan="6">Gestión de Plataformas y Redes</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Gestión de Dominios DNS</td>
+                    <td class="raci-cell cell-a" data-role="A">A</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Plataformas de Reclutamiento Y selección</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                </tr>
+                <tr>
+                    <td class="row-title">Canales de Redes Sociales Corporativas</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-c" data-role="C">C</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                    <td class="raci-cell cell-r" data-role="R">R</td>
+                    <td class="raci-cell cell-i" data-role="I">I</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+    </section>
+    <section class="content-card">
+       <!-- PLANIFICACIÓN -->
+      <h3>SECCIÓN 6 - Planificación</h3>
+
+        <h4>Activos seleccionados - análisis de amenaza y vulnerabilidad</h4>
+        
+        <div style="overflow-x:auto; margin-top:20px;">
+        
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        
+            <tr style="background:#c2410c; color:white;">
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Activo
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Amenaza
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Vulnerabilidad
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Consecuencia
+              </th>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Base de Datos
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Exfiltración o alteración de información crítica.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Falta de MFA y cifrado avanzado.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Pérdida de confidencialidad y registros financieros.
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                ERP SAP/Oracle
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Manipulación de transacciones.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Segregación de funciones deficiente.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Fraude financiero y errores CFDI.
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Monitoreo de Red
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Alteración de alertas de seguridad.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Accesos administrativos inseguros.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Ceguera operativa ante incidentes.
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Credenciales
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Phishing y fuerza bruta.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Contraseñas débiles.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Movimiento lateral y robo de identidades.
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Laptops
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Malware y robo físico.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Discos sin cifrar.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Fuga de propiedad intelectual.
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Servidores
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Ransomware.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Segmentación deficiente.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Interrupción total de operaciones.
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Servicios Nube
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Robo de cuentas cloud.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Falta de auditorías al proveedor.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Compromiso de información corporativa.
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Hosting Web
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Explotación de fallos OWASP.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Ausencia de WAF y parches.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Daño reputacional y fuga de datos.
+              </td>
+        
+            </tr>
+        
+          </table>
+        
+        </div>
+        
+        <!-- ESCALA -->
+        <h4 style="margin-top:35px;">
+          Escala de Probabilidad e Impacto
+        </h4>
+        
+        <div style="overflow-x:auto; margin-top:20px;">
+        
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        
+            <tr style="background:#9a3412; color:white;">
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Rango
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Nivel de Riesgo
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Estrategia
+              </th>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                1 - 4
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Bajo
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Aceptar y monitorear.
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                5 - 9
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Medio
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Mitigar o transferir.
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                10 - 14
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Alto
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Controles prioritarios.
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                15 - 19
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Muy Alto
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Intervención inmediata.
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                20 - 25
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Extremo
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Eliminar o mitigar críticamente.
+              </td>
+        
+            </tr>
+        
+          </table>
+        
+        </div>
+        
+        <!-- CALCULO -->
+        <h4 style="margin-top:35px;">
+          Cálculo de Riesgo
+        </h4>
+        
+        <p>
+          El cálculo del riesgo
+          se realizó mediante
+          la siguiente fórmula:
+        </p>
+        
+        <p style="
+          background:#fff7ed;
+          padding:15px;
+          border-radius:12px;
+          border:1px solid #fdba74;
+          font-weight:600;
+        ">
+          Riesgo (R) = Probabilidad (P) × Impacto (I)
+        </p>
+        
+        <div style="overflow-x:auto; margin-top:20px;">
+        
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        
+            <tr style="background:#c2410c; color:white;">
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Activo
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                P
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                I
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                R
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Nivel
+              </th>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+              <td style="padding:10px; border:1px solid #fdba74;">Base de Datos</td>
+              <td style="padding:10px; border:1px solid #fdba74;">4</td>
+              <td style="padding:10px; border:1px solid #fdba74;">5</td>
+              <td style="padding:10px; border:1px solid #fdba74;">20</td>
+              <td style="padding:10px; border:1px solid #fdba74;">Extremo</td>
+            </tr>
+        
+            <tr>
+              <td style="padding:10px; border:1px solid #fdba74;">ERP SAP/Oracle</td>
+              <td style="padding:10px; border:1px solid #fdba74;">3</td>
+              <td style="padding:10px; border:1px solid #fdba74;">5</td>
+              <td style="padding:10px; border:1px solid #fdba74;">15</td>
+              <td style="padding:10px; border:1px solid #fdba74;">Muy Alto</td>
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+              <td style="padding:10px; border:1px solid #fdba74;">Credenciales</td>
+              <td style="padding:10px; border:1px solid #fdba74;">5</td>
+              <td style="padding:10px; border:1px solid #fdba74;">5</td>
+              <td style="padding:10px; border:1px solid #fdba74;">25</td>
+              <td style="padding:10px; border:1px solid #fdba74;">Extremo</td>
+            </tr>
+        
+            <tr>
+              <td style="padding:10px; border:1px solid #fdba74;">Servidores</td>
+              <td style="padding:10px; border:1px solid #fdba74;">3</td>
+              <td style="padding:10px; border:1px solid #fdba74;">5</td>
+              <td style="padding:10px; border:1px solid #fdba74;">15</td>
+              <td style="padding:10px; border:1px solid #fdba74;">Muy Alto</td>
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+              <td style="padding:10px; border:1px solid #fdba74;">Servicios Nube</td>
+              <td style="padding:10px; border:1px solid #fdba74;">4</td>
+              <td style="padding:10px; border:1px solid #fdba74;">5</td>
+              <td style="padding:10px; border:1px solid #fdba74;">20</td>
+              <td style="padding:10px; border:1px solid #fdba74;">Extremo</td>
+            </tr>
+        
+          </table>
+        
+        </div>
+        
+        <!-- MECANISMOS -->
+        <h4 style="margin-top:35px;">
+          Mecanismos de Control
+        </h4>
+        
+        <div style="overflow-x:auto; margin-top:20px;">
+        
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        
+            <tr style="background:#9a3412; color:white;">
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Activo
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Mecanismo de Control
+              </th>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Base de Datos
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Cifrado AES-256, MFA y monitoreo SIEM.
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                ERP SAP/Oracle
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                MFA, segregación de funciones y cierre automático de sesión.
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Credenciales
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Políticas de contraseñas seguras y gestor corporativo.
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Laptops
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Full Disk Encryption, VPN y EDR.
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Servidores
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Bastionado CIS, VLANs y respaldos semanales.
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Hosting Web
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                WAF, SSL/TLS y escaneo mensual de vulnerabilidades.
+              </td>
+        
+            </tr>
+        
+          </table>
+        
+        </div>
+    </section>
+    <section class="content-card">
+      <!-- SOPORTE -->
+      <h3 style="margin-top:35px;">
+        SECCIÓN 7 - Soporte
+      </h3>
+        
+        <h4>
+          Justificación Ejecutiva:
+          ¿Qué estamos trabajando y por qué es necesario?
+        </h4>
+        
+        <p>
+          En esta fase del proyecto
+          se implementa la Cláusula 7 (Soporte)
+          del estándar ISO/IEC 27001,
+          enfocada en dotar
+          al Sistema de Gestión
+          de Seguridad de la Información (SGSI)
+          de recursos humanos,
+          tecnológicos
+          y de conocimiento
+          necesarios para su correcta operación.
+        </p>
+        
+        <p>
+          El objetivo principal
+          es fortalecer la seguridad
+          tanto en áreas administrativas
+          como en el piso de manufactura,
+          asegurando que operarios,
+          técnicos
+          y personal administrativo
+          comprendan su responsabilidad
+          dentro de la protección
+          de los activos críticos de Viakon.
+        </p>
+        
+        <p>
+          Se reconoce
+          que el factor humano
+          representa uno
+          de los principales riesgos
+          para la organización,
+          debido a prácticas inseguras
+          como:
+        </p>
+        
+        <ul style="color:#475569; line-height:1.8;">
+        
+          <li>
+            Uso compartido de contraseñas.
+          </li>
+        
+          <li>
+            Sesiones abiertas en terminales.
+          </li>
+        
+          <li>
+            Ingeniería social.
+          </li>
+        
+          <li>
+            Manejo incorrecto de información.
+          </li>
+        
+        </ul>
+        
+        <h4>Beneficios para el Negocio (ROI de Seguridad)</h4>
+        
+        <ol style="color:#475569; line-height:1.9; padding-left:20px;">
+        
+          <li>
+            <strong>Reducción de Riesgos Operativos:</strong>
+            Disminución en la probabilidad
+            de infecciones de malware,
+            accesos no autorizados
+            y paros de línea
+            en terminales compartidas.
+          </li>
+        
+          <li>
+            <strong>Eficiencia Normativa:</strong>
+            Garantiza que manuales,
+            políticas
+            y procedimientos
+            permanezcan controlados
+            y disponibles
+            para auditorías ISO.
+          </li>
+        
+          <li>
+            <strong>Cultura de Prevención:</strong>
+            Convierte a los Energizadores
+            en la primera línea de defensa
+            contra amenazas internas
+            y externas.
+          </li>
+        
+        </ol>
+        
+        <!-- MINUTA -->
+        <h3 style="margin-top:35px;">
+          Minuta de Reunión Corporativa
+        </h3>
+        
+        <div style="overflow-x:auto; margin-top:20px;">
+        
+          <table style="width:100%; border-collapse:collapse; font-size:14px;">
+        
+            <tr style="background:#c2410c; color:white;">
+        
+              <th style="padding:12px; border:1px solid #fb923c;">
+                Detalle de la Sesión
+              </th>
+        
+              <th style="padding:12px; border:1px solid #fb923c;">
+                Información
+              </th>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Empresa
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Viakon
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Departamento
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Dirección de Administración y TI
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Sistema
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Sistema de Gestión de Seguridad de la Información
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Asunto
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Definición Operativa - Cláusula 7: Soporte
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Fecha
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                6 de mayo de 2026
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Sede
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                DCN Tower / Sala de Juntas Principal
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Horario
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                10:00 hrs - 11:00 hrs
+              </td>
+        
+            </tr>
+        
+          </table>
+        
+        </div>
+        
+        <!-- OBJETIVO -->
+        <h4 style="margin-top:35px;">
+          Objetivo de la Sesión
+        </h4>
+        
+        <p>
+          Establecer y documentar
+          las directrices
+          correspondientes
+          a la Cláusula 7 (Soporte)
+          del SGSI,
+          garantizando:
+        </p>
+        
+        <ul style="color:#475569; line-height:1.8;">
+        
+          <li>
+            Asignación de recursos tecnológicos.
+          </li>
+        
+          <li>
+            Programas de competencia.
+          </li>
+        
+          <li>
+            Concientización de personal.
+          </li>
+        
+          <li>
+            Control de información documentada.
+          </li>
+        
+        </ul>
+        
+        <!-- PARTICIPANTES -->
+        <h4 style="margin-top:35px;">
+          Participantes del Comité SGSI
+        </h4>
+        
+        <div style="overflow-x:auto; margin-top:20px;">
+        
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        
+            <tr style="background:#9a3412; color:white;">
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Nombre
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Rol
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Asistencia
+              </th>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Laura Ivon Montelongo Martínez
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Líder de Proyecto / CISO
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                ✔
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Cesar Yahir Benites Rangel
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Especialista Infraestructura TI
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                ✔
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Carol Elizabeth Cortes Beltrán
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Cumplimiento Normativo
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                ✔
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                América Fabiola Guerra Ramírez
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Gestión de Riesgos
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                ✔
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Gustavo Michael Larios Guerra
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Administrador de Sistemas
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                ✔
+              </td>
+        
+            </tr>
+        
+          </table>
+        
+        </div>
+        
+        <!-- TEMAS -->
+        <h4 style="margin-top:35px;">
+          Temas Tratados y Acuerdos
+        </h4>
+        
+        <h4>Punto 1: Recursos y Entorno Técnico</h4>
+        
+        <p>
+          Se evaluaron vulnerabilidades
+          físicas y lógicas
+          relacionadas con:
+        </p>
+        
+        <ul style="color:#475569; line-height:1.8;">
+        
+          <li>HMI.</li>
+        
+          <li>Escáneres de inventario.</li>
+        
+          <li>Terminales compartidas.</li>
+        
+        </ul>
+        
+        <p>
+          Como acuerdo,
+          se aprobó
+          la implementación
+          de políticas GPO
+          para bloquear sesiones
+          automáticamente
+          tras 5 minutos
+          de inactividad.
+        </p>
+        
+        <h4>
+          Punto 2:
+          Competencia y Concientización
+        </h4>
+        
+        <p>
+          Se detectó
+          la necesidad
+          de eliminar prácticas
+          inseguras
+          como:
+        </p>
+        
+        <ul style="color:#475569; line-height:1.8;">
+        
+          <li>
+            Contraseñas en post-its.
+          </li>
+        
+          <li>
+            Préstamo de credenciales.
+          </li>
+        
+          <li>
+            Sesiones abiertas.
+          </li>
+        
+        </ul>
+        
+        <p>
+          Se acordó implementar
+          el “Programa
+          de Concientización Técnica”
+          mediante Safety Talks
+          de 5 minutos
+          antes de iniciar operaciones.
+        </p>
+        
+        <h4>
+          Punto 3:
+          Información Documentada
+        </h4>
+        
+        <p>
+          Se acordó migrar
+          la documentación técnica
+          hacia un repositorio centralizado,
+          utilizando:
+        </p>
+        
+        <ul style="color:#475569; line-height:1.8;">
+        
+          <li>
+            Marcas de agua dinámicas.
+          </li>
+        
+          <li>
+            Clasificación de confidencialidad.
+          </li>
+        
+          <li>
+            Versionamiento controlado.
+          </li>
+        
+        </ul>
+        
+        <!-- PLAN -->
+        <h4 style="margin-top:35px;">
+          Plan de Acción y Responsabilidades
+        </h4>
+        
+        <div style="overflow-x:auto; margin-top:20px;">
+        
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        
+            <tr style="background:#c2410c; color:white;">
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Tarea
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Responsables
+              </th>
+        
+              <th style="padding:10px; border:1px solid #fb923c;">
+                Estatus
+              </th>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Diseñar infografías de concientización.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Cortes Beltrán / Guerra Ramírez
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                En proceso
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Distribuir manuales técnicos seguros.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Benites / Larios / Puente
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Pendiente
+              </td>
+        
+            </tr>
+        
+            <tr style="background:#fff7ed;">
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Configurar bloqueo automático.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Montelongo / Rodríguez
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Pendiente
+              </td>
+        
+            </tr>
+        
+            <tr>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Validar horarios de Safety Talks.
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Montelongo Martínez
+              </td>
+        
+              <td style="padding:10px; border:1px solid #fdba74;">
+                Pendiente
+              </td>
+        
+            </tr>
+        
+          </table>
+        
+        </div>
+        
+        <!-- REUNION -->
+        <h4 style="margin-top:35px;">
+          Próxima Reunión
+        </h4>
+        
+        <p>
+          La siguiente reunión
+          de seguimiento
+          fue programada
+          para el 22 de mayo de 2026,
+          con el objetivo
+          de revisar:
+        </p>
+        
+        <ul style="color:#475569; line-height:1.8;">
+        
+          <li>
+            Material didáctico diseñado.
+          </li>
+        
+          <li>
+            Despliegue del bloqueo de sesiones.
+          </li>
+        
+          <li>
+            Validación de controles en planta.
+          </li>
+        
+        </ul>
+        
+        <h4>Cierre y Aprobación</h4>
+        <div class="signatures-container">
+    <h2 class="signatures-main-title">Firmas de Conformidad del Comité:</h2>
+    
+    <div class="signatures-grid">
+        
+        <div class="signature-card">
+            <div class="signature-image-area">
+                <img src="../Parcial_3/firmaI.png">
+            </div>
+            <div class="signature-line"></div>
+            <h3 class="signature-name">Montelongo Martínez Laura Ivon</h3>
+            <p class="signature-role">Líder de Proyecto / CISO</p>
+        </div>
+
+        <div class="signature-card">
+            <div class="signature-image-area">
+               <img src="../Parcial_3/firmaB.png">
+            </div>
+            <div class="signature-line"></div>
+            <h3 class="signature-name">Benites Rangel Cesar Yahir</h3>
+            <p class="signature-role">Especialista en Infraestructura TI</p>
+        </div>
+
+        <div class="signature-card">
+            <div class="signature-image-area">
+                               <img src="../Parcial_3/firmaC.png">
+            </div>
+            <div class="signature-line"></div>
+            <h3 class="signature-name">Cortés Beltrán Carol Elizabeth</h3>
+            <p class="signature-role">Coordinadora de Cumplimiento Normativo</p>
+        </div>
+
+        <div class="signature-card">
+            <div class="signature-image-area">
+                              <img src="../Parcial_3/firmaA.png">
+            </div>
+            <div class="signature-line"></div>
+            <h3 class="signature-name">Guerra Ramírez América Fabiola</h3>
+            <p class="signature-role">Analista de Gestión de Riesgos</p>
+        </div>
+
+        <div class="signature-card">
+            <div class="signature-image-area">
+                <img src="../Parcial_3/firmaG.png">
+            </div>
+            <div class="signature-line"></div>
+            <h3 class="signature-name">Larios Guerra Gustavo Michael</h3>
+            <p class="signature-role">Administrador de Sistemas y Redes</p>
+        </div>
+
+        <div class="signature-card">
+            <div class="signature-image-area">
+                <img src="../Parcial_3/firmaL.png">
+            </div>
+            <div class="signature-line"></div>
+            <h3 class="signature-name">Puente Luna Bruno Axel</h3>
+            <p class="signature-role">Arquitecto de Servicios en la Nube</p>
+        </div>
+
+        <div class="signature-card">
+            <div class="signature-image-area">
+                <img src="../Parcial_3/firmaCA.png">
+            </div>
+            <div class="signature-line"></div>
+            <h3 class="signature-name">Rodríguez Moreno Cristian Alejandro</h3>
+            <p class="signature-role">Analista de Cibersegurida</p>
+        </div>
+
+    </div>
+
+    <div class="signatures-doc-footer">
+        <span class="doc-page-mark">45</span>
+    </div>
+</div>      
+        </div>
+
+        <!-- PRESENTACIÓN CANVA -->
+      <h2 style="margin-top:40px;">Presentación Canva</h2>
+
+        <div style="
+          position:relative;
+          width:100%;
+          height:0;
+          padding-top:56.25%;
+          margin-top:20px;
+          overflow:hidden;
+          border-radius:18px;
+          box-shadow:0px 8px 20px rgba(0,0,0,0.20);
+        ">
+        
+          <iframe
+            loading="lazy"
+            src="https://www.canva.com/design/DAHI8daKxF0/hDQLCAxXKVa9RXOZK8RULw/view?embed"
+            allowfullscreen
+            allow="fullscreen"
+            style="
+              position:absolute;
+              width:100%;
+              height:100%;
+              top:0;
+              left:0;
+              border:none;
+            ">
+          </iframe>
+        
+        </div>
+    </section>
+    <section class="content-card">
+       <!-- OPERACIÓN -->
+      <h3>SECCIÓN 8 - Operación</h3>
+
+      <h3>Política Seleccionada: Servidores Físicos y Virtuales</h3>
+      
+      <!-- PLAN -->
+      <h3>1. Plan (Planear)</h3>
+      
+      <p>
+        En esta fase
+        se establecen objetivos,
+        riesgos,
+        controles
+        y recursos necesarios
+        para garantizar
+        la seguridad
+        de los servidores físicos
+        y virtuales
+        dentro de la organización.
+      </p>
+      
+      <h4>Objetivos</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Proteger el acceso físico
+          y lógico
+          a los servidores críticos.
+        </li>
+      
+        <li>
+          Implementar segmentación
+          de red mediante VLANs.
+        </li>
+      
+        <li>
+          Garantizar disponibilidad
+          e integridad
+          de la información.
+        </li>
+      
+        <li>
+          Aplicar hardening
+          en Windows y Linux.
+        </li>
+      
+        <li>
+          Reducir vulnerabilidades
+          y accesos no autorizados.
+        </li>
+      
+      </ul>
+      
+      <h4>Riesgos Identificados</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Acceso físico
+          no autorizado
+          al centro de datos.
+        </li>
+      
+        <li>
+          Pérdida de información
+          por fallos de hardware.
+        </li>
+      
+        <li>
+          Propagación lateral
+          de ataques.
+        </li>
+      
+        <li>
+          Explotación
+          de vulnerabilidades críticas.
+        </li>
+      
+        <li>
+          Interrupción
+          de servicios críticos.
+        </li>
+      
+      </ul>
+      
+      <h4>Actividades Planificadas</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Instalación de controles biométricos,
+          cámaras y cerraduras electrónicas.
+        </li>
+      
+        <li>
+          Segmentación mediante VLANs
+          para servicios críticos.
+        </li>
+      
+        <li>
+          Calendario automatizado
+          de respaldos.
+        </li>
+      
+        <li>
+          Aplicación de políticas
+          de hardening.
+        </li>
+      
+        <li>
+          Configuración de firewalls,
+          antivirus y sistemas IDS/IPS.
+        </li>
+      
+        <li>
+          Monitoreo continuo
+          de eventos de seguridad.
+        </li>
+      
+      </ul>
+      
+      <h4>Configuraciones de Hardening</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Deshabilitación
+          de puertos innecesarios.
+        </li>
+      
+        <li>
+          Restricción
+          de accesos remotos.
+        </li>
+      
+        <li>
+          Configuración segura
+          de contraseñas.
+        </li>
+      
+        <li>
+          Parchado periódico
+          de sistemas operativos.
+        </li>
+      
+        <li>
+          Configuración
+          de firewall local.
+        </li>
+      
+        <li>
+          Activación
+          de registros y auditorías.
+        </li>
+      
+        <li>
+          Implementación
+          de antivirus y EDR.
+        </li>
+      
+      </ul>
+      
+      <h4>Recursos Necesarios</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Software de respaldo
+          y recuperación.
+        </li>
+      
+        <li>
+          Herramientas
+          de virtualización.
+        </li>
+      
+        <li>
+          Equipos biométricos
+          y videovigilancia.
+        </li>
+      
+        <li>
+          Firewalls
+          y herramientas SIEM.
+        </li>
+      
+        <li>
+          Personal capacitado
+          en seguridad informática.
+        </li>
+      
+      </ul>
+      
+      <!-- TABLA -->
+      <h4>Indicadores y Métricas</h4>
+      
+      <div style="overflow-x:auto; margin-top:20px;">
+      
+        <table style="width:100%; border-collapse:collapse; font-size:14px;">
+      
+          <tr style="background:#c2410c; color:white;">
+      
+            <th style="padding:12px; border:1px solid #fb923c;">
+              Indicador
+            </th>
+      
+            <th style="padding:12px; border:1px solid #fb923c;">
+              Meta
+            </th>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Respaldos exitosos
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ≥ 98%
+            </td>
+      
+          </tr>
+      
+          <tr>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Accesos físicos no autorizados
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              0
+            </td>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Cumplimiento hardening
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              100%
+            </td>
+      
+          </tr>
+      
+          <tr>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              RTO
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ≤ 2 horas
+            </td>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Disponibilidad de servidores
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              99.9%
+            </td>
+      
+          </tr>
+      
+        </table>
+      
+      </div>
+      
+      <h4>Normativas y Buenas Prácticas</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>ISO 27001.</li>
+      
+        <li>NIST Cybersecurity Framework.</li>
+      
+        <li>CIS Benchmarks.</li>
+      
+        <li>Políticas internas de seguridad.</li>
+      
+      </ul>
+      
+      <!-- DO -->
+      <h3 style="margin-top:35px;">
+        2. Do (Hacer)
+      </h3>
+      
+      <p>
+        En esta etapa
+        se implementan
+        los controles
+        y medidas definidas
+        durante la planificación.
+      </p>
+      
+      <h4>Acciones Realizadas</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Instalación
+          de lectores biométricos
+          y cámaras.
+        </li>
+      
+        <li>
+          Configuración de VLANs.
+        </li>
+      
+        <li>
+          Implementación
+          de respaldos automáticos.
+        </li>
+      
+        <li>
+          Validación
+          de restauración de respaldos.
+        </li>
+      
+        <li>
+          Deshabilitación
+          de servicios inseguros.
+        </li>
+      
+        <li>
+          Aplicación
+          de actualizaciones
+          de seguridad.
+        </li>
+      
+        <li>
+          Configuración
+          de firewalls y monitoreo.
+        </li>
+      
+        <li>
+          Centralización
+          de logs y alertas.
+        </li>
+      
+      </ul>
+      
+      <h4>Evidencias</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Bitácoras
+          de acceso físico.
+        </li>
+      
+        <li>
+          Reportes de respaldos.
+        </li>
+      
+        <li>
+          Evidencias de restauración.
+        </li>
+      
+        <li>
+          Documentación VLAN.
+        </li>
+      
+        <li>
+          Checklist hardening.
+        </li>
+      
+        <li>
+          Reportes SIEM.
+        </li>
+      
+      </ul>
+      
+      <!-- CHECK -->
+      <h3 style="margin-top:35px;">
+        3. Check (Verificar)
+      </h3>
+      
+      <p>
+        Se evalúa
+        la efectividad
+        de los controles implementados
+        y el cumplimiento
+        de los objetivos de seguridad.
+      </p>
+      
+      <h4>Actividades de Verificación</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Auditorías de accesos físicos.
+        </li>
+      
+        <li>
+          Validación de restauración.
+        </li>
+      
+        <li>
+          Escaneo de vulnerabilidades.
+        </li>
+      
+        <li>
+          Revisión de firewalls y VLANs.
+        </li>
+      
+        <li>
+          Evaluación de hardening.
+        </li>
+      
+        <li>
+          Monitoreo de logs.
+        </li>
+      
+      </ul>
+      
+      <h4>Resultados Esperados</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Reducción de accesos
+          no autorizados.
+        </li>
+      
+        <li>
+          Respaldos funcionales.
+        </li>
+      
+        <li>
+          Menor cantidad
+          de vulnerabilidades críticas.
+        </li>
+      
+        <li>
+          Mejor disponibilidad
+          de servicios.
+        </li>
+      
+        <li>
+          Detección temprana
+          de incidentes.
+        </li>
+      
+      </ul>
+      
+      <h4>Métricas de Evaluación</h4>
+      
+      <div style="overflow-x:auto; margin-top:20px;">
+      
+        <table style="width:100%; border-collapse:collapse; font-size:14px;">
+      
+          <tr style="background:#9a3412; color:white;">
+      
+            <th style="padding:12px; border:1px solid #fb923c;">
+              Métrica
+            </th>
+      
+            <th style="padding:12px; border:1px solid #fb923c;">
+              Resultado Esperado
+            </th>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Respaldos exitosos
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              100%
+            </td>
+      
+          </tr>
+      
+          <tr>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Accesos físicos no autorizados
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              0
+            </td>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Vulnerabilidades críticas
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Reducción significativa
+            </td>
+      
+          </tr>
+      
+          <tr>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Cumplimiento hardening
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              100%
+            </td>
+      
+          </tr>
+      
+          <tr style="background:#fff7ed;">
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              Disponibilidad de servicios
+            </td>
+      
+            <td style="padding:10px; border:1px solid #fdba74;">
+              ≥ 99.9%
+            </td>
+      
+          </tr>
+      
+        </table>
+      
+      </div>
+      
+      <!-- ACT -->
+      <h3 style="margin-top:35px;">
+        4. Act (Actuar)
+      </h3>
+      
+      <p>
+        Con base
+        en los resultados obtenidos,
+        se implementan acciones correctivas
+        y mecanismos
+        de mejora continua.
+      </p>
+      
+      <h4>Acciones de Mejora</h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Actualización periódica
+          de políticas.
+        </li>
+      
+        <li>
+          Mejora de autenticación
+          física y lógica.
+        </li>
+      
+        <li>
+          Automatización de monitoreo
+          y alertas.
+        </li>
+      
+        <li>
+          Revisiones mensuales
+          de hardening.
+        </li>
+      
+        <li>
+          Corrección
+          de configuraciones inseguras.
+        </li>
+      
+        <li>
+          Optimización de respaldos.
+        </li>
+      
+        <li>
+          Ajuste de firewalls
+          y segmentación.
+        </li>
+      
+        <li>
+          Simulacros
+          de recuperación
+          ante desastres.
+        </li>
+      
+        <li>
+          Capacitación continua
+          del personal.
+        </li>
+      
+      </ul>
+      
+      <h4>Mejora Continua</h4>
+      
+      <p>
+        La aplicación
+        del ciclo PDCA
+        permite fortalecer continuamente
+        la seguridad
+        de los servidores físicos
+        y virtuales,
+        optimizando
+        la disponibilidad,
+        integridad
+        y confidencialidad
+        de la información.
+      </p>
+      
+      <p>
+        Asimismo,
+        contribuye
+        a reducir riesgos
+        relacionados con:
+      </p>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Accesos no autorizados.
+        </li>
+      
+        <li>
+          Pérdida de información.
+        </li>
+      
+        <li>
+          Vulnerabilidades críticas.
+        </li>
+      
+        <li>
+          Fallas operativas.
+        </li>
+      
+      </ul>
+      
+      <p>
+        Todo esto
+        alineado
+        con estándares
+        y buenas prácticas
+        internacionales
+        de seguridad
+        de la información.
+      </p>
+    </section>
+    <section class="content-card">
+       <!-- EVALUACIÓN -->
+      <h3>SECCIÓN 9 - Evaluación del desempeño</h3>
+      
+      <h3>Objetivo de la Auditoría</h3>
+      
+      <p>
+        Evaluar la eficacia
+        del Sistema de Gestión
+        de Seguridad de la Información (SGSI)
+        implementado en Viakon,
+        verificando la conformidad
+        de los controles técnicos
+        y administrativos
+        con los requisitos
+        de la norma ISO/IEC 27001:2022
+        y las políticas internas.
+      </p>
+      
+      <!-- ========================= -->
+      <!-- ENTREVISTA -->
+      <!-- ========================= -->
+      
+      <h3 style="margin-top:35px;">
+        Formato de Entrevista de Auditoría
+      </h3>
+      
+      <p>
+        Este instrumento
+        evidencia la interacción real
+        con los dueños de procesos
+        para validar
+        los controles técnicos.
+      </p>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          <strong>Fecha:</strong>
+          6 de mayo de 2026
+        </li>
+      
+        <li>
+          <strong>Auditor Líder:</strong>
+          Laura Ivon Montelongo Martínez
+        </li>
+      
+        <li>
+          <strong>Auditado:</strong>
+          Administrador de Base de Datos (DBA)
+        </li>
+      
+        <li>
+          <strong>Objetivo:</strong>
+          Verificar la retención de logs
+          y exportación de alertas
+          al SIEM corporativo.
+        </li>
+      
+      </ul>
+      
+      <h4>Transcripción de Evidencia</h4>
+      
+      <div style="
+        background:#fff7ed;
+        border:1px solid #fdba74;
+        border-radius:15px;
+        padding:20px;
+        margin-top:20px;
+      ">
+      
+        <p>
+          <strong>Auditor:</strong>
+          “De acuerdo con la política BD-01,
+          todas las consultas
+          a tablas con información financiera
+          deben ser auditadas.
+          ¿Puede mostrarme
+          en la consola Splunk
+          los registros de actividad
+          del último mes?”
+        </p>
+      
+        <p>
+          <strong>Auditado:</strong>
+          “Actualmente,
+          Splunk solo ingiere
+          logs perimetrales
+          del firewall
+          y Active Directory.
+          Los logs SQL
+          permanecen localmente
+          por limitaciones
+          de licenciamiento.”
+        </p>
+      
+        <p>
+          <strong>Auditor:</strong>
+          “¿Cuál es el tiempo
+          de retención de logs?”
+        </p>
+      
+        <p>
+          <strong>Auditado:</strong>
+          “Los registros
+          se sobrescriben
+          cada 7 días
+          por falta de espacio.”
+        </p>
+      
+      </div>
+      
+      <h4>Conclusión de la Entrevista</h4>
+      
+      <p>
+        Se confirma
+        una vulnerabilidad crítica:
+      </p>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          No existe segregación
+          de funciones.
+        </li>
+      
+        <li>
+          El DBA audita
+          sus propios accesos.
+        </li>
+      
+        <li>
+          No se cumple
+          la retención mínima
+          de 6 meses.
+        </li>
+      
+      </ul>
+      
+      <!-- ========================= -->
+      <!-- ACTIVOS INTERNOS -->
+      <!-- ========================= -->
+      
+      <h2 style="margin-top:45px;">
+        I. Gestión de Activos Internos
+      </h2>
+      
+      <!-- TABLA 1 -->
+      <h3>1. Cédula de Auditoría: Base de Datos</h3>
+      
+      <p>
+        <strong>Objetivo de Control:</strong>
+        Garantizar confidencialidad
+        e integridad
+        mediante cifrado
+        y control privilegiado.
+      </p>
+      
+      <div style="overflow-x:auto; margin-top:20px;">
+      
+      <table style="width:100%; border-collapse:collapse; font-size:13px;">
+      
+      <tr style="background:#c2410c; color:white;">
+      
+      <th style="padding:10px; border:1px solid #fb923c;">ID</th>
+      <th style="padding:10px; border:1px solid #fb923c;">Control</th>
+      <th style="padding:10px; border:1px solid #fb923c;">Resultado</th>
+      <th style="padding:10px; border:1px solid #fb923c;">Riesgo</th>
+      
+      </tr>
+      
+      <tr style="background:#fff7ed;">
+      
+      <td style="padding:10px; border:1px solid #fdba74;">BD-01</td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Cifrado TDE y DDM en tablas críticas.
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      CUMPLE
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Bajo
+      </td>
+      
+      </tr>
+      
+      <tr>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">BD-02</td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      MFA obligatorio para sysadmin.
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      CUMPLE
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Bajo
+      </td>
+      
+      </tr>
+      
+      <tr style="background:#fff7ed;">
+      
+      <td style="padding:10px; border:1px solid #fdba74;">BD-03</td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Trazabilidad y SIEM.
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      NO CUMPLE
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Alto
+      </td>
+      
+      </tr>
+      
+      <tr>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">BD-04</td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Just-In-Time Access.
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      CUMPLE
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Bajo
+      </td>
+      
+      </tr>
+      
+      <tr style="background:#fff7ed;">
+      
+      <td style="padding:10px; border:1px solid #fdba74;">BD-05</td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Backups y rotación criptográfica.
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      CUMPLE
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Bajo
+      </td>
+      
+      </tr>
+      
+      </table>
+      
+      </div>
+      
+      <p style="
+        margin-top:20px;
+        background:#fff7ed;
+        padding:15px;
+        border-radius:12px;
+        border:1px solid #fdba74;
+      ">
+      
+        <strong>Dictamen Final:</strong>
+        CUMPLIMIENTO PARCIAL.
+        Se requiere integrar
+        los logs SQL
+        al SIEM corporativo.
+      
+      </p>
+      
+      <!-- ERP -->
+      <h3 style="margin-top:40px;">
+        2. Cédula de Auditoría:
+        ERP Corporativo
+      </h3>
+      
+      <p>
+        <strong>Objetivo:</strong>
+        Mitigar riesgos
+        de fraude interno
+        y proteger
+        registros financieros.
+      </p>
+      
+      <div style="overflow-x:auto; margin-top:20px;">
+      
+      <table style="width:100%; border-collapse:collapse; font-size:13px;">
+      
+      <tr style="background:#9a3412; color:white;">
+      
+      <th style="padding:10px; border:1px solid #fb923c;">ID</th>
+      <th style="padding:10px; border:1px solid #fb923c;">Control</th>
+      <th style="padding:10px; border:1px solid #fb923c;">Resultado</th>
+      
+      </tr>
+      
+      <tr style="background:#fff7ed;">
+      
+      <td style="padding:10px; border:1px solid #fdba74;">ERP-01</td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      MFA y acceso condicional.
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      CUMPLE
+      </td>
+      
+      </tr>
+      
+      <tr>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">ERP-02</td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Segregación de funciones.
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      CUMPLE
+      </td>
+      
+      </tr>
+      
+      <tr style="background:#fff7ed;">
+      
+      <td style="padding:10px; border:1px solid #fdba74;">ERP-03</td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Aprobación trazable de perfiles.
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      CUMPLE
+      </td>
+      
+      </tr>
+      
+      <tr>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">ERP-04</td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Cierre automático de sesiones.
+      </td>
+      <td style="padding:10px; border:1px solid #fdba74;">
+      CUMPLE
+      </td>
+      
+      </tr>
+      
+      </table>
+      
+      </div>
+      
+      <p style="
+        margin-top:20px;
+        background:#ecfccb;
+        padding:15px;
+        border-radius:12px;
+        border:1px solid #bef264;
+      ">
+      
+      <strong>Dictamen Final:</strong>
+      CUMPLE.
+      
+      </p>
+      
+      <!-- MÁS TABLAS -->
+      <h3 style="margin-top:40px;">
+        3. Auditorías Complementarias
+      </h3>
+      
+      <div style="overflow-x:auto; margin-top:20px;">
+      
+      <table style="width:100%; border-collapse:collapse; font-size:13px;">
+      
+      <tr style="background:#c2410c; color:white;">
+      
+      <th style="padding:10px; border:1px solid #fb923c;">
+      Activo
+      </th>
+      
+      <th style="padding:10px; border:1px solid #fb923c;">
+      Resultado
+      </th>
+      
+      <th style="padding:10px; border:1px solid #fb923c;">
+      Riesgo
+      </th>
+      
+      </tr>
+      
+      <tr style="background:#fff7ed;">
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Software de Monitoreo de Red
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Cumplimiento Parcial
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Medio
+      </td>
+      
+      </tr>
+      
+      <tr>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Registros y Credenciales
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Cumple
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Bajo
+      </td>
+      
+      </tr>
+      
+      <tr style="background:#fff7ed;">
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Impresoras Empresariales
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      No Cumple
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Alto
+      </td>
+      
+      </tr>
+      
+      <tr>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Laptops Corporativas
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Cumple
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Bajo
+      </td>
+      
+      </tr>
+      
+      <tr style="background:#fff7ed;">
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Administración Remota
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Cumple
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Bajo
+      </td>
+      
+      </tr>
+      
+      <tr>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Servidores Físicos y Virtuales
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Cumple
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Bajo
+      </td>
+      
+      </tr>
+      
+      <tr style="background:#fff7ed;">
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Intranet Corporativa
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Cumplimiento Parcial
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Medio
+      </td>
+      
+      </tr>
+      
+      <tr>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Documentación y Procesos
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      No Cumple
+      </td>
+      
+      <td style="padding:10px; border:1px solid #fdba74;">
+      Alto
+      </td>
+      
+      </tr>
+      
+      </table>
+      
+      </div>
+      
+      <!-- ACTIVOS EXTERNOS -->
+      <h2 style="margin-top:45px;">
+        II. Gestión de Activos Externos
+      </h2>
+      
+      <p>
+        También se evaluaron
+        activos externos
+        relacionados con:
+      </p>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Servicios Cloud SaaS/PaaS.
+        </li>
+      
+        <li>
+          ISPs y enlaces WAN.
+        </li>
+      
+        <li>
+          Hosting Web.
+        </li>
+      
+        <li>
+          APIs Financieras.
+        </li>
+      
+        <li>
+          DNS Corporativo.
+        </li>
+      
+        <li>
+          Videoconferencia.
+        </li>
+      
+        <li>
+          Redes Sociales Corporativas.
+        </li>
+      
+      </ul>
+      
+      <p>
+        La mayoría
+        de los controles
+        evaluados
+        presentaron
+        cumplimiento satisfactorio
+        bajo marcos:
+      </p>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>ISO 27001.</li>
+        <li>OWASP.</li>
+        <li>NIST.</li>
+        <li>Zero Trust.</li>
+      
+      </ul>
+      
+      <!-- HALLAZGOS -->
+      <h3 style="margin-top:40px;">
+        Clasificación de Hallazgos del SGSI
+      </h3>
+      
+      <h4>
+        No Conformidades Mayores
+      </h4>
+      
+      <div style="
+        background:#fee2e2;
+        border:1px solid #fca5a5;
+        padding:18px;
+        border-radius:15px;
+        margin-top:15px;
+      ">
+      
+        <p>
+          <strong>NC-M-01:</strong>
+          Ausencia de trazabilidad
+          y retención de logs
+          en bases de datos críticas.
+        </p>
+      
+      </div>
+      
+      <h4 style="margin-top:25px;">
+        No Conformidades Menores
+      </h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          DOC-01:
+          Documentos financieros
+          sin etiquetas DLP.
+        </li>
+      
+        <li>
+          IMP-03:
+          Falta procedimiento
+          de purga de memoria
+          en multifuncionales.
+        </li>
+      
+      </ul>
+      
+      <h4 style="margin-top:25px;">
+        Observaciones
+      </h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          FAB-02:
+          Supervisión parcial
+          a proveedores externos.
+        </li>
+      
+        <li>
+          RED-03:
+          Retraso administrativo
+          en revisión de umbrales.
+        </li>
+      
+      </ul>
+      
+      <h4 style="margin-top:25px;">
+        Oportunidades de Mejora
+      </h4>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Implementar automatización
+          para revisión
+          de documentos expuestos
+          en Intranet.
+        </li>
+      
+      </ul>
+      
+      <!-- CONCLUSION -->
+      <h3 style="margin-top:40px;">
+        Conclusión General
+      </h3>
+      
+      <p>
+        Tras la revisión documental,
+        entrevistas técnicas
+        y pruebas de validación,
+        el SGSI de Viakon
+        presenta
+        un cumplimiento general
+        del 85%.
+      </p>
+      
+      <p>
+        La organización demuestra:
+      </p>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Arquitectura Zero Trust sólida.
+        </li>
+      
+        <li>
+          Alta resiliencia perimetral.
+        </li>
+      
+        <li>
+          Controles robustos
+          en identidad y acceso.
+        </li>
+      
+      </ul>
+      
+      <p>
+        Sin embargo,
+        persisten brechas críticas
+        relacionadas con:
+      </p>
+      
+      <ul style="color:#475569; line-height:1.8;">
+      
+        <li>
+          Retención de logs.
+        </li>
+      
+        <li>
+          Trazabilidad SQL.
+        </li>
+      
+        <li>
+          Gestión documental Legacy.
+        </li>
+      
+      </ul>
+      
+      <p style="
+        margin-top:20px;
+        background:#ecfccb;
+        padding:18px;
+        border-radius:15px;
+        border:1px solid #bef264;
+        font-weight:600;
+      ">
+      
+        Dictamen Final:
+        CUMPLE.
+      
+      </p>
+    </section>
+    <section class="content-card">
+      <!-- MEJORA -->
+      <h3>SECCIÓN 10 - Mejora</h3>
+        <!-- ========================= -->
+        <!-- REGISTRO DE INCIDENTE -->
+        <!-- ========================= -->
+        
+        <h2>Registro de No Conformidad Mayor</h2>
+        
+        <h3>
+          Incidente de Seguridad
+        </h3>
+        
+        <div style="
+          background:#fff7ed;
+          border:1px solid #fdba74;
+          border-radius:15px;
+          padding:20px;
+          margin-top:20px;
+        ">
+        
+          <p>
+            <strong>ID de Incidente:</strong>
+            INC-2026-054
+          </p>
+        
+          <p>
+            <strong>Fecha y Hora:</strong>
+            Miércoles 13 de mayo, 23:45 hrs.
+          </p>
+        
+          <p>
+            <strong>Afectación Principal:</strong>
+            Confidencialidad y Disponibilidad
+          </p>
+        
+        </div>
+        
+        <!-- ========================= -->
+        <!-- RESUMEN -->
+        <!-- ========================= -->
+        
+        <h3 style="margin-top:40px;">
+          Resumen Ejecutivo para la Alta Dirección
+        </h3>
+        
+        <h4>¿Qué ocurrió?</h4>
+        
+        <p>
+          Se materializó
+          una intrusión no autorizada
+          dentro del núcleo
+          de la red corporativa de Viakon.
+        </p>
+        
+        <p>
+          Un actor malicioso
+          logró infiltrarse
+          en los sistemas internos,
+          comprometiendo herramientas
+          de administración
+          y accediendo
+          a información crítica
+          contenida en bases de datos
+          corporativas.
+        </p>
+        
+        <p>
+          Posteriormente,
+          intentó desplegar
+          cargas destructivas
+          dirigidas
+          a la infraestructura interna.
+        </p>
+        
+        <h4>¿Cómo ocurrió?</h4>
+        
+        <p>
+          El atacante
+          logró evadir
+          el perímetro de seguridad
+          mediante técnicas avanzadas
+          de ingeniería social
+          y secuestro de sesión
+          (Session Hijacking).
+        </p>
+        
+        <p>
+          A pesar
+          de la implementación
+          de MFA,
+          el intruso
+          aprovechó
+          credenciales válidas
+          pertenecientes
+          a un Energizador legítimo.
+        </p>
+        
+        <p>
+          Una vez dentro,
+          utilizó privilegios excesivos
+          existentes en el ERP,
+          permitiendo movimiento lateral
+          sin activar alertas iniciales.
+        </p>
+        
+        <!-- ========================= -->
+        <!-- ACTIVOS -->
+        <!-- ========================= -->
+        
+        <h3 style="margin-top:40px;">
+          Activos Críticos Afectados
+        </h3>
+        
+        <ol style="color:#475569; line-height:1.9; padding-left:20px;">
+        
+          <li>
+            <strong>Infraestructura Operativa:</strong>
+            Terminales críticas
+            de manufactura
+            afectadas temporalmente
+            por corrupción de software.
+          </li>
+        
+          <li>
+            <strong>Sistemas Estratégicos:</strong>
+            Servidores centrales
+            y bases de datos
+            del ERP Corporativo.
+          </li>
+        
+          <li>
+            <strong>Activos de Información:</strong>
+            Exposición
+            de registros financieros,
+            operativos
+            y datos personales.
+          </li>
+        
+        </ol>
+        
+        <!-- ========================= -->
+        <!-- IMPACTO -->
+        <!-- ========================= -->
+        
+        <h3 style="margin-top:40px;">
+          Cuantificación del Impacto
+        </h3>
+        
+        <div style="overflow-x:auto; margin-top:20px;">
+        
+        <table style="
+          width:100%;
+          border-collapse:collapse;
+          font-size:14px;
+        ">
+        
+        <tr style="background:#c2410c; color:white;">
+        
+        <th style="padding:12px; border:1px solid #fb923c;">
+        Tipo de Impacto
+        </th>
+        
+        <th style="padding:12px; border:1px solid #fb923c;">
+        Descripción
+        </th>
+        
+        </tr>
+        
+        <tr style="background:#fff7ed;">
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Operativo
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Interrupción de operaciones
+        durante 4 horas y 15 minutos
+        en terminales de manufactura.
+        </td>
+        
+        </tr>
+        
+        <tr>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Legal y Normativo
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Riesgo de incumplimiento
+        de la LFPDPPP
+        por exposición
+        de datos personales.
+        </td>
+        
+        </tr>
+        
+        <tr style="background:#fff7ed;">
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Financiero
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Costos asociados
+        a recuperación,
+        forense digital
+        y operación del CSIRT.
+        </td>
+        
+        </tr>
+        
+        <tr>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Reputacional
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        El ataque fue contenido
+        antes de afectar
+        a clientes externos
+        o proveedores.
+        </td>
+        
+        </tr>
+        
+        </table>
+        
+        </div>
+        
+        <!-- ========================= -->
+        <!-- RCA -->
+        <!-- ========================= -->
+        
+        <h3 style="margin-top:40px;">
+          Análisis de Causa Raíz (RCA)
+        </h3>
+        
+        <p>
+          La investigación forense
+          determinó
+          que el incidente
+          se originó
+          debido
+          a múltiples incumplimientos
+          dentro del SGSI.
+        </p>
+        
+        <ul style="color:#475569; line-height:1.9;">
+        
+          <li>
+            Violación
+            del estándar
+            de conexiones VPN seguras.
+          </li>
+        
+          <li>
+            Deficiencia
+            en segregación de funciones
+            dentro del ERP.
+          </li>
+        
+          <li>
+            Ausencia
+            de cifrado avanzado
+            en datos sensibles.
+          </li>
+        
+          <li>
+            Omisión
+            de hardening
+            en servidores críticos.
+          </li>
+        
+        </ul>
+        
+        <!-- ========================= -->
+        <!-- CONTEXTO TECNICO -->
+        <!-- ========================= -->
+        
+        <h3 style="margin-top:40px;">
+          Contexto Técnico
+        </h3>
+        
+        <p>
+          El incidente
+          fue analizado
+          mediante:
+        </p>
+        
+        <ul style="color:#475569; line-height:1.8;">
+        
+          <li>
+            Cyber Kill Chain.
+          </li>
+        
+          <li>
+            Modelo Diamante
+            de Intrusiones.
+          </li>
+        
+          <li>
+            Correlación SIEM.
+          </li>
+        
+        </ul>
+        
+        <p>
+          Se identificó
+          el uso
+          de técnicas
+          de Session Hijacking,
+          permitiendo
+          al atacante
+          saltar controles
+          perimetrales tradicionales.
+        </p>
+        
+        <!-- ========================= -->
+        <!-- PLAN -->
+        <!-- ========================= -->
+        
+        <h3 style="margin-top:40px;">
+          Plan de Acción Correctiva (CAP)
+        </h3>
+        
+        <h4>Contención Inmediata</h4>
+        
+        <ul style="color:#475569; line-height:1.8;">
+        
+          <li>
+            Aislamiento inmediato
+            de la VLAN comprometida.
+          </li>
+        
+          <li>
+            Revocación
+            de tokens activos.
+          </li>
+        
+          <li>
+            Bloqueo de sesiones
+            comprometidas.
+          </li>
+        
+        </ul>
+        
+        <h4>Erradicación y Recuperación</h4>
+        
+        <ul style="color:#475569; line-height:1.8;">
+        
+          <li>
+            Restauración
+            de respaldos incrementales.
+          </li>
+        
+          <li>
+            Recuperación del ERP
+            dentro del RTO establecido.
+          </li>
+        
+          <li>
+            Validación
+            de integridad
+            de servidores críticos.
+          </li>
+        
+        </ul>
+        
+        <!-- ========================= -->
+        <!-- MEJORA CONTINUA -->
+        <!-- ========================= -->
+        
+        <h3 style="margin-top:40px;">
+          Mejora Continua y Prevención
+        </h3>
+        
+        <p>
+          Conforme
+          a la Cláusula 10
+          de ISO 27001,
+          se autorizaron
+          mejoras estratégicas
+          para evitar
+          incidentes futuros.
+        </p>
+        
+        <div style="overflow-x:auto; margin-top:20px;">
+        
+        <table style="
+          width:100%;
+          border-collapse:collapse;
+          font-size:13px;
+        ">
+        
+        <tr style="background:#9a3412; color:white;">
+        
+        <th style="padding:12px; border:1px solid #fb923c;">
+        Área
+        </th>
+        
+        <th style="padding:12px; border:1px solid #fb923c;">
+        Mejora Implementada
+        </th>
+        
+        </tr>
+        
+        <tr style="background:#fff7ed;">
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Identidad
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Implementación
+        de Device Posture
+        bajo modelo Zero Trust.
+        </td>
+        
+        </tr>
+        
+        <tr>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Segmentación
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        VLANs restrictivas
+        para ERP
+        y manufactura.
+        </td>
+        
+        </tr>
+        
+        <tr style="background:#fff7ed;">
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Monitoreo
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Auditoría automatizada
+        de bases de datos
+        en tiempo real.
+        </td>
+        
+        </tr>
+        
+        <tr>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Concientización
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Campaña interna
+        contra ingeniería social
+        y robo de credenciales.
+        </td>
+        
+        </tr>
+        
+        </table>
+        
+        </div>
+        
+        <!-- ========================= -->
+        <!-- KPIS -->
+        <!-- ========================= -->
+        
+        <h3 style="margin-top:40px;">
+          Indicadores de Rendimiento (KPIs)
+        </h3>
+        
+        <div style="overflow-x:auto; margin-top:20px;">
+        
+        <table style="
+          width:100%;
+          border-collapse:collapse;
+          font-size:14px;
+        ">
+        
+        <tr style="background:#c2410c; color:white;">
+        
+        <th style="padding:12px; border:1px solid #fb923c;">
+        Indicador
+        </th>
+        
+        <th style="padding:12px; border:1px solid #fb923c;">
+        Resultado
+        </th>
+        
+        <th style="padding:12px; border:1px solid #fb923c;">
+        Evaluación
+        </th>
+        
+        </tr>
+        
+        <tr style="background:#fff7ed;">
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        MTTD
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        14 minutos
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Resultado Positivo
+        </td>
+        
+        </tr>
+        
+        <tr>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        MTTR
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        4 horas 15 minutos
+        </td>
+        
+        <td style="padding:10px; border:1px solid #fdba74;">
+        Área de Oportunidad
+        </td>
+        
+        </tr>
+        
+        </table>
+        
+        </div>
+        
+        <p style="
+          margin-top:20px;
+          background:#ecfccb;
+          border:1px solid #bef264;
+          padding:18px;
+          border-radius:15px;
+          font-weight:600;
+        ">
+        
+          Se integrarán playbooks SOAR
+          para reducir
+          el MTTR
+          en un 60%
+          durante futuros incidentes.
+        
+        </p>
+
+        <div style="margin-top:25px;">
+
+          <img 
+            src="../Parcial_3/flyer.png"
+            alt="Descripción"
+            style="
+              width:100%;
+              border-radius:15px;
+              border:1px solid #e2e8f0;
+            ">        
+        </div>
+
+      <img src="">
+
+    </div>
+
+  </div>
+
+    </section>
+ <footer>
+
+        <p>Seguridad Informática - Universidad Politécnica de San Luis Potosí</p>
+        <p>Carol Elizabeth Cortes Beltran - 177203@upslp.edu.mx</p>
+        <p style="font-size: 0.7em; margin-top: 10px; opacity: 0.4;">&copy; 2026 </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/animaciones.js"></script>
+    <script src="../assets/js/estiloPR03.js"></script>
+    <script src="../assets/js/estilo_tablas.js"></script>
+</body>
+</html>

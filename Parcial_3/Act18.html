@@ -1,0 +1,616 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>Actividad 18 – Análisis de intrusiones con el modelo diamante</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="../assets/css/estilo_texto.css" />
+     <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="../assets/css/estilo_texto.css" />
+ <link rel="stylesheet" href="../assets/css/act18.css" />
+    <style>
+        .container-white {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .text-block {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        #indice {
+            background: linear-gradient(135deg, rgba(75, 0, 75, 0.05), rgba(122, 31, 110, 0.05));
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        #indice ol {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #indice li {
+            margin: 10px 0;
+        }
+
+        #indice a {
+            text-decoration: none;
+            color: #4a474e;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        #indice a:hover {
+            color: #b08d94;
+            padding-left: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        th {
+            background: #4a474e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        .diamond-placeholder {
+            border: 2px dashed #b08d94;
+            background: #fdf2f4;
+            min-height: 250px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            border-radius: 16px;
+            color: #4a474e;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .container-white, .text-block {
+                margin: 20px;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header id="header-superior">
+    <div class="logo">CNO V: Seguridad Informática</div>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        
+        <!-- Actividades -->
+        <div class="dropdown-container" id="menu-actividades">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'actividades')">
+                Actividades <span class="arrow" id="arrow-actividades">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-actividades-dropdown">
+                <a href="../index.html#one">Parcial I</a>
+                <a href="../index.html#two">Parcial II</a>
+                <a href="../index.html#three">Parcial III</a>
+            </div>
+        </div>
+
+        <!-- Road to Hall of Fame -->
+        <div class="dropdown-container" id="menu-road">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'road')">
+                ROAD TO HALL OF FAME <span class="arrow" id="arrow-road">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-road-dropdown">
+                <a href="../Parcial_2/SQL_Injection.html">SQL Injection</a>
+            </div>
+        </div>
+
+        <!-- Proyectos -->
+        <div class="dropdown-container" id="menu-proyectos">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'proyectos')">
+                Proyectos <span class="arrow" id="arrow-proyectos">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-proyectos-dropdown">
+                <a href="#">PR01</a>
+                <a href="../Parcial_2/PR02-01.html">PR02</a>
+                <a href="../Parcial_3/PR03.html">PR03</a>
+            </div>
+        </div>
+
+        <!-- Certificaciones -->
+        <div class="dropdown-container" id="menu-certificaciones">
+            <a href="../Certificaciones/certificaciones.html" class="dropdown-toggle" >
+                Certificaciones 
+            </a>
+            
+        </div>
+
+        <!-- Descargar documento -->
+        <a href="act18-Equipo3.pdf" download="Documento Act18">Descargar documento</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2>Actividad 18 - 177203</h2>
+        <h1 class="titulo-principal">Análisis de intrusiones con el modelo diamante</h1>
+    </div>
+    <div class="wave-shape">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#ffffff" d="M0,192L60,197.3C120,203,240,213,360,192C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- DATOS GENERALES -->
+<div class="container-white" id="datos-generales">
+    
+    <p><strong>Curso:</strong> Núcleo Optativo V: Seguridad Informática</p>
+    <p><strong>Docente:</strong> Mtro. Servando López Contreras</p>
+    <p><strong>Grupo:</strong> T46A</p>
+    <p><strong>Fecha:</strong> Marzo 2026</p>
+
+    <h2>Integrantes del equipo</h2>
+    <ul>
+        <li>Benites Rangel Cesar Yahir – 179091</li>
+        <li>Cortes Beltrán Carol Elizabeth – 177203</li>
+        <li>Guerra Ramírez América Fabiola – 179888</li>
+        <li>Larios Guerra Gustavo Michael – 178318</li>
+        <li>Montelongo Martínez Laura Ivon – 177291</li>
+        <li>Puente Luna Bruno Axel – 177876</li>
+        <li>Rodríguez Moreno Cristian Alejandro – 181641</li>
+    </ul>
+
+    <!-- ÍNDICE -->
+    <div id="indice">
+        <h2>Índice</h2>
+        <ol>
+            <li><a href="#comprension-modelo">Parte 01: Comprensión del modelo</a></li>
+            <li><a href="#analisis-evento">Parte 02: Análisis de evento (modelo diamante)</a></li>
+            <li><a href="#kill-chain">Parte 03: Relación con la Kill Chain</a></li>
+            <li><a href="#hilos-actividad">Parte 04: Hilos de actividad</a></li>
+            <li><a href="#dibujos">Dibujos del modelo diamante</a></li>
+            <li><a href="#referencias">Referencias</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- PARTE 01: COMPRENSIÓN DEL MODELO -->
+<section id="comprension-modelo" class="text-block">
+    <h2>Parte 01: Comprensión del modelo</h2>
+    <p>
+        El <strong>Modelo del Diamante para el análisis de intrusiones</strong> es un marco formal que 
+        describe cada incidente de intrusión cibernética a través de cuatro elementos 
+        interconectados (el adversario, la capacidad, la infraestructura y la víctima) 
+        dispuestos en forma de diamante para permitir un análisis estructurado de la 
+        inteligencia sobre amenazas basado en las relaciones.
+    </p>
+
+    <h3>Elementos del modelo diamante</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Elemento</th>
+                <th>Descripción</th>
+                <th>Ejemplo Práctico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Adversario</strong></td>
+                <td>El actor o grupo malicioso responsable de la intrusión. Puede tratarse desde un grupo APT concreto hasta un actor desconocido identificado únicamente por sus patrones de comportamiento.</td>
+                <td>Un grupo de cibercrimen con motivaciones financieras o un estado-nación buscando espionaje.</td>
+            </tr>
+            <tr>
+                <td><strong>Capacidad</strong></td>
+                <td>Describe las herramientas, técnicas y procedimientos (TTP) utilizados por el adversario para ejecutar el evento.</td>
+                <td>Uso de un malware tipo Ransomware, scripts en PowerShell o un exploit de día cero (0-day).</td>
+            </tr>
+            <tr>
+                <td><strong>Infraestructura</strong></td>
+                <td>Son los recursos lógicos y físicos que el adversario utiliza para entregar la capacidad y comunicarse.</td>
+                <td>Servidores de Comando y Control (C2), dominios maliciosos registrados o direcciones IP de una botnet.</td>
+            </tr>
+            <tr>
+                <td><strong>Víctima</strong></td>
+                <td>El objetivo del ataque. Puede ser una organización, un usuario específico, una dirección IP o un activo crítico (base de datos).</td>
+                <td>El servidor de bases de datos de una institución financiera o el endpoint de un empleado administrativo.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- PARTE 02: ANÁLISIS DE EVENTO -->
+<section id="analisis-evento" class="text-block">
+    <h2>Parte 02: Análisis de evento (modelo diamante)</h2>
+    
+    <h3>Escenario</h3>
+    <p>Una organización detecta comportamiento anómalo en un equipo. El análisis revela:</p>
+    <ol>
+        <li>La víctima detecta malware.</li>
+        <li>El malware contiene dominios de Comando y Control (C2).</li>
+        <li>Los dominios resuelven a direcciones IP externas.</li>
+        <li>Logs muestran múltiples hosts conectándose a esas IP.</li>
+        <li>WHOIS/IP revela posible origen del atacante.</li>
+    </ol>
+
+    <h3>Meta características del evento</h3>
+    <table>
+        <thead>
+            <tr><th>Meta característica</th><th>Descripción del evento</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Marca de tiempo</td><td>Fecha y hora exacta registrada en los logs de red y del antivirus (necesaria para la línea del tiempo).</td></tr>
+            <tr><td>Fase</td><td>Command and Control (C2) y Actions on Objectives. El malware ya está instalado y busca instrucciones externas.</td></tr>
+            <tr><td>Resultado</td><td>Éxito parcial/total. El malware se ejecutó y logró contactar a la infraestructura del adversario; existe riesgo de exfiltración.</td></tr>
+            <tr><td>Dirección</td><td>El tráfico fluye desde la red interna (víctima) hacia las IPs externas (infraestructura).</td></tr>
+            <tr><td>Metodología</td><td>Beaconing. Comunicación persistente y periódica entre el host infectado y el C2 para recibir comandos.</td></tr>
+            <tr><td>Recursos</td><td>Capacidad del malware para resolver nombres de dominio (DNS) y establecer túneles de comunicación cifrada.</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Preguntas del análisis</h3>
+    
+    <h4>1. ¿Quién es el adversario en este escenario?</h4>
+    <p>Aunque la identidad real suele ser difícil de atribuir, el adversario se define por el actor o grupo de amenazas identificado mediante la geolocalización de las IPs y los datos de registro de los dominios (WHOIS). Técnicamente, se describe como el <strong>Threat Actor</strong> con la infraestructura de C2 activa.</p>
+
+    <h4>2. ¿Cuál es la capacidad utilizada?</h4>
+    <p>La capacidad es el <strong>malware persistente</strong> detectado en los endpoints. Esta incluye funciones de evasión y, específicamente, la capacidad de comunicación mediante balizas (<strong>beaconing</strong>) para contactar con los dominios de Comando y Control (C2).</p>
+
+    <h4>3. ¿Qué tipo de infraestructura se emplea?</h4>
+    <p>Se emplea una <strong>Infraestructura de Comando y Control (C2) de nivel 2</strong>. Esta consiste en nombres de dominio maliciosos y direcciones IP externas que actúan como puntos de recepción de datos y envío de instrucciones.</p>
+
+    <h4>4. ¿Quién es la víctima primaria?</h4>
+    <p>La víctima primaria es el <strong>host inicial</strong> donde se detectó el malware. Sin embargo, en el modelo diamante, la <strong>organización completa</strong> es considerada la víctima de nivel superior, mientras que los activos específicos (servidores/equipos) son las víctimas de nivel técnico.</p>
+
+    <h4>5. ¿Existe evidencia de movimiento lateral?</h4>
+    <p><strong>Sí.</strong> El hecho de que los logs muestren "múltiples hosts" conectándose a las mismas IPs de C2 sugiere que el malware se ha propagado internamente (<strong>movimiento lateral</strong>) o que se realizó un despliegue masivo tras comprometer un controlador de dominio o mediante herramientas de administración.</p>
+</section>
+
+<!-- PARTE 03: RELACIÓN CON LA KILL CHAIN -->
+<section id="kill-chain" class="text-block">
+    <h2>Parte 03: Relación con la Kill Chain</h2>
+    
+    <h3>Las 7 fases de la Cyber Kill Chain</h3>
+    <ul>
+        <li><strong>Fase 1: Reconocimiento (Reconnaissance)</strong> - El atacante recopila información sobre el objetivo.</li>
+        <li><strong>Fase 2: Armamento (Weaponization)</strong> - Desarrollo o adaptación de un arma cibernética.</li>
+        <li><strong>Fase 3: Entrega (Delivery)</strong> - Transmisión del malware al objetivo (phishing, USB, sitios web comprometidos).</li>
+        <li><strong>Fase 4: Explotación (Exploitation)</strong> - Activación del código malicioso.</li>
+        <li><strong>Fase 5: Instalación (Installation)</strong> - Establecimiento de presencia persistente.</li>
+        <li><strong>Fase 6: Comando y Control (Command and Control)</strong> - Establecimiento de comunicación con el sistema comprometido.</li>
+        <li><strong>Fase 7: Acciones sobre el Objetivo (Actions on Objectives)</strong> - Robo de datos, sabotaje o espionaje.</li>
+    </ul>
+
+    <h3>Mapeo de eventos a la Kill Chain</h3>
+    <table>
+        <thead>
+            <tr><th>Evento</th><th>Fase Kill Chain</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Detección de malware</td><td>Entrega (Delivery): El atacante transmite el vector de ataque al objetivo.</td></tr>
+            <tr><td>Envío de phishing</td><td>Explotación / Instalación: El código malicioso se activa aprovechando una vulnerabilidad o acción del usuario.</td></tr>
+            <tr><td>Conexión a C2</td><td>Comando y Control: El sistema comprometido abre un canal de comunicación con el atacante.</td></tr>
+            <tr><td>Ejecución del malware</td><td>Post-Intrusión: No es una fase del atacante, sino el punto de interrupción (Break the Chain) por parte de la defensa.</td></tr>
+        </tbody>
+    </table>
+</section>
+<!-- PARTE 04: HILOS DE ACTIVIDAD -->
+<section id="hilos-actividad" class="text-block">
+    <h2>Parte 04: Hilos de actividad</h2>
+    
+    <h3>Escenario tipo APT</h3>
+    <ul>
+        <li>Phishing dirigido a administrador.</li>
+        <li>Ejecución de malware.</li>
+        <li>Conexión a C2.</li>
+        <li>Uso del host comprometido como proxy.</li>
+        <li>Ataque a segunda víctima.</li>
+    </ul>
+
+    <h3>Hilo 1 (Víctima 1)</h3>
+    <p><strong>Descripción:</strong> Un administrador (Víctima 1) recibe un correo de phishing dirigido. Al ejecutar el archivo, se instala un malware que establece una conexión persistente a un servidor C2.</p>
+    <p><strong>Ejes del Diamante:</strong> Adversario (APT) → Capacidad (Malware) → Infraestructura (C2) → Víctima (Admin).</p>
+
+    <h3>Hilo 2 (Víctima 2)</h3>
+    <p><strong>Descripción:</strong> El atacante utiliza el host del administrador como un Proxy para ocultar su rastro y saltar las protecciones perimetrales. Desde aquí, lanza un ataque hacia la base de datos o el servidor financiero (Víctima 2).</p>
+    <p><strong>Ejes del Diamante:</strong> El host de la Víctima 1 ahora forma parte de la <strong>Infraestructura</strong> del atacante para alcanzar a la Víctima 2.</p>
+
+    <h3>Relación entre ambos (Pivoting)</h3>
+    <p>El <strong>Pivoting</strong> es la técnica donde el atacante usa un sistema comprometido para atacar otros sistemas en la misma red o en redes diferentes que no eran accesibles directamente desde internet. La relación es de <strong>Infraestructura-Víctima</strong>: lo que para el primer hilo era la víctima, para el segundo se convierte en infraestructura de ataque.</p>
+</section>
+<!-- DIBUJOS DEL MODELO DIAMANTE -->
+<section id="dibujos" class="text-block">
+    <h2>Dibujos del modelo diamante</h2>
+    
+    <!-- DIBUJO DEL HILO 1 -->
+    <h3>Dibujo del Hilo 1</h3>
+    
+    <div class="diamond-diagram">
+        <h4 class="diagram-heading">Dibujo</h4>
+        <p class="diagram-caption">Dibujo del Hilo 1</p>
+        
+        <div class="diamond-shape">
+            <!-- Flechas/conexiones animadas -->
+            <svg class="diamond-connections" viewBox="0 0 500 450">
+                <!-- Línea Superior → Izquierda -->
+                <line x1="250" y1="70" x2="120" y2="180" class="flow-line line1" />
+                <!-- Línea Superior → Derecha -->
+                <line x1="250" y1="70" x2="380" y2="180" class="flow-line line2" />
+                <!-- Línea Izquierda → Abajo -->
+                <line x1="120" y1="180" x2="250" y2="400" class="flow-line line3" />
+                <!-- Línea Derecha → Abajo -->
+                <line x1="380" y1="180" x2="250" y2="400" class="flow-line line4" />
+                
+                <!-- Puntos en las conexiones -->
+                <circle cx="185" cy="125" r="3" fill="#FF66A3" class="dot dot1" />
+                <circle cx="315" cy="125" r="3" fill="#FF66A3" class="dot dot2" />
+                <circle cx="185" cy="290" r="3" fill="#FF66A3" class="dot dot3" />
+                <circle cx="315" cy="290" r="3" fill="#FF66A3" class="dot dot4" />
+            </svg>
+            
+            <!-- Nodo Superior: ADVERSARIO -->
+            <div class="diamond-node node-adversario" data-info="adversario">
+                <div class="node-role">ADVERSARIO</div>
+                <div class="node-name">Actor APT</div>
+            </div>
+            
+            <!-- Nodo Izquierdo: CAPACIDAD -->
+            <div class="diamond-node node-capacidad" data-info="capacidad">
+                <div class="node-role">CAPACIDAD</div>
+                <div class="node-name">Correo Phishing y Malware C2</div>
+            </div>
+            
+            <!-- Nodo Derecho: INFRAESTRUCTURA -->
+            <div class="diamond-node node-infraestructura" data-info="infraestructura">
+                <div class="node-role">INFRAESTRUCTURA</div>
+                <div class="node-name">Servidor de Correo malicioso y Servidor de Comando y Control (C2)</div>
+            </div>
+            
+            <!-- Nodo Inferior: VÍCTIMA -->
+            <div class="diamond-node node-victima" data-info="victima">
+                <div class="node-role">VÍCTIMA</div>
+                <div class="node-name">Administrador</div>
+            </div>
+        </div>
+        
+        <!-- Panel de información -->
+        <div class="info-card-diamond" id="diamondInfoCard">
+            <div class="info-icon-diamond">💎</div>
+            <div class="info-text-diamond">
+                <div class="info-title" id="infoTitle">Modelo Diamante</div>
+                <div class="info-desc" id="infoDesc">Haz clic en cualquier elemento para ver su descripción detallada</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- DIBUJO DEL HILO 2 -->
+<h3>Dibujo del Hilo 2</h3>
+
+<div class="diamond-diagram hilo2-diagram">
+    <h4 class="diagram-heading">Dibujo</h4>
+    <p class="diagram-caption">Dibujo del Hilo 2</p>
+    
+    <div class="diamond-shape">
+        <!-- Flechas/conexiones animadas -->
+        <svg class="diamond-connections" viewBox="0 0 500 450">
+            <!-- Línea Superior → Izquierda -->
+            <line x1="250" y1="70" x2="120" y2="180" class="flow-line line1" />
+            <!-- Línea Superior → Derecha -->
+            <line x1="250" y1="70" x2="380" y2="180" class="flow-line line2" />
+            <!-- Línea Izquierda → Abajo -->
+            <line x1="120" y1="180" x2="250" y2="400" class="flow-line line3" />
+            <!-- Línea Derecha → Abajo -->
+            <line x1="380" y1="180" x2="250" y2="400" class="flow-line line4" />
+            
+            <!-- Puntos en las conexiones -->
+            <circle cx="185" cy="125" r="3" fill="#FF66A3" class="dot dot1" />
+            <circle cx="315" cy="125" r="3" fill="#FF66A3" class="dot dot2" />
+            <circle cx="185" cy="290" r="3" fill="#FF66A3" class="dot dot3" />
+            <circle cx="315" cy="290" r="3" fill="#FF66A3" class="dot dot4" />
+        </svg>
+        
+        <!-- Nodo Superior: ADVERSARIO -->
+        <div class="diamond-node node-adversario" data-info="adversario-h2">
+            <div class="node-role">ADVERSARIO</div>
+            <div class="node-name">Actor APT</div>
+        </div>
+        
+        <!-- Nodo Izquierdo: CAPACIDAD -->
+        <div class="diamond-node node-capacidad" data-info="capacidad-h2">
+            <div class="node-role">CAPACIDAD</div>
+            <div class="node-name">Movimiento lateral<br>Explotación SMB</div>
+        </div>
+        
+        <!-- Nodo Derecho: INFRAESTRUCTURA -->
+        <div class="diamond-node node-infraestructura" data-info="infraestructura-h2">
+            <div class="node-role">INFRAESTRUCTURA</div>
+            <div class="node-name">Equipo del Administrador<br><span class="node-sub">(Usado como Proxy)</span></div>
+        </div>
+        
+        <!-- Nodo Inferior: VÍCTIMA -->
+        <div class="diamond-node node-victima" data-info="victima-h2">
+            <div class="node-role">VÍCTIMA</div>
+            <div class="node-name">Segunda Víctima<br><span class="node-sub">(Servidor o Empleado)</span></div>
+        </div>
+    </div>
+    
+    <!-- Panel de información -->
+    <div class="info-card-diamond" id="infoCardHilo2">
+        <div class="info-icon-diamond">🔄</div>
+        <div class="info-text-diamond">
+            <div class="info-title" id="infoTitleHilo2">Modelo Diamante - Hilo 2</div>
+            <div class="info-desc" id="infoDescHilo2">Haz clic en cualquier elemento para ver su descripción detallada</div>
+        </div>
+    </div>
+</div>
+    
+   <!-- DIBUJO DE LA RELACIÓN ENTRE AMBOS (PIVOTING) -->
+<h3>Dibujo de la relación entre ambos (Pivoting)</h3>
+
+<div class="pivoting-diagram">
+    <h4 class="diagram-heading">Dibujo</h4>
+    <p class="diagram-caption">Relación entre Hilo 1 y Hilo 2 - Pivoting</p>
+    
+    <!-- Ataque Inicial (Fase 1) -->
+    <div class="phase phase-initial">
+        <div class="phase-title">⚡ Ataque Inicial</div>
+        <div class="phase-nodes">
+            <div class="pivot-node node-adversario" data-info="adversario-pivot">
+                <div class="node-role">ADVERSARIO</div>
+                <div class="node-name">Actor APT</div>
+            </div>
+            
+            <div class="pivot-arrow">→</div>
+            
+            <div class="pivot-node node-phishing" data-info="phishing">
+                <div class="node-role">VECTOR</div>
+                <div class="node-name">Phishing</div>
+            </div>
+            
+            <div class="pivot-arrow">→</div>
+            
+            <div class="pivot-node node-admin" data-info="admin-comprometido">
+                <div class="node-role">VÍCTIMA INICIAL</div>
+                <div class="node-name">Administrador</div>
+                <div class="node-sub">(Se convierte en infraestructura de ataque)</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Conexión entre fases -->
+    <div class="phase-connector">
+        <svg width="100%" height="40" viewBox="0 0 600 40" preserveAspectRatio="none">
+            <line x1="300" y1="0" x2="300" y2="40" stroke="#FF66A3" stroke-width="2" stroke-dasharray="6 4" class="vertical-flow" />
+            <circle cx="300" cy="20" r="4" fill="#FF66A3" class="pulse-dot" />
+        </svg>
+        <div class="connector-label">🔄 Pivoting / Movimiento Lateral</div>
+    </div>
+    
+    <!-- Movimiento Lateral (Fase 2) -->
+    <div class="phase phase-lateral">
+        <div class="phase-title">🎯 Movimiento Lateral</div>
+        <div class="phase-nodes horizontal-layout">
+            <div class="pivot-node node-lateral" data-info="mov-lateral">
+                <div class="node-role">CAPACIDAD</div>
+                <div class="node-name">Mov. Lateral</div>
+            </div>
+            
+            <div class="pivot-arrow">→</div>
+            
+            <div class="pivot-node node-proxy" data-info="proxy">
+                <div class="node-role">INFRAESTRUCTURA</div>
+                <div class="node-name">Administrador como proxy</div>
+            </div>
+            
+            <div class="pivot-arrow">→</div>
+            
+            <div class="pivot-node node-victima2" data-info="victima2">
+                <div class="node-role">VÍCTIMA SECUNDARIA</div>
+                <div class="node-name">Segunda Víctima</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Panel de información -->
+    <div class="info-card-diamond info-card-pivoting" id="infoCardPivoting">
+        <div class="info-icon-diamond">🔄</div>
+        <div class="info-text-diamond">
+            <div class="info-title" id="infoTitlePivoting">Relación entre Hilos (Pivoting)</div>
+            <div class="info-desc" id="infoDescPivoting">Haz clic en cualquier elemento para ver su descripción detallada en el contexto del pivoting</div>
+        </div>
+    </div>
+</div>
+<!-- REFERENCIAS -->
+<section id="referencias" class="text-block">
+    <h2>Referencias</h2>
+    <ul>
+        <li>Caltagirone, S., Pendergast, A., & Betz, C. (2013). <em>The Diamond Model of Intrusion Analysis</em>. Center for Cyber Threat Intelligence and Incident Response. <a href="http://www.activeresponse.org/wp-content/uploads/2013/07/diamond_model.pdf" target="_blank">http://www.activeresponse.org/</a></li>
+        <li>Cardiet, L. (2026, 6 mayo). <em>The Diamond Model of intrusion analysis: a practitioner's guide to structured threat intelligence</em>. Vectra AI. <a href="https://es.vectra.ai/topics/diamond-model-of-intrusion-analysis" target="_blank">https://es.vectra.ai/</a></li>
+        <li>El modelo diamante vs MITRE ATT&CK. (s. f.). <em>Segu-Info - Ciberseguridad Desde 2000</em>. <a href="https://blog.segu-info.com.ar/2023/11/el-modelo-diamante-vs-mitre-att.html" target="_blank">https://blog.segu-info.com.ar/</a></li>
+        <li>Lockheed Martin. (2022). <em>Cyber Kill Chain</em>. Lockheed Martin Corporation. <a href="https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html" target="_blank">https://www.lockheedmartin.com/</a></li>
+        <li>MITRE. (2024). <em>ATT&CK Matrix for Enterprise</em>. MITRE Corporation. <a href="https://attack.mitre.org/" target="_blank">https://attack.mitre.org/</a></li>
+        <li>Seguridad, R. R. (2025, 23 mayo). <em>Cyber Kill Chain: Las 7 fases de un ciberataque</em>. Revista Seguridad 360. <a href="https://revistaseguridad360.com/noticias/ciberseguridad/cyber-kill-chain-las-7-fases-de-un-ciberataque/" target="_blank">https://revistaseguridad360.com/</a></li>
+    </ul>
+</section>
+
+<footer>
+    <p>Seguridad Informática - Universidad Politécnica de San Luis Potosí</p>
+    <p style="font-size: 0.7em; margin-top: 10px; opacity: 0.4;">&copy; 2026 Actividad 18 - Análisis de intrusiones con el modelo diamante</p>
+</footer>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/animaciones.js"></script>
+<script>
+    // Función para alternar el menú desplegable
+    function toggleMenu(event, menuId) {
+        event.preventDefault();
+        const dropdownMenu = document.getElementById(`menu-${menuId}-dropdown`);
+        const arrow = document.getElementById(`arrow-${menuId}`);
+        if (dropdownMenu && arrow) {
+            dropdownMenu.classList.toggle('show');
+            arrow.classList.toggle('rotate');
+        }
+    }
+
+    // Cerrar cualquier menú al hacer clic fuera
+    document.addEventListener('click', function(event) {
+        const containers = document.querySelectorAll('.dropdown-container');
+        containers.forEach(container => {
+            const menuId = container.id.replace('menu-', '');
+            const dropdownMenu = document.getElementById(`menu-${menuId}-dropdown`);
+            const arrow = document.getElementById(`arrow-${menuId}`);
+            if (dropdownMenu && arrow && !container.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+                arrow.classList.remove('rotate');
+            }
+        });
+    });
+
+    // Cerrar menús después de hacer clic en una opción
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+            document.querySelectorAll('.arrow').forEach(arrow => {
+                arrow.classList.remove('rotate');
+            });
+        });
+    });
+</script>
+<script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/animaciones.js"></script>
+    <script src="../assets/js/estiloPR03.js"></script>
+    <script src="../assets/js/estilo_tablas.js"></script>
+    <script src="../assets/js/act18.js"></script>
+</body>
+</html>

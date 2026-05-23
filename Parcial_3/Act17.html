@@ -1,0 +1,478 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>ACT 17 - Evaluación CVSS v3.1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="../assets/css/estilo_texto.css" />
+
+    <style>
+        /* Estilos para el contenedor blanco y el índice */
+        .container-white {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-block, .info-card {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        #indice {
+            background: linear-gradient(135deg, rgba(75, 0, 75, 0.05), rgba(122, 31, 110, 0.05));
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        #indice ol {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #indice li {
+            margin: 10px 0;
+        }
+
+        #indice a {
+            text-decoration: none;
+            color: #4a474e;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        #indice a:hover {
+            color: #b08d94;
+            padding-left: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        th {
+            background: #4a474e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: inline-block;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container-white, .text-block, .info-card {
+                margin: 20px;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header id="header-superior">
+    <div class="logo">CNO V: Seguridad Informática</div>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        
+        <!-- Actividades -->
+        <div class="dropdown-container" id="menu-actividades">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'actividades')">
+                Actividades <span class="arrow" id="arrow-actividades">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-actividades-dropdown">
+                <a href="../index.html#one">Parcial I</a>
+                <a href="../index.html#two">Parcial II</a>
+                <a href="../index.html#three">Parcial III</a>
+            </div>
+        </div>
+
+        <!-- Road to Hall of Fame -->
+        <div class="dropdown-container" id="menu-road">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'road')">
+                ROAD TO HALL OF FAME <span class="arrow" id="arrow-road">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-road-dropdown">
+                <a href="../Parcial_2/SQL_Injection.html">SQL Injection</a>
+            </div>
+        </div>
+
+        <!-- Proyectos -->
+        <div class="dropdown-container" id="menu-proyectos">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'proyectos')">
+                Proyectos <span class="arrow" id="arrow-proyectos">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-proyectos-dropdown">
+                <a href="#">PR01</a>
+                <a href="../Parcial_2/PR02-01.html">PR02</a>
+                <a href="../Parcial_3/PR03.html">PR03</a>
+            </div>
+        </div>
+
+        <!-- Certificaciones -->
+        <div class="dropdown-container" id="menu-certificaciones">
+            <a href="../Certificaciones/certificaciones.html" class="dropdown-toggle" >
+                Certificaciones 
+            </a>
+            
+        </div>
+
+        <!-- Descargar documento -->
+        <a href="act17-Equipo3.pdf" download="Actividad 17">Descargar documento</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2>Actividad 17 - 177203</h2>
+        <h1 class="titulo-principal">Evaluación de vulnerabilidades con CVSS 3.1</h1>
+    </div>
+    <div class="wave-shape">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#ffffff" d="M0,192L60,197.3C120,203,240,213,360,192C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- DATOS GENERALES - Contenedor blanco -->
+<div class="container-white" id="datos-generales">
+    <h2>Datos Generales</h2>
+    <p><strong>Docente:</strong> Mtro. Servando López Contreras</p>
+    <p><strong>Grupo:</strong> T46A</p>
+    <p><strong>Fecha:</strong> Marzo 2026</p>
+    <p><strong>Asignatura:</strong> CNO V – Seguridad Informática | Actividad 17</p>
+
+    <h2>Integrantes del equipo</h2>
+    <ul>
+        <li>Benites Rangel Cesar Yahir – 179091</li>
+        <li>Cortes Beltrán Carol Elizabeth – 177203</li>
+        <li>Guerra Ramírez América Fabiola – 179888</li>
+        <li>Larios Guerra Gustavo Michael – 178318</li>
+        <li>Montelongo Martínez Laura Ivon – 177291</li>
+        <li>Puente Luna Bruno Axel – 177876</li>
+        <li>Rodríguez Moreno Cristian Alejandro – 181641</li>
+    </ul>
+
+    <!-- ÍNDICE -->
+    <div id="indice">
+        <h2>Índice</h2>
+        <ol>
+            <li><a href="#construccion-vector">1. Construcción del Vector</a></li>
+            <li><a href="#interpretacion-tecnica">2. Interpretación Técnica</a></li>
+            <li><a href="#calculo-puntuacion">3. Cálculo de Puntuación</a></li>
+            <li><a href="#conclusion">4. Conclusión</a></li>
+            <li><a href="#reflexion">Reflexión Técnica y Ética</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- CONSTRUCCIÓN DEL VECTOR -->
+<section id="construccion-vector" class="text-block">
+    <h2>1. Construcción del Vector</h2>
+    <p>Con base en el escenario proporcionado:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Métrica</th>
+                <th>Valor</th>
+                <th>Significado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>AV (Attack Vector)</td><td><strong>N (Network)</strong></td><td>La vulnerabilidad puede explotarse a través de la red.</td></tr>
+            <tr><td>AC (Attack Complexity)</td><td><strong>L (Low)</strong></td><td>La explotación requiere baja complejidad.</td></tr>
+            <tr><td>PR (Privileges Required)</td><td><strong>H (High)</strong></td><td>Se necesitan privilegios elevados.</td></tr>
+            <tr><td>UI (User Interaction)</td><td><strong>N (None)</strong></td><td>No requiere interacción del usuario.</td></tr>
+            <tr><td>S (Scope)</td><td><strong>U (Unchanged)</strong></td><td>No cambia el alcance.</td></tr>
+            <tr><td>C (Confidentiality)</td><td><strong>L (Low)</strong></td><td>Impacto bajo en confidencialidad.</td></tr>
+            <tr><td>I (Integrity)</td><td><strong>L (Low)</strong></td><td>Impacto bajo en integridad.</td></tr>
+            <tr><td>A (Availability)</td><td><strong>L (Low)</strong></td><td>Impacto bajo en disponibilidad.</td></tr>
+        </tbody>
+    </table>
+    <!-- Contenedor CVSS -->
+<div class="cvss-container">
+    <h2 class="cvss-title">📊 Calculadora CVSS 3.1</h2>
+    
+    <!-- Métricas Base -->
+    <h3 class="cvss-section-title">Base Score</h3>
+    
+    <div class="cvss-metrics-grid">
+        <!-- Attack Vector -->
+        <div class="metric-card">
+            <div class="metric-name">Attack Vector (AV)</div>
+            <ul class="metric-options" data-metric="AV">
+                <li data-value="N" class="selected">🌐 Network (N) <span class="metric-code">AV:N</span></li>
+                <li data-value="A">📡 Adjacent (A) <span class="metric-code">AV:A</span></li>
+                <li data-value="L">💻 Local (L) <span class="metric-code">AV:L</span></li>
+                <li data-value="P">🔒 Physical (P) <span class="metric-code">AV:P</span></li>
+            </ul>
+        </div>
+        
+        <!-- Attack Complexity -->
+        <div class="metric-card">
+            <div class="metric-name">Attack Complexity (AC)</div>
+            <ul class="metric-options" data-metric="AC">
+                <li data-value="L" class="selected">⚡ Low (L) <span class="metric-code">AC:L</span></li>
+                <li data-value="H">🐢 High (H) <span class="metric-code">AC:H</span></li>
+            </ul>
+        </div>
+        
+        <!-- Privileges Required -->
+        <div class="metric-card">
+            <div class="metric-name">Privileges Required (PR)</div>
+            <ul class="metric-options" data-metric="PR">
+                <li data-value="N">👤 None (N) <span class="metric-code">PR:N</span></li>
+                <li data-value="L">🛡️ Low (L) <span class="metric-code">PR:L</span></li>
+                <li data-value="H" class="selected">🔑 High (H) <span class="metric-code">PR:H</span></li>
+            </ul>
+        </div>
+        
+        <!-- User Interaction -->
+        <div class="metric-card">
+            <div class="metric-name">User Interaction (UI)</div>
+            <ul class="metric-options" data-metric="UI">
+                <li data-value="N" class="selected">🤖 None (N) <span class="metric-code">UI:N</span></li>
+                <li data-value="R">👆 Required (R) <span class="metric-code">UI:R</span></li>
+            </ul>
+        </div>
+        
+        <!-- Scope -->
+        <div class="metric-card">
+            <div class="metric-name">Scope (S)</div>
+            <ul class="metric-options" data-metric="S">
+                <li data-value="U" class="selected">📦 Unchanged (U) <span class="metric-code">S:U</span></li>
+                <li data-value="C">🔄 Changed (C) <span class="metric-code">S:C</span></li>
+            </ul>
+        </div>
+        
+        <!-- Confidentiality -->
+        <div class="metric-card">
+            <div class="metric-name">Confidentiality (C)</div>
+            <ul class="metric-options" data-metric="C">
+                <li data-value="N">🔓 None (N) <span class="metric-code">C:N</span></li>
+                <li data-value="L" class="selected">📄 Low (L) <span class="metric-code">C:L</span></li>
+                <li data-value="H">🔒 High (H) <span class="metric-code">C:H</span></li>
+            </ul>
+        </div>
+        
+        <!-- Integrity -->
+        <div class="metric-card">
+            <div class="metric-name">Integrity (I)</div>
+            <ul class="metric-options" data-metric="I">
+                <li data-value="N">✏️ None (N) <span class="metric-code">I:N</span></li>
+                <li data-value="L" class="selected">📝 Low (L) <span class="metric-code">I:L</span></li>
+                <li data-value="H">🔏 High (H) <span class="metric-code">I:H</span></li>
+            </ul>
+        </div>
+        
+        <!-- Availability -->
+        <div class="metric-card">
+            <div class="metric-name">Availability (A)</div>
+            <ul class="metric-options" data-metric="A">
+                <li data-value="N">⏳ None (N) <span class="metric-code">A:N</span></li>
+                <li data-value="L" class="selected">⚠️ Low (L) <span class="metric-code">A:L</span></li>
+                <li data-value="H">🔴 High (H) <span class="metric-code">A:H</span></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Vector String -->
+    <h3 class="cvss-section-title">Vector String</h3>
+    <div class="vector-string" id="vector-string">
+        <span>CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:L/A:L</span>
+    </div>
+    
+    <!-- Puntuación Calculada -->
+    <div class="score-display">
+        <div class="score-value" id="cvss-score">4.7</div>
+        <div class="score-label">Base Score (CVSS v3.1)</div>
+        <div class="severity-badge severity-medium" id="severity-badge">MEDIO</div>
+    </div>
+    
+    <!-- Tabla de Severidad -->
+    <h3 class="cvss-section-title">Escala de Severidad CVSS v3.1</h3>
+    <table class="severity-table">
+        <thead>
+            <tr>
+                <th>Rango</th>
+                <th>Severidad</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="severity-low-bg">
+                <td>0.1 – 3.9</td>
+                <td>BAJO</td>
+                <td>🟢 Verde</td>
+            </tr>
+            <tr class="severity-medium-bg">
+                <td>4.0 – 6.9</td>
+                <td>MEDIO</td>
+                <td>🟠 Naranja</td>
+            </tr>
+            <tr class="severity-high-bg">
+                <td>7.0 – 8.9</td>
+                <td>ALTO</td>
+                <td>🟡 Naranja intenso</td>
+            </tr>
+            <tr class="severity-critical-bg">
+                <td>9.0 – 10.0</td>
+                <td>CRÍTICO</td>
+                <td>🔴 Rojo</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <p><strong>Vector CVSS 3.1 completo:</strong></p>
+    <code>CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:L/A:L</code>
+</section>
+
+<!-- INTERPRETACIÓN TÉCNICA -->
+<section id="interpretacion-tecnica" class="text-block">
+    <h2>2. Interpretación Técnica</h2>
+    <p>
+        Aunque esta vulnerabilidad necesita <strong>privilegios elevados</strong> para poder explotarse, sigue siendo importante debido a que un atacante con acceso administrativo o permisos avanzados podría utilizarla para afectar aún más los sistemas internos de la organización. Este tipo de fallas representa un riesgo especialmente en situaciones donde existen cuentas comprometidas, amenazas internas o procesos previos de escalamiento de privilegios.
+    </p>
+    <p>
+        Quienes podrían aprovecharla serían principalmente <strong>usuarios internos malintencionados</strong>, <strong>administradores comprometidos</strong> o <strong>atacantes externos</strong> que hayan conseguido credenciales privilegiadas mediante técnicas como phishing, filtración de información o ataques de fuerza bruta.
+    </p>
+    <p>
+        Aunque el impacto en la confidencialidad, integridad y disponibilidad es <strong>bajo</strong>, esto únicamente indica que no ocasiona daños críticos ni pérdida total de información; aun así, puede generar accesos parciales a datos, cambios menores en el sistema o interrupciones limitadas del servicio, por lo que continúa siendo una vulnerabilidad que requiere atención y mitigación.
+    </p>
+</section>
+
+<!-- CÁLCULO DE PUNTUACIÓN -->
+<section id="calculo-puntuacion" class="text-block">
+    <h2>3. Cálculo de Puntuación</h2>
+    <p>Usando la calculadora oficial CVSS v3.1 (FIRST.org):</p>
+    
+    <code>CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:L/A:L</code>
+
+    <h3>Resultado:</h3>
+    <ul>
+        <li><strong>Puntuación base:</strong> 4.7</li>
+        <li><strong>Categoría de riesgo:</strong> <span style="background: #f39c12; color: white; padding: 4px 12px; border-radius: 20px;">MEDIA</span></li>
+    </ul>
+
+    <h3>Escala de severidad CVSS v3.1:</h3>
+    <ul>
+        <li>Baja → 0.1 – 3.9</li>
+        <li><strong>Media → 4.0 – 6.9</strong> (Puntuación obtenida: 4.7)</li>
+        <li>Alta → 7.0 – 8.9</li>
+        <li>Crítica → 9.0 – 10.0</li>
+    </ul>
+</section>
+
+<!-- CONCLUSIÓN -->
+<section id="conclusion" class="text-block">
+    <h2>4. Conclusión</h2>
+    <p>
+        La vulnerabilidad analizada alcanzó una puntuación de <strong>4.7 en CVSS v3.1</strong>, por lo que se considera de <strong>nivel medio</strong>. A pesar de que para explotarla se requieren privilegios elevados, sigue representando un riesgo importante, ya que podría ser utilizada por usuarios internos maliciosos o por atacantes que hayan obtenido acceso a cuentas privilegiadas.
+    </p>
+    <p>
+        Asimismo, el hecho de que pueda explotarse <strong>remotamente</strong> y con <strong>baja complejidad técnica</strong> aumenta su importancia dentro de la infraestructura de una organización. Aunque las afectaciones en confidencialidad, integridad y disponibilidad son bajas y no implican un daño crítico al sistema, es recomendable implementar controles de seguridad, supervisión de cuentas con altos privilegios y estrategias de mitigación que ayuden a disminuir la probabilidad de explotación.
+    </p>
+</section>
+
+<!-- REFLEXIÓN -->
+<section id="reflexion" class="text-block">
+    <h2>Reflexión Técnica y Ética</h2>
+    <p>
+        Desde el punto de vista <strong>técnico</strong>, este análisis demuestra la importancia de evaluar incluso vulnerabilidades de impacto bajo, ya que pueden ser aprovechadas en escenarios de escalamiento de privilegios o amenazas internas. La metodología CVSS 3.1 permite cuantificar el riesgo y priorizar acciones de mitigación.
+    </p>
+    <p>
+        <strong>Éticamente</strong>, el especialista en ciberseguridad debe actuar con responsabilidad, reportando y atendiendo las fallas sin aprovecharlas para beneficio propio. La transparencia, la protección de la información y el respeto a los derechos de los usuarios son principios fundamentales que guían la práctica profesional.
+    </p>
+</section>
+
+<footer>
+    <p>Seguridad Informática - Universidad Politécnica de San Luis Potosí</p>
+    <p style="font-size: 0.7em; margin-top: 10px; opacity: 0.4;">&copy; 2026 Actividad 17 - Evaluación CVSS v3.1</p>
+</footer>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/animaciones.js"></script>
+<script src="../assets/js/estilo_tablas.js"></script>
+
+<script>
+    // Función para alternar el menú desplegable
+    function toggleMenu(event, menuId) {
+        event.preventDefault();
+        
+        const dropdownMenu = document.getElementById(`menu-${menuId}-dropdown`);
+        const arrow = document.getElementById(`arrow-${menuId}`);
+        
+        if (dropdownMenu && arrow) {
+            dropdownMenu.classList.toggle('show');
+            arrow.classList.toggle('rotate');
+        }
+    }
+
+    // Cerrar cualquier menú al hacer clic fuera
+    document.addEventListener('click', function(event) {
+        const containers = document.querySelectorAll('.dropdown-container');
+        
+        containers.forEach(container => {
+            const menuId = container.id.replace('menu-', '');
+            const dropdownMenu = document.getElementById(`menu-${menuId}-dropdown`);
+            const arrow = document.getElementById(`arrow-${menuId}`);
+            
+            if (dropdownMenu && arrow && !container.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+                arrow.classList.remove('rotate');
+            }
+        });
+    });
+
+    // Cerrar menús después de hacer clic en una opción
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+            document.querySelectorAll('.arrow').forEach(arrow => {
+                arrow.classList.remove('rotate');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

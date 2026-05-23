@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>Actividad 16 - Dilemas éticos en ciberseguridad</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="../assets/css/estilo_actividades.css" />
+    <link rel="stylesheet" href="../assets/css/estilo_texto.css" />
+
+    <style>
+        /* Estilos adicionales para asegurar contenedores blancos */
+        .container-white {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .container-white h2 {
+            color: #4a474e;
+            font-weight: 900;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #fdf2f4;
+            padding-bottom: 10px;
+        }
+
+        .container-white h3 {
+            color: #4a474e;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .container-white ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .container-white ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .container-white ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #b08d94;
+            font-weight: bold;
+        }
+
+        .container-white p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .text-block, .info-card {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        #indice {
+            background: linear-gradient(135deg, rgba(75, 0, 75, 0.05), rgba(122, 31, 110, 0.05));
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container-white, .text-block, .info-card {
+                margin: 20px;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header id="header-superior">
+    <div class="logo">CNO V: Seguridad Informática</div>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        
+        <!-- Actividades -->
+        <div class="dropdown-container" id="menu-actividades">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'actividades')">
+                Actividades <span class="arrow" id="arrow-actividades">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-actividades-dropdown">
+                <a href="../index.html#one">Parcial I</a>
+                <a href="../index.html#two">Parcial II</a>
+                <a href="../index.html#three">Parcial III</a>
+            </div>
+        </div>
+
+        <!-- Road to Hall of Fame -->
+        <div class="dropdown-container" id="menu-road">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'road')">
+                ROAD TO HALL OF FAME <span class="arrow" id="arrow-road">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-road-dropdown">
+                <a href="../Parcial_2/SQL_Injection.html">SQL Injection</a>
+            </div>
+        </div>
+
+        <!-- Proyectos -->
+        <div class="dropdown-container" id="menu-proyectos">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'proyectos')">
+                Proyectos <span class="arrow" id="arrow-proyectos">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-proyectos-dropdown">
+                <a href="#">PR01</a>
+                <a href="../Parcial_2/PR02-01.html">PR02</a>
+                <a href="../Parcial_3/PR03.html">PR03</a>
+            </div>
+        </div>
+
+        <!-- Certificaciones -->
+        <div class="dropdown-container" id="menu-certificaciones">
+            <a href="../Certificaciones/certificaciones.html" class="dropdown-toggle" >
+                Certificaciones 
+            </a>
+            
+        </div>
+
+        <!-- Descargar documento -->
+        <a href="act16-Equipo3.pdf" download="Actividad 16">Descargar documento</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2>Actividad 16 - 177203</h2>
+        <h1 class="titulo-principal">Dilemas éticos en ciberseguridad</h1>
+    </div>
+    <div class="wave-shape">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#ffffff" d="M0,192L60,197.3C120,203,240,213,360,192C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- DATOS GENERALES - Contenedor blanco -->
+<div class="container-white">
+    <h2>Datos Generales</h2>
+    <p><strong>Docente:</strong> Mtro. Servando López Contreras</p>
+    <p><strong>Grupo:</strong> T46A</p>
+    <p><strong>Fecha:</strong> Marzo 2026</p>
+    <p><strong>Asignatura:</strong> CNO V – Seguridad Informática | Actividad 16</p>
+
+    <h2>Integrantes del equipo</h2>
+    <ul>
+        <li>Benites Rangel Cesar Yahir – 179091</li>
+        <li>Cortes Beltrán Carol Elizabeth – 177203</li>
+        <li>Guerra Ramírez América Fabiola – 179888</li>
+        <li>Larios Guerra Gustavo Michael – 178318</li>
+        <li>Montelongo Martínez Laura Ivon – 177291</li>
+        <li>Puente Luna Bruno Axel – 177876</li>
+        <li>Rodríguez Moreno Cristian Alejandro – 181641</li>
+    </ul>
+
+    <div id="indice">
+        <h2>Índice</h2>
+        <ol>
+            <li><a href="#datos-generales">Datos Generales</a></li>
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#resumen-ejecutivo">Resumen Ejecutivo</a></li>
+            <li><a href="#escenario1">Escenario 01: Acceso no autorizado interno</a></li>
+            <li><a href="#escenario2">Escenario 02: Vulnerabilidad crítica no reportada</a></li>
+            <li><a href="#escenario3">Escenario 03: Uso de herramientas OSINT</a></li>
+            <li><a href="#reflexion">Reflexión Técnica y Ética</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- INTRODUCCIÓN -->
+<section id="introduccion" class="text-block">
+    <h2>Introducción</h2>
+    <p>
+        El documento <strong>Actividad 16 – Dilemas Éticos en Ciberseguridad</strong> analiza tres escenarios críticos en los que profesionales de la seguridad informática enfrentan decisiones que ponen en tensión la ética, la legalidad y la responsabilidad profesional. Cada caso expone situaciones reales: acceso no autorizado a correos internos, descubrimiento de vulnerabilidades críticas en sistemas financieros y uso indebido de información obtenida mediante OSINT. A través de estos ejemplos, se reflexiona sobre la importancia de aplicar marcos éticos, respetar los derechos fundamentales y mantener la integridad en la práctica de la ciberseguridad.
+    </p>
+</section>
+
+<!-- RESUMEN EJECUTIVO -->
+<section id="resumen-ejecutivo" class="info-card">
+    <h2>Resumen Ejecutivo</h2>
+    <p>
+        El documento presenta tres dilemas éticos clave en el ámbito de la <strong>ciberseguridad</strong>: 
+        <em>acceso no autorizado</em>, <em>vulnerabilidad crítica no reportada</em> y <em>uso de herramientas OSINT</em>. 
+        En cada escenario se proponen acciones correctivas como la contención, el reporte responsable y la objeción de conciencia profesional. 
+        Las decisiones se justifican desde marcos éticos como el utilitarismo, el enfoque de derechos y el bien común, señalando los mandamientos de la ética informática violados o respetados. 
+        Finalmente, se clasifican las conductas como delitos informáticos, asistidos por computadora o incidentales, subrayando la necesidad de mantener estándares éticos sólidos para proteger tanto a las organizaciones como a la sociedad.
+    </p>
+</section>
+
+<!-- ESCENARIO 1 -->
+<section id="escenario1" class="text-block">
+    <h2>Escenario 01: Acceso no autorizado interno</h2>
+    <p>
+        Trabajas en el área de ciberseguridad de una empresa. Durante una
+        revisión de logs detectas que un compañero accedió a correos privados
+        del director general sin autorización. El compañero argumenta que lo hizo
+        para "detectar posibles fugas de información".
+    </p>
+
+    <h3>1. ¿Cuál es el dilema ético?</h3>
+    <p>
+        El conflicto central es la tensión entre la Seguridad Proactiva y la Privacidad
+        Individual. Se presenta el dilema de si el fin (prevenir una fuga de información)
+        justifica los medios (violar la confidencialidad de la alta dirección). Además, existe un
+        conflicto de debido proceso: el empleado actuó por cuenta propia, rompiendo la
+        cadena de mando y los protocolos de auditoría interna.
+    </p>
+
+    <h3>2. ¿Qué harías tú como especialista?</h3>
+    <ul>
+        <li>Inhabilitación temporal de permisos: Restringir el acceso del compañero mientras se investiga.</li>
+        <li>Apertura de un Ticket de Incidente: Documentar el hallazgo en los logs para asegurar la trazabilidad.</li>
+        <li>Notificación al CISO y Recursos Humanos: Un acceso no autorizado a correos de nivel C (C-Suite) es una falta grave que puede derivar en despido justificado.</li>
+    </ul>
+
+    <h3>3. Justificación desde marcos éticos:</h3>
+    <p><strong>A) Ética Utilitarista:</strong> El beneficio de "posiblemente" detectar una fuga no supera el daño de crear una cultura organizacional de espionaje.</p>
+    <p><strong>B) Enfoque de Derechos:</strong> El Director General posee el derecho fundamental a la privacidad de sus comunicaciones.</p>
+    <p><strong>C) Enfoque del Bien Común:</strong> La integridad del sistema depende de que todos sigan las reglas.</p>
+
+    <h3>4. Mandamientos de la ética informática:</h3>
+    <p><strong>Violados:</strong> II. No interferirás con el trabajo informático de otros. IV. No indagarás en los archivos informáticos de los demás.</p>
+    <p><strong>Respetados:</strong> X. Siempre utilizarás una computadora de maneras que garanticen la consideración y el respeto de otros humanos.</p>
+
+    <h3>5. Clasificación del Delito</h3>
+    <p>Delito Informático: Se clasifica así porque la conducta afecta directamente la Confidencialidad mediante un acceso no autorizado.</p>
+</section>
+
+<!-- ESCENARIO 2 -->
+<section id="escenario2" class="text-block">
+    <h2>Escenario 02: Vulnerabilidad crítica no reportada</h2>
+    <p>
+        Durante un pentest encuentras una vulnerabilidad crítica en un sistema
+        financiero que permite extraer dinero. El cliente aún no ha firmado el
+        contrato final y tú sabes que podrías explotarla sin ser detectado.
+    </p>
+
+    <h3>1. ¿Cuál es el dilema ético?</h3>
+    <p>
+        Se enfrenta el interés personal/lucro económico contra la integridad profesional y
+        responsabilidad social.
+    </p>
+
+    <h3>2. ¿Qué harías tú como especialista?</h3>
+    <ul>
+        <li>Reportar inmediatamente al contacto técnico del cliente.</li>
+        <li>Demostrar valor profesional explicando el hallazgo.</li>
+        <li>Cero explotación: No extraer dinero para mantener reputación y legalidad.</li>
+    </ul>
+
+    <h3>3. Justificación desde marcos éticos:</h3>
+    <p><strong>A) Ética Utilitarista:</strong> Explotar la falla causaría un pánico financiero.</p>
+    <p><strong>B) Enfoque de Derechos:</strong> Los clientes del banco tienen derecho a la seguridad de sus activos.</p>
+    <p><strong>C) Enfoque del Bien Común:</strong> La confianza en la banca digital es esencial para la economía.</p>
+
+    <h3>4. Mandamientos de la ética informática:</h3>
+    <p><strong>Violados:</strong> No interferirás con los archivos informáticos de otros. No usarás una computadora para robar.</p>
+    <p><strong>Respetados:</strong> No te apropiarás de la producción intelectual de otras personas.</p>
+
+    <h3>5. Clasificación del Delito</h3>
+    <p>Delito asistido por computadora: El sistema informático es el medio para cometer fraude financiero.</p>
+</section>
+
+<!-- ESCENARIO 3 -->
+<section id="escenario3" class="text-block">
+    <h2>Escenario 03: Uso de herramientas OSINT</h2>
+    <p>
+        Estás investigando a una persona sospechosa de fraude. Encuentras
+        información personal en fuentes abiertas. Tu superior te pide usar esa información para presionarlo psicológicamente.
+    </p>
+
+    <h3>1. ¿Cuál es el dilema ético?</h3>
+    <p>
+        El conflicto es entre el cumplimiento de órdenes superiores y la ética humana/legalidad.
+    </p>
+
+    <h3>2. ¿Qué harías tú como especialista?</h3>
+    <ul>
+        <li>Negativa rotunda al hostigamiento.</li>
+        <li>Entrega de evidencia técnica de forma objetiva.</li>
+        <li>Preservación de la cadena de custodia.</li>
+    </ul>
+
+    <h3>3. Justificación desde marcos éticos:</h3>
+    <p><strong>A) Ética Utilitarista:</strong> Usar presión psicológica puede generar demandas por acoso.</p>
+    <p><strong>B) Enfoque de Derechos:</strong> Todo individuo tiene derecho a la dignidad humana.</p>
+    <p><strong>C) Enfoque del Bien Común:</strong> La justicia debe ser impartida por el Estado.</p>
+
+    <h3>4. Mandamientos de la ética informática:</h3>
+    <p><strong>Violados:</strong> No usarás una computadora para dañar a otras personas.</p>
+    <p><strong>Respetados:</strong> Siempre usarás una computadora de manera que asegure el respeto de tus semejantes.</p>
+
+    <h3>5. Clasificación del Delito</h3>
+    <p>Delito Incidental: Se trata de extorsión o acoso, donde la computadora facilita la obtención de datos.</p>
+</section>
+
+<!-- REFLEXIÓN -->
+<section id="reflexion" class="text-block">
+    <h2>Reflexión Técnica y Ética</h2>
+    <p>
+        La <strong>ciberseguridad</strong> no solo es un campo técnico, sino también un espacio donde las decisiones tienen un fuerte impacto ético y social. 
+        El documento revisado muestra cómo situaciones aparentemente técnicas —como acceder a correos, descubrir vulnerabilidades o usar información pública— 
+        se convierten en dilemas que ponen en juego la confianza, la privacidad y la justicia.
+    </p>
+
+    <h3>Reflexión Técnica</h3>
+    <ul>
+        <li><em>Acceso no autorizado:</em> la trazabilidad de incidentes y la gestión de permisos son esenciales para mantener la integridad del sistema.</li>
+        <li><em>Vulnerabilidades críticas:</em> el uso de metodologías de <strong>Responsible Disclosure</strong> asegura que los hallazgos se conviertan en valor profesional y no en riesgos explotables.</li>
+        <li><em>OSINT:</em> la cadena de custodia y el uso legítimo de la información son claves para que la investigación mantenga validez legal.</li>
+    </ul>
+    <p>
+        En todos los casos, la técnica debe estar acompañada de procesos formales y controles internos que eviten que las herramientas se conviertan en armas de abuso.
+    </p>
+
+    <h3>Reflexión Ética</h3>
+    <ul>
+        <li><strong>Utilitarismo:</strong> el beneficio individual nunca debe superar el daño colectivo.</li>
+        <li><strong>Enfoque de Derechos:</strong> protege la privacidad, la dignidad y la propiedad de las personas.</li>
+        <li><strong>Bien Común:</strong> subraya que la confianza en los sistemas digitales es un recurso compartido que debe preservarse.</li>
+    </ul>
+    <p>
+        En conclusión, la práctica profesional en ciberseguridad exige un equilibrio constante entre el conocimiento técnico y la responsabilidad ética. 
+        La verdadera fortaleza de un especialista no está solo en detectar vulnerabilidades, sino en decidir cómo actuar frente a ellas, 
+        garantizando que la tecnología se use para proteger y no para vulnerar.
+    </p>
+</section>
+
+<footer>
+    <p>Seguridad Informática - Universidad Politécnica de San Luis Potosí</p>
+    <p style="font-size: 0.7em; margin-top: 10px; opacity: 0.4;">&copy; 2026 Actividad 16 - Dilemas éticos en ciberseguridad</p>
+</footer>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/animaciones.js"></script>
+<script src="../assets/js/estiloPR03.js"></script>
+<script src="../assets/js/estilo_tablas.js"></script>
+
+<script>
+    // Función para alternar el menú desplegable
+    function toggleMenu(event, menuId) {
+        event.preventDefault();
+        
+        const dropdownMenu = document.getElementById(`menu-${menuId}-dropdown`);
+        const arrow = document.getElementById(`arrow-${menuId}`);
+        
+        if (dropdownMenu && arrow) {
+            dropdownMenu.classList.toggle('show');
+            arrow.classList.toggle('rotate');
+        }
+    }
+
+    // Cerrar cualquier menú al hacer clic fuera
+    document.addEventListener('click', function(event) {
+        const containers = document.querySelectorAll('.dropdown-container');
+        
+        containers.forEach(container => {
+            const menuId = container.id.replace('menu-', '');
+            const dropdownMenu = document.getElementById(`menu-${menuId}-dropdown`);
+            const arrow = document.getElementById(`arrow-${menuId}`);
+            
+            if (dropdownMenu && arrow && !container.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+                arrow.classList.remove('rotate');
+            }
+        });
+    });
+
+    // Cerrar menús después de hacer clic en una opción
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+            document.querySelectorAll('.arrow').forEach(arrow => {
+                arrow.classList.remove('rotate');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
