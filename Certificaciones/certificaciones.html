@@ -9,12 +9,55 @@
 </head>
 <body>
 
-    <header id="header-superior">
-        <div class="logo">Mi Portafolio</div>
-        <nav>
-            <a href="../index.html">Inicio</a>
-        </nav>
-    </header>
+       <header id="header-superior">
+    <div class="logo">CNO V: Seguridad Informática</div>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        
+        <!-- Actividades -->
+        <div class="dropdown-container" id="menu-actividades">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'actividades')">
+                Actividades <span class="arrow" id="arrow-actividades">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-actividades-dropdown">
+                <a href="../index.html#one">Parcial I</a>
+                <a href="../index.html#two">Parcial II</a>
+                <a href="../index.html#three">Parcial III</a>
+            </div>
+        </div>
+
+        <!-- Road to Hall of Fame -->
+        <div class="dropdown-container" id="menu-road">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'road')">
+                ROAD TO HALL OF FAME <span class="arrow" id="arrow-road">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-road-dropdown">
+                <a href="../Parcial_2/SQL_Injection.html">SQL Injection</a>
+            </div>
+        </div>
+
+        <!-- Proyectos -->
+        <div class="dropdown-container" id="menu-proyectos">
+            <a href="#" class="dropdown-toggle" onclick="toggleMenu(event, 'proyectos')">
+                Proyectos <span class="arrow" id="arrow-proyectos">▼</span>
+            </a>
+            <div class="dropdown-menu" id="menu-proyectos-dropdown">
+                <a href="#">PR01</a>
+                <a href="../Parcial_2/PR02-01.html">PR02</a>
+                <a href="../Parcial_3/PR03.html">PR03</a>
+            </div>
+        </div>
+
+        <!-- Certificaciones -->
+        <div class="dropdown-container" id="menu-certificaciones">
+            <a href="../Certificaciones/certificaciones.html" class="dropdown-toggle" onclick="toggleMenu(event, 'certificaciones')">
+                Certificaciones 
+            </a>
+            
+        </div>
+
+    </nav>
+</header>
 
     <section class="hero">
         <div class="hero-text">
