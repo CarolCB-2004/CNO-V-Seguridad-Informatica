@@ -1,0 +1,697 @@
+/* ============================================
+   Actividad 18 - Modelo Diamante
+   Estilos específicos para la actividad 18
+   ============================================ */
+
+/* Diagrama del Modelo Diamante - Hilo 1 */
+.diamond-diagram {
+    max-width: 700px;
+    margin: 30px auto;
+    background: linear-gradient(135deg, #fef9fb, #ffffff);
+    border-radius: 28px;
+    padding: 30px 20px 30px;
+    box-shadow: 0 15px 35px rgba(75, 0, 75, 0.1);
+    position: relative;
+    border: 1px solid rgba(122, 31, 110, 0.1);
+}
+
+.diagram-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #4B004B;
+    margin: 0 0 5px 0;
+}
+
+.diagram-caption {
+    text-align: center;
+    color: #7A1F6E;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* Contenedor de la forma de diamante */
+.diamond-shape {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo base de los nodos */
+.diamond-node {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    padding: 16px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(122, 31, 110, 0.15);
+    z-index: 10;
+    min-width: 200px;
+    max-width: 260px;
+}
+
+.diamond-node:hover {
+    transform: translateY(-5px);
+    border-color: #FF66A3;
+    box-shadow: 0 12px 25px rgba(75, 0, 75, 0.15);
+}
+
+.diamond-node.active {
+    border-color: #FF66A3;
+    background: linear-gradient(135deg, #fff0f5, #ffffff);
+    box-shadow: 0 0 0 3px rgba(255, 102, 163, 0.2);
+}
+
+/* Posiciones específicas de cada nodo */
+.node-adversario {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.node-capacidad {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.node-infraestructura {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.node-victima {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Estilos de texto dentro de los nodos */
+.node-role {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FF66A3;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.node-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #4B004B;
+    line-height: 1.4;
+}
+
+/* Nodo de infraestructura tiene texto más pequeño */
+.node-infraestructura .node-name {
+    font-size: 0.75rem;
+}
+
+/* SVG de conexiones */
+.diamond-connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Líneas animadas */
+.flow-line {
+    stroke: #FF66A3;
+    stroke-width: 2;
+    stroke-dasharray: 8 6;
+    animation: flowMove 1.5s linear infinite;
+}
+
+.line1 { animation-delay: 0s; }
+.line2 { animation-delay: 0.4s; }
+.line3 { animation-delay: 0.8s; }
+.line4 { animation-delay: 1.2s; }
+
+@keyframes flowMove {
+    to {
+        stroke-dashoffset: -28;
+    }
+}
+
+/* Puntos animados en las conexiones */
+.dot {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.dot1 { animation-delay: 0s; }
+.dot2 { animation-delay: 0.4s; }
+.dot3 { animation-delay: 0.8s; }
+.dot4 { animation-delay: 1.2s; }
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        r: 3;
+    }
+    50% {
+        opacity: 1;
+        r: 5;
+        filter: drop-shadow(0 0 4px #FF66A3);
+    }
+}
+
+/* Tarjeta de información */
+.info-card-diamond {
+    margin-top: 40px;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, #f8f0f5, #ffffff);
+    border-radius: 16px;
+    border-left: 4px solid #FF66A3;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.info-card-diamond:hover {
+    transform: translateX(5px);
+}
+
+.info-icon-diamond {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #4B004B, #7A1F6E);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.info-text-diamond {
+    flex: 1;
+}
+
+.info-title {
+    font-weight: 800;
+    color: #4B004B;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.info-desc {
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Placeholders para otros dibujos */
+.diamond-placeholder {
+    background: #f9f9f9;
+    border: 2px dashed #b08d94;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin: 20px 0;
+    color: #7A1F6E;
+}
+
+.diamond-placeholder p {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.diamond-placeholder small {
+    color: #999;
+}
+
+/* Tooltips flotantes */
+.diamond-node::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: #1e1e2f;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.diamond-node:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Efecto de entrada para el diagrama */
+.diamond-diagram {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación secuencial de los nodos */
+.diamond-node {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: nodeAppear 0.4s ease forwards;
+}
+
+.node-adversario { animation-delay: 0.1s; }
+.node-capacidad { animation-delay: 0.3s; }
+.node-infraestructura { animation-delay: 0.5s; }
+.node-victima { animation-delay: 0.7s; }
+
+@keyframes nodeAppear {
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+.node-capacidad { animation-name: nodeAppearLeft; }
+@keyframes nodeAppearLeft {
+    to {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+.node-infraestructura { animation-name: nodeAppearRight; }
+@keyframes nodeAppearRight {
+    to {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+.node-victima { animation-name: nodeAppearBottom; }
+@keyframes nodeAppearBottom {
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+    .diamond-shape {
+        min-height: 650px;
+    }
+    
+    .diamond-node {
+        position: relative;
+        margin: 0 auto 20px;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        animation: none !important;
+        opacity: 1;
+    }
+    
+    .diamond-shape {
+        flex-direction: column;
+        display: flex;
+    }
+    
+    .diamond-connections {
+        display: none;
+    }
+    
+    .diamond-node::after {
+        display: none;
+    }
+}
+/* ============================================
+   Diagrama del Modelo Diamante - Hilo 2
+   ============================================ */
+
+.hilo2-diagram {
+    background: linear-gradient(135deg, #f0f5fe, #ffffff);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.hilo2-diagram::before {
+    background: linear-gradient(90deg, #2980b9, #5dade2, #2980b9);
+}
+
+/* Estilos específicos para Hilo 2 */
+.hilo2-diagram .node-role {
+    color: #2980b9;
+}
+
+.hilo2-diagram .diamond-node {
+    border-color: rgba(41, 128, 185, 0.2);
+}
+
+.hilo2-diagram .diamond-node:hover {
+    border-color: #5dade2;
+}
+
+.hilo2-diagram .diamond-node.active {
+    border-color: #2980b9;
+    background: linear-gradient(135deg, #e8f4fd, #ffffff);
+    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
+}
+
+.hilo2-diagram .flow-line {
+    stroke: #5dade2;
+}
+
+.hilo2-diagram .dot {
+    fill: #5dade2;
+}
+
+.hilo2-diagram .info-card-diamond {
+    border-left-color: #2980b9;
+}
+
+.hilo2-diagram .info-icon-diamond {
+    background: linear-gradient(135deg, #2980b9, #5dade2);
+}
+
+/* Texto secundario dentro de los nodos */
+.node-sub {
+    font-size: 0.7rem;
+    color: #7A1F6E;
+    font-weight: normal;
+    display: inline-block;
+    margin-top: 3px;
+}
+
+/* Ajustes de posición para textos con múltiples líneas */
+.node-capacidad .node-name,
+.node-infraestructura .node-name,
+.node-victima .node-name {
+    line-height: 1.5;
+}
+
+/* Responsive para Hilo 2 */
+@media (max-width: 650px) {
+    .hilo2-diagram .diamond-node {
+        min-width: 220px;
+    }
+}
+
+/* ============================================
+   Diagrama de Relación entre Hilos (Pivoting)
+   ============================================ */
+
+.pivoting-diagram {
+    max-width: 900px;
+    margin: 30px auto;
+    background: linear-gradient(135deg, #fef9fb, #ffffff);
+    border-radius: 28px;
+    padding: 30px 25px;
+    box-shadow: 0 15px 35px rgba(75, 0, 75, 0.1);
+    position: relative;
+    border: 1px solid rgba(255, 102, 163, 0.2);
+}
+
+.pivoting-diagram::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4B004B, #FF66A3, #7A1F6E, #FF66A3, #4B004B);
+}
+
+/* Fases del ataque */
+.phase {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.phase-initial {
+    background: linear-gradient(135deg, #fff0f5, #ffffff);
+    border: 1px solid rgba(255, 102, 163, 0.3);
+}
+
+.phase-lateral {
+    background: linear-gradient(135deg, #e8f4fd, #ffffff);
+    border: 1px solid rgba(41, 128, 185, 0.3);
+}
+
+.phase-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid;
+    display: inline-block;
+}
+
+.phase-initial .phase-title {
+    color: #FF66A3;
+    border-bottom-color: #FF66A3;
+}
+
+.phase-lateral .phase-title {
+    color: #2980b9;
+    border-bottom-color: #2980b9;
+}
+
+/* Contenedor de nodos */
+.phase-nodes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.horizontal-layout {
+    flex-wrap: wrap;
+}
+
+/* Nodos del diagrama de pivoting */
+.pivot-node {
+    background: white;
+    border-radius: 16px;
+    padding: 15px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(122, 31, 110, 0.15);
+    min-width: 160px;
+}
+
+.pivot-node:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(75, 0, 75, 0.15);
+}
+
+.pivot-node.active {
+    border-color: #FF66A3;
+    background: linear-gradient(135deg, #fff0f5, #ffffff);
+    box-shadow: 0 0 0 3px rgba(255, 102, 163, 0.2);
+}
+
+/* Estilos específicos por tipo de nodo */
+.node-adversario .node-role { color: #e74c3c; }
+.node-phishing .node-role { color: #f39c12; }
+.node-admin .node-role { color: #9b59b6; }
+.node-lateral .node-role { color: #2980b9; }
+.node-proxy .node-role { color: #1abc9c; }
+.node-victima2 .node-role { color: #e67e22; }
+
+.phase-lateral .pivot-node {
+    border-color: rgba(41, 128, 185, 0.2);
+}
+
+.phase-lateral .pivot-node.active {
+    border-color: #2980b9;
+    background: linear-gradient(135deg, #e8f4fd, #ffffff);
+    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
+}
+
+/* Flechas entre nodos */
+.pivot-arrow {
+    font-size: 1.8rem;
+    color: #b08d94;
+    font-weight: bold;
+    animation: arrowPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(3px);
+    }
+}
+
+/* Texto dentro de nodos */
+.pivot-node .node-role {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.pivot-node .node-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #4B004B;
+    line-height: 1.4;
+}
+
+.pivot-node .node-sub {
+    font-size: 0.7rem;
+    color: #888;
+    font-weight: normal;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+/* Conector entre fases */
+.phase-connector {
+    position: relative;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.connector-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #FF66A3;
+    white-space: nowrap;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.vertical-flow {
+    stroke: #FF66A3;
+    stroke-width: 2;
+    stroke-dasharray: 8 6;
+    animation: flowVertical 1.5s linear infinite;
+}
+
+@keyframes flowVertical {
+    to {
+        stroke-dashoffset: -28;
+    }
+}
+
+.pulse-dot {
+    animation: pulseDot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% {
+        opacity: 0.3;
+        r: 4;
+    }
+    50% {
+        opacity: 1;
+        r: 6;
+        filter: drop-shadow(0 0 4px #FF66A3);
+    }
+}
+
+/* Tooltips */
+.pivot-node::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: #1e1e2f;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.pivot-node:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Panel de información */
+.info-card-pivoting {
+    margin-top: 30px;
+    border-left-color: #e74c3c;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .pivoting-diagram {
+        padding: 20px 15px;
+    }
+    
+    .phase-nodes {
+        flex-direction: column;
+    }
+    
+    .pivot-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .pivot-arrow {
+        margin: 5px 0;
+    }
+    
+    .connector-label {
+        white-space: normal;
+        font-size: 0.6rem;
+        width: 80%;
+        text-align: center;
+    }
+    
+    .pivot-node::after {
+        display: none;
+    }
+}

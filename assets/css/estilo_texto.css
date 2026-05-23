@@ -1,0 +1,885 @@
+.titulo-principal {
+    color: #f5f0f4; 
+}
+/* === Variables Globales === */
+:root {
+  --primary-purple: #4B004B;
+  --secondary-purple: #7A1F6E;
+  --accent-pink: #FF66A3; /* Color llamativo pero elegante */
+  --bg-soft: #f9f7fb;
+  --text-main: #333;
+  --text-vinetas: var(--secondary-purple); /* NUEVO: Color base para textos de viñetas */
+  --card-shadow: 0 10px 30px rgba(75, 0, 75, 0.1);
+  --container-width: 90%;
+  --max-width: 1000px;
+}
+
+/* === Estructura Base === */
+body {
+  background-color: var(--bg-soft);
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* === Contenedor Unificado === */
+.content-card {
+  width: var(--container-width);
+  max-width: var(--max-width);
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: var(--card-shadow);
+  border: px solid rgba(122, 31, 110, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(75, 0, 75, 0.15);
+}
+
+/* === Tipografía Mejorada === */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--primary-purple);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Línea decorativa bajo los títulos */
+h2::after, h3::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--secondary-purple);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+p {
+  color: var(--text-main);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* === Listas Estilo Línea de Tiempo (Imagen 1) === */
+ol {
+  list-style: none; /* Quitamos los números feos por defecto */
+  counter-reset: timeline-counter; /* Inicializamos un contador personalizado */
+  position: relative;
+  padding-left: 45px; /* Espacio para la línea vertical */
+  margin: 30px 0;
+}
+
+/* La línea vertical que une todos los puntos */
+ol::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  bottom: 15px;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--accent-pink), var(--secondary-purple));
+  border-radius: 2px;
+}
+
+/* Base de los elementos de lista para la línea de tiempo */
+ol li {
+  counter-increment: timeline-counter;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(255, 102, 163, 0.2); /* Borde suave */
+  border-radius: 15px;
+  padding: 15px 25px;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+  color: var(--text-vinetas); /* NUEVO: Texto morado base */
+  font-weight: 500; /* Un poco más de peso */
+  box-shadow: 0 4px 15px rgba(122, 31, 110, 0.03);
+  
+  /* NUEVO: Configuración de la animación de entrada secuencial */
+  opacity: 0;
+  animation: slideInFade 0.6s ease-out forwards;
+  
+  /* Transición suave para todos los efectos hover */
+  transition: all 0.4s ease;
+}
+
+/* Efecto hover en cada viñeta */
+ol li:hover {
+  transform: translateX(10px) scale(1.02); /* Movimiento más dinámico */
+  border-color: var(--accent-pink);
+  box-shadow: 0 10px 25px rgba(255, 102, 163, 0.15);
+  color: var(--primary-purple); /* NUEVO: Texto se oscurece en hover */
+  
+  /* NUEVO: Sutil resplandor en hover para dinamismo */
+  text-shadow: 0 0 10px rgba(255, 102, 163, 0.4);
+}
+
+/* El círculo con el número (Estilo Imagen 1) */
+ol li::before {
+  content: counter(timeline-counter);
+  position: absolute;
+  left: -45px; /* Lo alineamos justo sobre la línea vertical */
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--accent-pink), var(--secondary-purple));
+  color: white;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 8px rgba(255, 102, 163, 0.4);
+  z-index: 2;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+ol li:hover::before {
+  transform: scale(1.3); /* Círculo crece más */
+  box-shadow: 0 0 20px rgba(255, 102, 163, 0.6); /* Más brillo */
+}
+
+/* === NUEVO: Animaciones Secuenciales (Staggered Animation) === */
+/* Asegúrate de que tu HTML tenga al menos 5 elementos li */
+ol li:nth-child(1) { animation-delay: 0.1s; }
+ol li:nth-child(2) { animation-delay: 0.2s; }
+ol li:nth-child(3) { animation-delay: 0.3s; }
+ol li:nth-child(4) { animation-delay: 0.4s; }
+ol li:nth-child(5) { animation-delay: 0.5s; }
+/* Añade más si tu lista es más larga, ej: ol li:nth-child(6) { animation-delay: 0.6s; } */
+
+/* Definición de la Animación Keyframes */
+@keyframes slideInFade {
+  from {
+    opacity: 0;
+    transform: translateX(-30px); /* Empieza más a la izquierda */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Termina en su posición original */
+  }
+}
+
+/* === BONUS: ¿Y para las listas con puntitos (ul)? === */
+ul {
+  list-style: none;
+  padding-left: 5px;
+}
+
+ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: var(--text-vinetas); /* NUEVO: También morado */
+  transition: color 0.3s ease;
+}
+
+ul li:hover {
+  color: var(--primary-purple);
+}
+
+/* Reemplazamos el puntito por un diseño personalizado */
+ul li::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-pink);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-pink);
+  transition: transform 0.3s ease;
+}
+
+ul li:hover::before {
+  transform: scale(1.5); /* Círculo crece en hover */
+}
+
+/* === Componentes Especiales === */
+.highlight-box {
+  background: rgba(122, 31, 110, 0.05);
+  border-left: 5px solid var(--secondary-purple);
+  padding: 20px;
+  border-radius: 0 12px 12px 0;
+  margin: 20px 0;
+}
+
+/* === Tablas con Estilo === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+th {
+  background: var(--primary-purple);
+  color: #fff;
+  padding: 15px;
+  text-align: left;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+tr:nth-child(even) {
+  background: #fdfafdf0;
+}
+
+tr:hover {
+  background-color: rgba(122, 31, 110, 0.05);
+}
+
+/* === NUEVO: Header Superior (Barra de Navegación) === */
+#header-superior {
+  display: flex;
+  justify-content: space-between; /* Envía el logo a la izquierda y los links a la derecha */
+  align-items: center;
+  padding: 18px 5%; /* Espaciado interno elegante */
+  background: rgba(255, 255, 255, 0.03); /* Fondo sutilmente translúcido */
+  backdrop-filter: blur(12px); /* Efecto de desenfoque premium */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Línea divisoria casi invisible */
+  position: relative;
+  z-index: 10;
+}
+
+/* Estilo para el Logo / Nombre de la materia */
+#header-superior .logo {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff; /* Blanco puro para que resalte */
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de los enlaces */
+#header-superior nav {
+  display: flex;
+  gap: 25px; /* Espacio limpio entre botones */
+}
+
+/* Estilo base de los enlaces de navegación */
+#header-superior nav a {
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(255, 255, 255, 0.7); /* Blanco suavizado para no competir con el logo */
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 6px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* === Animación Elegante en Hover para los Links === */
+#header-superior nav a:hover {
+  color: #ffffff; /* Se enciende a blanco puro */
+  text-shadow: 0 0 8px rgba(255, 102, 163, 0.5); /* Sutil destello rosa */
+}
+
+/* Línea animada que se expande desde el centro al pasar el cursor */
+#header-superior nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-pink); /* Tu rosa dinámico */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+#header-superior nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* === Contenedor de la Sección Histórica === */
+.history-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 15px 45px rgba(75, 0, 75, 0.06);
+  box-sizing: border-box;
+}
+
+.history-title {
+  font-family: 'Poppins', sans-serif;
+  color: var(--primary-purple);
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+/* Contenedor de Scroll Horizontal */
+.timeline-scroll-wrapper {
+  overflow-x: auto;
+  padding: 20px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-purple) #f0edf2;
+}
+
+.timeline-scroll-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.timeline-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: var(--secondary-purple);
+  border-radius: 10px;
+}
+
+/* Tablero del Grid Principal */
+.timeline-board {
+  display: grid;
+  grid-template-columns: repeat(11, 290px);
+  column-gap: 20px;
+  position: relative;
+  width: max-content;
+  padding: 20px 0;
+}
+
+/* Onda Central (Línea guía del fondo) */
+.timeline-wave-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary-purple), var(--accent-pink), var(--secondary-purple));
+  transform: translateY(-50%);
+  z-index: 1;
+  border-radius: 4px;
+  opacity: 0.3;
+}
+
+/* === SOLUCIÓN AL EMPALME: Grid de 3 filas independientes === */
+.timeline-node-item {
+  display: grid;
+  /* Fila 1: Texto superior, Fila 2: Espacio del círculo, Fila 3: Texto inferior */
+  grid-template-rows: minmax(180px, auto) 70px minmax(180px, auto);
+  align-items: center;
+  justify-items: center;
+  position: relative;
+  z-index: 2;
+  opacity: 0; /* Controlado por el JS */
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Controladores para los nodos de ARRIBA */
+.node-top .timeline-card-box {
+  grid-row: 1;
+  align-self: end; /* Se apoya justo arriba del círculo */
+  margin-bottom: 15px;
+}
+.node-top .timeline-circle {
+  grid-row: 2;
+}
+
+/* Controladores para los nodos de ABAJO */
+.node-bottom .timeline-circle {
+  grid-row: 2;
+}
+.node-bottom .timeline-card-box {
+  grid-row: 3;
+  align-self: start; /* Se apoya justo debajo del círculo */
+  margin-top: 15px;
+}
+
+/* Círculos de los Años (Sin position: absolute invasivo) */
+.timeline-circle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Tarjetas de Texto */
+.timeline-card-box {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(75, 0, 75, 0.04);
+  border: 1px solid rgba(122, 31, 110, 0.08);
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Pequeña línea de acento de color en las tarjetas */
+.timeline-card-box::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45px;
+  height: 4px;
+  border-radius: 2px;
+}
+.node-top .timeline-card-box::before { bottom: 0; }
+.node-bottom .timeline-card-box::before { top: 0; }
+
+.timeline-card-box p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #444444;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* === Colores Fieles de los Nodos === */
+.c-1956 { background: #f1c40f; } .timeline-node-item[data-year="1956"] .timeline-card-box::before { background: #f1c40f; }
+.c-1961 { background: #2ecc71; } .timeline-node-item[data-year="1961"] .timeline-card-box::before { background: #2ecc71; }
+.c-1964 { background: #3498db; } .timeline-node-item[data-year="1964"] .timeline-card-box::before { background: #3498db; }
+.c-1965 { background: #2980b9; } .timeline-node-item[data-year="1965"] .timeline-card-box::before { background: #2980b9; }
+.c-1969 { background: #9b59b6; } .timeline-node-item[data-year="1969"] .timeline-card-box::before { background: #9b59b6; }
+.c-1979 { background: #a569bd; } .timeline-node-item[data-year="1979"] .timeline-card-box::before { background: #a569bd; }
+.c-1981 { background: #ec7063; } .timeline-node-item[data-year="1981"] .timeline-card-box::before { background: #ec7063; }
+.c-1993 { background: #58d68d; } .timeline-node-item[data-year="1993"] .timeline-card-box::before { background: #58d68d; }
+.c-1999 { background: #e59866; } .timeline-node-item[data-year="1999"] .timeline-card-box::before { background: #e59866; }
+.c-2000 { background: #f5b041; } .timeline-node-item[data-year="2000"] .timeline-card-box::before { background: #f5b041; }
+.c-2010 { background: #f4d03f; } .timeline-node-item[data-year="2010"] .timeline-card-box::before { background: #f4d03f; }
+
+/* === Estados Hover Dinámicos === */
+.timeline-node-item:hover .timeline-circle {
+  transform: scale(1.18);
+  box-shadow: 0 0 20px var(--accent-pink, #ff66a3);
+}
+
+.timeline-node-item:hover .timeline-card-box {
+  border-color: var(--secondary-purple, #7a1f6e);
+  box-shadow: 0 12px 30px rgba(122, 31, 110, 0.12);
+}
+.node-top:hover .timeline-card-box { transform: translateY(-5px); }
+.node-bottom:hover .timeline-card-box { transform: translateY(5px); }
+
+/* Activador de animación JS */
+.timeline-node-item.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Contenedor Estilizado General === */
+.org-portfolio-section {
+    width: 100%;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(75, 0, 75, 0.04);
+    box-sizing: border-box;
+}
+
+.org-title-main {
+    color: var(--primary-purple, #4B004B);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+.org-subtitle-location {
+    color: var(--secondary-purple, #7A1F6E);
+    font-size: 1.1rem;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+/* Scroll Avanzado Anti-Colisiones */
+.org-horizontal-scroll {
+    overflow-x: auto;
+    padding: 20px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-purple, #7A1F6E) #f0edf2;
+}
+.org-horizontal-scroll::-webkit-scrollbar { height: 8px; }
+.org-horizontal-scroll::-webkit-scrollbar-thumb {
+    background: var(--secondary-purple, #7A1F6E);
+    border-radius: 10px;
+}
+
+/* Árbol Estructural */
+.org-system-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    min-width: 100%;
+}
+
+.org-main-connector {
+    width: 3px;
+    height: 35px;
+    background: linear-gradient(to bottom, var(--primary-purple, #4B004B), #ddd);
+}
+
+/* Grid de los 8 Departamentos */
+.org-departments-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 265px);
+    column-gap: 20px;
+    border-top: 3px solid #e2dee6;
+    padding-top: 30px;
+}
+
+/* === EFECTO DE DESTELLOS LÁSER EN LOS BORDES === */
+.org-glow-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.org-glow-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    padding: 2px; /* Grosor del haz de luz */
+    background: linear-gradient(90deg, transparent, var(--accent-pink, #FF1493), var(--secondary-purple, #7A1F6E), transparent);
+    background-size: 200% 100%;
+    animation: laserSweep 4s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+@keyframes laserSweep {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Jerarquía de Textos dentro de las Tarjetas */
+.org-glow-card h3, .org-glow-card h4, .org-glow-card h5 { margin: 0 0 6px 0; color: #2d2d2d; }
+.org-glow-card p { margin: 0; font-size: 0.8rem; color: #666666; font-weight: 500; }
+
+/* Tarjeta Principal de Bernardo de la Rosa */
+.master-leader {
+    width: 320px;
+    background: var(--primary-purple, #4B004B);
+}
+.master-leader h3 { color: #ffffff; font-size: 1.2rem; }
+.master-leader .role-title { color: rgba(255, 255, 255, 0.9); font-size: 0.85rem; font-weight: 600; }
+
+/* Jefes de Área */
+.manager-node {
+    margin-bottom: 25px;
+    min-height: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.manager-node h4 { font-size: 0.95rem; font-weight: 700; }
+
+/* Sub-nodos del Personal */
+.org-sub-nodes-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.staff-node {
+    padding: 12px;
+    background: #faf9fc;
+}
+.staff-node h5 { font-size: 0.85rem; font-weight: 600; }
+
+/* Línea de Acento de Color Superior (Para identificar áreas) */
+.branch-blue .manager-node { border-top: 5px solid #2575fc; }
+.branch-green .manager-node { border-top: 5px solid #11998e; }
+.branch-purple .manager-node { border-top: 5px solid #7303c0; }
+.branch-orange .manager-node { border-top: 5px solid #f857a6; }
+.branch-yellow .manager-node { border-top: 5px solid #f1c40f; }
+.branch-teal .manager-node { border-top: 5px solid #130cb7; }
+.branch-pink .manager-node { border-top: 5px solid #ff758c; }
+.branch-matrix .manager-node { border-top: 5px dashed var(--secondary-purple); }
+
+/* Destacado para sub-nodos especiales (Taller de datos / Programación) */
+.special-accent {
+    background: #fff0fa;
+    border-left: 4px solid var(--accent-pink, #FF1493);
+}
+
+/* Efectos Interactivos Dinámicos */
+.org-glow-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(122, 31, 110, 0.15);
+    z-index: 5;
+}
+
+/* === Contenedor Base de la Matriz === */
+.raci-container {
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+}
+
+.raci-title {
+    color: #4B004B; /* Mantiene cohesión con tu paleta */
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* === Cuadro de Leyenda Superior === */
+.raci-legend-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #ffffff;
+    border: 1px solid rgba(75, 0, 75, 0.08);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.legend-item:hover {
+    background: #fdf6fb;
+    transform: translateX(4px);
+}
+
+/* Indicadores de Letras (Badges) */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    color: #000000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.legend-text {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: #444444;
+}
+
+/* === Estilos de la Tabla === */
+.raci-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e0e0e0;
+}
+
+.raci-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    text-align: center;
+    font-size: 0.88rem;
+}
+
+/* Encabezados */
+.raci-table th {
+    background: #4B004B;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 16px 12px;
+    font-size: 0.85rem;
+    border: 1px solid #5a0b5a;
+}
+
+.raci-table th.col-main {
+    text-align: left;
+    padding-left: 20px;
+    width: 28%;
+}
+
+/* Filas de División (Activos Internos / Externos) */
+.raci-table .section-row td {
+    background: #f4f0f6;
+    color: #4B004B;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border: 1px solid #e1d7e8;
+}
+
+/* Celda de Títulos de Fila */
+.raci-table td.row-title {
+    text-align: left;
+    padding-left: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    background: #ffffff;
+    border: 1px solid #e1e8ed;
+}
+
+/* Celdas RACI */
+.raci-cell {
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px;
+    border: 1px solid #222222; /* Líneas oscuras idénticas a la imagen original */
+    transition: opacity 0.25s ease, transform 0.2s ease, filter 0.2s ease;
+}
+
+/* === Mapeo de Colores Exacto de la Imagen === */
+.role-r, .cell-r { background-color: #a9cce3 !important; color: #1b4f72 !important; } /* Azul Responsable */
+.role-a, .cell-a { background-color: #f5b041 !important; color: #7e5109 !important; } /* Naranja Aprobador */
+.role-c, .cell-c { background-color: #a3e4d7 !important; color: #0e6251 !important; } /* Verde Consultado */
+.role-i, .cell-i { background-color: #f9e79f !important; color: #7d6608 !important; } /* Amarillo Informado */
+
+/* Resaltado de Filas al pasar el mouse */
+.raci-table tbody tr:not(.section-row):hover td.row-title {
+    background-color: #faf5fc;
+}
+
+.raci-table tbody tr:not(.section-row):hover .raci-cell {
+    filter: brightness(1.04);
+}
+
+/* Clases de Estado Controladas por JS */
+.raci-matrix-dimmed .raci-cell {
+    opacity: 0.25;
+    filter: grayscale(0.4);
+}
+
+.raci-matrix-dimmed .raci-cell.is-highlighted {
+    opacity: 1;
+    filter: grayscale(0) brightness(1.05);
+    transform: scale(1.04);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 5;
+}
+
+.titulo-principal {
+    color: #f5f0f4;
+}
+
+/* ===== CORRECCIÓN DE LA FLECHA ===== */
+#header-superior nav .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-left: 5px;
+    margin-right: 0;
+    font-size: 0.75em;
+    vertical-align: middle;
+}
+
+#header-superior nav .arrow.rotate {
+    transform: rotate(180deg);
+}
+
+/* Alineación del header */
+#header-superior nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#header-superior nav a,
+#header-superior nav .dropdown-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Estilos adicionales para el dropdown */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Menús desplegables - AL RAS (sin margen superior) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1e1e2f;  /* Fondo gris oscuro sólido */
+    min-width: 150px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 12px 0;
+    margin-top: 0;               /* ← AL RAS, sin espacio arriba */
+    z-index: 100;
+    border: 1px solid #3a3a4a;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Estilo de las opciones - texto con mayúscula inicial */
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #f0f0f0;
+    background-color: transparent;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    /* Mayúscula inicial */
+    text-transform: lowercase;
+}
+
+/* Primera letra en mayúscula */
+.dropdown-menu a::first-letter {
+    text-transform: uppercase;
+}
+
+.dropdown-menu a:hover {
+    background-color: #2a2a3a;
+    color: #ffffff;
+}

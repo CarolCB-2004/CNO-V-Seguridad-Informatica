@@ -1,0 +1,680 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap");
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.titulo-principal {
+    color: #f5f0f4; 
+}
+
+/* === CONTENEDOR BLANCO PRINCIPAL === */
+.container-white {
+    max-width: 1200px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-white:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los títulos dentro del contenedor blanco */
+.container-white h2 {
+    color: #4a474e;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #fdf2f4;
+    padding-bottom: 10px;
+}
+
+.container-white h3 {
+    color: #4a474e;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Estilos para las listas dentro del contenedor blanco */
+.container-white ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0;
+}
+
+.container-white ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: #555;
+    font-size: 1rem;
+}
+
+.container-white ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #b08d94;
+    font-weight: bold;
+}
+
+.container-white p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* --- Barra Superior con Blur sutil --- */
+header#header-superior {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+header#header-superior .logo {
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+header#header-superior nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* --- Hero con Iluminación Cinematográfica --- */
+.hero {
+    position: relative;
+    height: 75vh;
+    min-height: 500px;
+    background: radial-gradient(circle at center 40%, #721f5b 0%, #4a474e 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-text {
+    z-index: 2;
+    margin-bottom: 50px;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    opacity: 0.95;
+}
+
+.hero-text h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -2px;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* --- Contenedor de la Ola SVG --- */
+.wave-shape {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+.wave-shape svg {
+    width: 100%;
+    height: 220px;
+}
+
+/* --- Contenedor de Contenido --- */
+.wave-container {
+    padding: 0 10% 80px 10%;
+    background: white;
+}
+
+.flex-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.text-content h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.text-content p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* --- Info-Card Estilo "Glass/Pink" --- */
+.info-card {
+    background: #fdf2f4;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(176, 141, 148, 0.15);
+    border: 1px solid rgba(176, 141, 148, 0.1);
+}
+
+.info-card h4 {
+    color: #b08d94;
+    font-weight: 900;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card li {
+    font-size: 0.9rem;
+    color: #7a7375;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.info-card li::before {
+    content: "✓";
+    color: #b08d94;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* --- Equipo de Investigación --- */
+.section-content h2[style*="center"] {
+    margin-top: 80px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.member {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #4a474e;
+    text-align: center;
+}
+
+/* --- Header Franja Flotante de Extremo a Extremo --- */
+header#header-superior {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    z-index: 1000;
+    background: rgba(248, 241, 241, 0.1); 
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+header#header-superior .logo {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header#header-superior nav a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+header#header-superior nav a:hover {
+    color: #d8b4bc;
+}
+
+/* --- Estilos del Índice (Contenido) sin números --- */
+.indice-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin: 20px 0 50px 0;
+}
+
+.indice-container h2 {
+    border-bottom: 2px solid #fdf2f4;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    color: #4a474e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.indice-list {
+    list-style: none;
+    padding: 0;
+}
+
+.indice-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.indice-list li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    display: block;
+}
+
+.indice-list li a:hover {
+    color: #b08d94;
+    padding-left: 5px;
+}
+
+.sub-item { padding-left: 20px; font-size: 0.9rem; }
+.sub-sub-item { padding-left: 40px; font-size: 0.85rem; color: #777; }
+
+/* --- Tabla con divisiones de cuadro --- */
+.tabla-pdf { 
+    width: 100%; 
+    border-collapse: collapse;
+    margin: 20px 0; 
+    background: #fff; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    border: 1px solid #ddd;
+}
+
+.tabla-pdf th { 
+    background: #811668; 
+    color: white; 
+    padding: 15px; 
+    text-align: left; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    border: 1px solid #5a575e;
+}
+
+.tabla-pdf td { 
+    border: 1px solid #ddd;
+    padding: 12px; 
+    color: #555; 
+    vertical-align: top; 
+    font-size: 0.95rem; 
+    line-height: 1.4; 
+}
+
+.tabla-pdf tr:nth-child(even) { 
+    background-color: #fcfcfc;
+}
+
+.tabla-pdf tr:hover {
+    background-color: #fdf2f4;
+}
+
+.lista-referencias {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.lista-referencias li {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.ref-link {
+    display: block;
+    margin-top: 8px;
+    padding-left: 20px;
+    word-break: break-all;
+    color: #0066cc;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.ref-link:hover {
+    text-decoration: underline;
+}
+
+.references-section { 
+    margin-top: 50px; 
+    padding: 40px 20px; 
+    border-top: 1px solid #eee; 
+    font-size: 0.85rem; 
+    color: #666; 
+    background: #fafafa; 
+}
+
+.references-section ul { 
+    list-style: none; 
+    padding: 0; 
+}
+
+.references-section li { 
+    margin-bottom: 10px; 
+    padding-left: 20px; 
+    text-indent: -20px; 
+}
+
+.highlight-box { 
+    background: #fdf2f4; 
+    border-left: 4px solid #b08d94; 
+    padding: 20px; 
+    margin: 20px 0; 
+    border-radius: 0 8px 8px 0; 
+}
+
+.section-content h3 { 
+    color: #4a474e; 
+    margin-top: 30px; 
+    border-bottom: 2px solid #fdf2f4; 
+    padding-bottom: 5px; 
+}
+
+.member b { 
+    display: block; 
+    color: #333; 
+}
+
+.member span { 
+    font-size: 0.8rem; 
+    color: #888; 
+}
+
+footer { 
+    text-align: center; 
+    padding: 40px; 
+    background: #4a474e; 
+    color: white; 
+}
+
+/* Estilos para el diagrama visual */
+.diagram-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.step-box {
+    flex: 1;
+    padding: 15px;
+    border: 2px dashed #b08d94;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.step-box:hover { 
+    transform: translateY(-5px); 
+    background: #fdf2f4; 
+    border-style: solid; 
+}
+
+.step-box i { 
+    font-size: 2.5rem; 
+    color: #4a474e; 
+    margin-bottom: 10px; 
+}
+
+.arrow-divider { 
+    font-size: 1.5rem; 
+    color: #b08d94; 
+}
+
+@media (max-width: 768px) {
+    .diagram-container { flex-direction: column; }
+    .arrow-divider { transform: rotate(90deg); }
+}
+
+/* imagenes flotantes*/
+.galeria-imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0;
+    padding: 10px;
+}
+
+.galeria-imagenes img {
+    max-width: 120px;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.galeria-imagenes img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.indice-interactivo {
+    background: #f8f9fa;
+    border-left: 5px solid #9b1a8a;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.indice-interactivo h3 {
+    margin-top: 0;
+    color: #95119cbd;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.indice-interactivo ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+.indice-interactivo li {
+    margin-bottom: 8px;
+}
+
+.indice-interactivo a {
+    text-decoration: none;
+    color: #692c63;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.indice-interactivo a:hover {
+    background: #6c2f68;
+    color: white;
+    padding-left: 20px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Variables para facilitar cambios de color */
+:root {
+    --primary-dark: #4a474e;
+    --accent-rose: #b08d94;
+    --bg-soft: #fdf2f4;
+    --shadow: rgba(0,0,0,0.05);
+}
+
+/* Contenedor principal de la sección */
+.section-content h3 { 
+    color: var(--primary-dark); 
+    margin-top: 30px; 
+    border-bottom: 2px solid var(--bg-soft); 
+    padding-bottom: 5px; 
+}
+
+/* Caja de resaltado para introducciones o notas técnicas */
+.highlight-box { 
+    background: var(--bg-soft); 
+    border-left: 4px solid var(--accent-rose); 
+    padding: 20px; 
+    margin: 20px 0; 
+    border-radius: 0 8px 8px 0; 
+}
+
+/* Estructura del Roadmap (Ruta de progreso) */
+.roadmap-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* Estilo para cada uno de los 18 laboratorios */
+.lab-node {
+    flex: 1;
+    padding: 15px;
+    border: 2px dashed var(--accent-rose);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.lab-node:hover { 
+    transform: translateY(-5px); 
+    background: var(--bg-soft); 
+    border-style: solid; 
+}
+
+.lab-node i { 
+    font-size: 2rem; 
+    color: var(--primary-dark); 
+    margin-bottom: 10px; 
+}
+
+/* Separador visual entre laboratorios */
+.connector { 
+    font-size: 1.5rem; 
+    color: var(--accent-rose); 
+}
+
+footer { 
+    text-align: center; 
+    padding: 40px; 
+    background: var(--primary-dark); 
+    color: white; 
+}
+
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    .roadmap-container { 
+        flex-direction: column; 
+        align-items: center;
+        gap: 20px;
+    }
+    .connector { 
+        transform: rotate(90deg); 
+        margin: 10px 0;
+    }
+    .lab-card {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .container-white {
+        margin: 20px;
+        padding: 25px;
+    }
+}
+
+.badge.apprentice {
+    background: #00a3e0;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 163, 224, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Extra: Efecto Hover para interactividad */
+.badge.apprentice:hover {
+    background: #0089bd;
+    cursor: default;
+    transition: background 0.3s ease;
+}
+
+

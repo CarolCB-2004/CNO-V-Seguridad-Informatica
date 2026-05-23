@@ -1,0 +1,191 @@
+/* ==========================================================================
+   Archivo: estiloPR03.css
+   Descripción: Estilos interactivos con efecto flotante y destellos luminosos
+   ========================================================================== */
+
+:root {
+    --primary-bg: #ffffff;
+    --card-bg: #ffffff;
+    --neon-glow: #bc13fe; /* Morado neón principal */
+    --neon-glow-secondary: #7b2cbf; /* Tono lila/púrpura profundo */
+    --sparkle-color: #00f0ff; /* Destello cian/neón complementario */
+    --text-dark: #2d3748;
+    --text-muted: #718096;
+}
+
+/* Contenedor principal con espaciado y alineación centrada (Padding en el medio) */
+.content-container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 50px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Separación limpia entre secciones */
+    background-color: var(--primary-bg);
+}
+
+/* Formato general de los textos dentro de las secciones */
+.section-text {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* ==========================================================================
+   Efecto Flotante y Estructura de los Recuadros (Cards)
+   ========================================================================== */
+.glowing-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 35px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(188, 19, 254, 0.12); /* Borde sutil base */
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+    
+    /* Animación de flotación suave */
+    animation: floatAnimation 6s ease-in-out infinite;
+}
+
+/* Desfase de animación para que los recuadros no se muevan exactamente al mismo tiempo */
+.glowing-card:nth-child(even) {
+    animation-delay: -3s;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px); /* Flotación hacia arriba */
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* ==========================================================================
+   Efecto Luminoso en los Bordes (Glow de Fondo)
+   ========================================================================== */
+.glowing-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--neon-glow), var(--neon-glow-secondary), var(--sparkle-color), var(--neon-glow));
+    background-size: 400%;
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0.3;
+    transition: opacity 0.4s ease, filter 0.4s ease;
+    animation: gradientBorder MoveGradient 8s linear infinite;
+}
+
+/* Intensificación del brillo al pasar el cursor */
+.glowing-card:hover {
+    box-shadow: 0 15px 35px rgba(188, 19, 254, 0.15);
+}
+
+.glowing-card:hover::before {
+    opacity: 0.8;
+    filter: blur(2px);
+}
+
+@keyframes MoveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==========================================================================
+   Partículas de Destellos Luminosos (Generados por JS)
+   ========================================================================== */
+.sparkle-particle {
+    position: absolute;
+    pointer-events: none;
+    background: radial-gradient(circle, #ffffff 20%, var(--neon-glow) 60%, transparent 100%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ffffff, 0 0 12px var(--neon-glow);
+    z-index: 5;
+    animation: particleFade 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes particleFade {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+        transform: translate(var(--x), var(--y)) scale(1.3);
+    }
+    100% {
+        transform: translate(calc(var(--x) * 1.4), calc(var(--y) * 1.4)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   NUEVO: Contenedores de Texto Blancos (Sección 1 - Alcance)
+   ========================================================================== */
+.content-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(188, 19, 254, 0.2); 
+    margin-bottom: 30px;
+    color: #2d3748;
+}
+
+/* Títulos dentro de la tarjeta */
+.content-card h3, .content-card h4 {
+    color: #7b2cbf;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   NUEVO: Modernización de la Tabla (Sección 4 - Activos)
+   ========================================================================== */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.95em;
+    border-radius: 10px;
+    overflow: hidden; /* Permite que el radio del borde funcione con el fondo */
+    box-shadow: 0 5px 20px rgba(188, 19, 254, 0.08);
+}
+
+/* Cabecera con gradiente morado/neón */
+.styled-table thead tr {
+    background: linear-gradient(90deg, #5a189a, #bc13fe); 
+    color: #ffffff;
+    text-align: center;
+}
+
+.styled-table th, .styled-table td {
+    padding: 14px 16px;
+    border: 1px solid rgba(188, 19, 254, 0.1);
+    text-align: center;
+}
+
+/* Fondo blanco base para las filas */
+.styled-table tbody tr {
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+/* Filas alternas con un lila extremadamente suave */
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #faf5ff; 
+}
+
+/* Resaltar la fila al pasar el mouse */
+.styled-table tbody tr:hover {
+    background-color: #f3e8ff;
+}
